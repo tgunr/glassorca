@@ -15,6 +15,7 @@
 		75299A791DB567F6007FE325 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75299A771DB567F6007FE325 /* LaunchScreen.storyboard */; };
 		75299A841DB567F6007FE325 /* NoisyNeighborsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75299A831DB567F6007FE325 /* NoisyNeighborsTests.swift */; };
 		75299A8F1DB567F6007FE325 /* NoisyNeighborsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75299A8E1DB567F6007FE325 /* NoisyNeighborsUITests.swift */; };
+		F57C128DC8C2287DB0ECC092 /* Pods_NoisyNeighbors.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A73E3A83EF8892C6BD9012D /* Pods_NoisyNeighbors.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A73E3A83EF8892C6BD9012D /* Pods_NoisyNeighbors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NoisyNeighbors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F1D3723EA5732DC2685B2F7 /* Pods-NoisyNeighbors.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoisyNeighbors.release.xcconfig"; path = "Pods/Target Support Files/Pods-NoisyNeighbors/Pods-NoisyNeighbors.release.xcconfig"; sourceTree = "<group>"; };
+		5B65C643D5ABE3AC7228AE96 /* Pods-NoisyNeighbors.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoisyNeighbors.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NoisyNeighbors/Pods-NoisyNeighbors.debug.xcconfig"; sourceTree = "<group>"; };
 		75299A691DB567F6007FE325 /* NoisyNeighbors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoisyNeighbors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75299A6C1DB567F6007FE325 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75299A6E1DB567F6007FE325 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F57C128DC8C2287DB0ECC092 /* Pods_NoisyNeighbors.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +88,8 @@
 				75299A821DB567F6007FE325 /* NoisyNeighborsTests */,
 				75299A8D1DB567F6007FE325 /* NoisyNeighborsUITests */,
 				75299A6A1DB567F6007FE325 /* Products */,
+				F4852BFA3D3D6775846629AB /* Pods */,
+				8799F7D39AC5740BE4FCF15A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +135,23 @@
 			path = NoisyNeighborsUITests;
 			sourceTree = "<group>";
 		};
+		8799F7D39AC5740BE4FCF15A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3A73E3A83EF8892C6BD9012D /* Pods_NoisyNeighbors.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F4852BFA3D3D6775846629AB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5B65C643D5ABE3AC7228AE96 /* Pods-NoisyNeighbors.debug.xcconfig */,
+				4F1D3723EA5732DC2685B2F7 /* Pods-NoisyNeighbors.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +159,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 75299A931DB567F6007FE325 /* Build configuration list for PBXNativeTarget "NoisyNeighbors" */;
 			buildPhases = (
+				D7F58208BB011D3972F37798 /* [CP] Check Pods Manifest.lock */,
 				75299A651DB567F6007FE325 /* Sources */,
 				75299A661DB567F6007FE325 /* Frameworks */,
 				75299A671DB567F6007FE325 /* Resources */,
+				12696C2F97B502D642565E1E /* [CP] Embed Pods Frameworks */,
+				F54FF5B9D16FFEA48D8B66E1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -259,6 +286,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		12696C2F97B502D642565E1E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NoisyNeighbors/Pods-NoisyNeighbors-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D7F58208BB011D3972F37798 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F54FF5B9D16FFEA48D8B66E1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NoisyNeighbors/Pods-NoisyNeighbors-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		75299A651DB567F6007FE325 /* Sources */ = {
@@ -417,6 +492,7 @@
 		};
 		75299A941DB567F6007FE325 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B65C643D5ABE3AC7228AE96 /* Pods-NoisyNeighbors.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NL3267E99V;
@@ -430,6 +506,7 @@
 		};
 		75299A951DB567F6007FE325 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F1D3723EA5732DC2685B2F7 /* Pods-NoisyNeighbors.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NL3267E99V;
@@ -518,6 +595,7 @@
 				75299A951DB567F6007FE325 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		75299A961DB567F6007FE325 /* Build configuration list for PBXNativeTarget "NoisyNeighborsTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +604,7 @@
 				75299A981DB567F6007FE325 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		75299A991DB567F6007FE325 /* Build configuration list for PBXNativeTarget "NoisyNeighborsUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +613,7 @@
 				75299A9B1DB567F6007FE325 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
