@@ -15,10 +15,15 @@
 		75299A791DB567F6007FE325 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75299A771DB567F6007FE325 /* LaunchScreen.storyboard */; };
 		75299A841DB567F6007FE325 /* NoisyNeighborsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75299A831DB567F6007FE325 /* NoisyNeighborsTests.swift */; };
 		75299A8F1DB567F6007FE325 /* NoisyNeighborsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75299A8E1DB567F6007FE325 /* NoisyNeighborsUITests.swift */; };
-		753C74431DC29B47007FE325 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753C74411DC29B47007FE325 /* Realm.framework */; };
-		753C74441DC29B47007FE325 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753C74421DC29B47007FE325 /* RealmSwift.framework */; };
-		753C744A1DC29D4B007FE325 /* Realm.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 753C74411DC29B47007FE325 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		753C744B1DC29D4B007FE325 /* RealmSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 753C74421DC29B47007FE325 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		753C74521DC2AECC007FE325 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753C744D1DC2AECC007FE325 /* Extensions.swift */; };
+		753C74531DC2AECC007FE325 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753C744E1DC2AECC007FE325 /* MainViewController.swift */; };
+		753C74541DC2AECC007FE325 /* Neighbor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753C744F1DC2AECC007FE325 /* Neighbor.swift */; };
+		753C74551DC2AECC007FE325 /* NeighborsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753C74501DC2AECC007FE325 /* NeighborsTableViewController.swift */; };
+		753C74561DC2AECC007FE325 /* NeighborsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753C74511DC2AECC007FE325 /* NeighborsViewController.swift */; };
+		754A42CF1DC2CEF9007FE325 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754A42CD1DC2CEF9007FE325 /* RealmSwift.framework */; };
+		754A42D51DC2D1A8007FE325 /* RealmSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 754A42CD1DC2CEF9007FE325 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		75D118A91DD788C200129B0A /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D118A81DD788C200129B0A /* Realm.framework */; };
+		75D118AA1DD7892600129B0A /* Realm.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 75D118A81DD788C200129B0A /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F57C128DC8C2287DB0ECC092 /* Pods_NoisyNeighbors.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A73E3A83EF8892C6BD9012D /* Pods_NoisyNeighbors.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,8 +51,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				753C744A1DC29D4B007FE325 /* Realm.framework in CopyFiles */,
-				753C744B1DC29D4B007FE325 /* RealmSwift.framework in CopyFiles */,
+				754A42D51DC2D1A8007FE325 /* RealmSwift.framework in CopyFiles */,
+				75D118AA1DD7892600129B0A /* Realm.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,8 +76,13 @@
 		75299A8A1DB567F6007FE325 /* NoisyNeighborsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoisyNeighborsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		75299A8E1DB567F6007FE325 /* NoisyNeighborsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoisyNeighborsUITests.swift; sourceTree = "<group>"; };
 		75299A901DB567F6007FE325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		753C74411DC29B47007FE325 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
-		753C74421DC29B47007FE325 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		753C744D1DC2AECC007FE325 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		753C744E1DC2AECC007FE325 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		753C744F1DC2AECC007FE325 /* Neighbor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Neighbor.swift; sourceTree = "<group>"; };
+		753C74501DC2AECC007FE325 /* NeighborsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighborsTableViewController.swift; sourceTree = "<group>"; };
+		753C74511DC2AECC007FE325 /* NeighborsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighborsViewController.swift; sourceTree = "<group>"; };
+		754A42CD1DC2CEF9007FE325 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "../../../../Sources/SDK/realm-swift-2.0.3/ios/swift-3.0.1/RealmSwift.framework"; sourceTree = "<group>"; };
+		75D118A81DD788C200129B0A /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = "../../../../Sources/SDK/realm-swift-2.0.3/ios/swift-3.0.1/Realm.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,9 +90,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				753C74431DC29B47007FE325 /* Realm.framework in Frameworks */,
+				75D118A91DD788C200129B0A /* Realm.framework in Frameworks */,
 				F57C128DC8C2287DB0ECC092 /* Pods_NoisyNeighbors.framework in Frameworks */,
-				753C74441DC29B47007FE325 /* RealmSwift.framework in Frameworks */,
+				754A42CF1DC2CEF9007FE325 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +116,7 @@
 		75299A601DB567F5007FE325 = {
 			isa = PBXGroup;
 			children = (
+				753C74571DC2AEF8007FE325 /* Resources */,
 				75299A6B1DB567F6007FE325 /* NoisyNeighbors */,
 				75299A821DB567F6007FE325 /* NoisyNeighborsTests */,
 				75299A8D1DB567F6007FE325 /* NoisyNeighborsUITests */,
@@ -128,13 +139,14 @@
 		75299A6B1DB567F6007FE325 /* NoisyNeighbors */ = {
 			isa = PBXGroup;
 			children = (
+				753C744D1DC2AECC007FE325 /* Extensions.swift */,
+				753C744E1DC2AECC007FE325 /* MainViewController.swift */,
+				753C744F1DC2AECC007FE325 /* Neighbor.swift */,
+				753C74501DC2AECC007FE325 /* NeighborsTableViewController.swift */,
+				753C74511DC2AECC007FE325 /* NeighborsViewController.swift */,
 				75299A6C1DB567F6007FE325 /* AppDelegate.swift */,
 				75299A6E1DB567F6007FE325 /* FirstViewController.swift */,
 				75299A701DB567F6007FE325 /* SecondViewController.swift */,
-				75299A721DB567F6007FE325 /* Main.storyboard */,
-				75299A751DB567F6007FE325 /* Assets.xcassets */,
-				75299A771DB567F6007FE325 /* LaunchScreen.storyboard */,
-				75299A7A1DB567F6007FE325 /* Info.plist */,
 			);
 			path = NoisyNeighbors;
 			sourceTree = "<group>";
@@ -157,11 +169,23 @@
 			path = NoisyNeighborsUITests;
 			sourceTree = "<group>";
 		};
+		753C74571DC2AEF8007FE325 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				75299A721DB567F6007FE325 /* Main.storyboard */,
+				75299A751DB567F6007FE325 /* Assets.xcassets */,
+				75299A771DB567F6007FE325 /* LaunchScreen.storyboard */,
+				75299A7A1DB567F6007FE325 /* Info.plist */,
+			);
+			name = Resources;
+			path = NoisyNeighbors;
+			sourceTree = "<group>";
+		};
 		8799F7D39AC5740BE4FCF15A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				753C74411DC29B47007FE325 /* Realm.framework */,
-				753C74421DC29B47007FE325 /* RealmSwift.framework */,
+				75D118A81DD788C200129B0A /* Realm.framework */,
+				754A42CD1DC2CEF9007FE325 /* RealmSwift.framework */,
 				3A73E3A83EF8892C6BD9012D /* Pods_NoisyNeighbors.framework */,
 			);
 			name = Frameworks;
@@ -191,6 +215,7 @@
 				12696C2F97B502D642565E1E /* [CP] Embed Pods Frameworks */,
 				F54FF5B9D16FFEA48D8B66E1 /* [CP] Copy Pods Resources */,
 				753C74471DC29D06007FE325 /* CopyFiles */,
+				753AA8291DC2C06A007FE325 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -329,6 +354,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NoisyNeighbors/Pods-NoisyNeighbors-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		753AA8291DC2C06A007FE325 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"\n";
+		};
 		753C744C1DC29E5B007FE325 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -340,7 +378,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = "/bin/bash -x";
-			shellScript = "if [[ -d ${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME} ]] ; then\n    rm -f ${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}\nfi";
+			shellScript = "if [[ -d ${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME} ]] ; then\n    rm -fr ${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}\nfi";
 		};
 		D7F58208BB011D3972F37798 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -379,9 +417,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				753C74561DC2AECC007FE325 /* NeighborsViewController.swift in Sources */,
 				75299A711DB567F6007FE325 /* SecondViewController.swift in Sources */,
+				753C74551DC2AECC007FE325 /* NeighborsTableViewController.swift in Sources */,
+				753C74541DC2AECC007FE325 /* Neighbor.swift in Sources */,
 				75299A6D1DB567F6007FE325 /* AppDelegate.swift in Sources */,
 				75299A6F1DB567F6007FE325 /* FirstViewController.swift in Sources */,
+				753C74521DC2AECC007FE325 /* Extensions.swift in Sources */,
+				753C74531DC2AECC007FE325 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,6 +581,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"\"/Sources/SDK/realm-swift-2.0.3/ios/swift-3.0.1\"",
 				);
 				INFOPLIST_FILE = NoisyNeighbors/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -556,6 +600,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"\"/Sources/SDK/realm-swift-2.0.3/ios/swift-3.0.1\"",
 				);
 				INFOPLIST_FILE = NoisyNeighbors/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
