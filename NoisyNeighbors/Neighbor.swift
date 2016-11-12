@@ -5,28 +5,34 @@
 //  Created by Dave Carlton on 10/25/16.
 //  Copyright © 2016 Dave Carlton. All rights reserved.
 //
-
-import CoreData
+import Realm
+import RealmSwift
 
 enum IncidentType {
-    case Dog
-    case Music
-    case Voices
-    case Other
+    case dog
+    case music
+    case voices
+    case other
 }
 
-class Incident {
-    var neighbor : Neighbor?
-    var occured : Date = Date.init()
-    var type : IncidentType?
+class Incident: Object {
+    dynamic var neighbor : Neighbor?
+    dynamic var occured : Date = Date.init()
+    dynamic var type = 0
 }
 
-class Neighbor {
-    var uuid : String = UUID().uuidString
-    var label : String = "Label"
-    var name : String = "Name"
-    var address : String = "Address"
-    var incidents : Array<Incident> = []
+class Neighbor: Object {
+    dynamic var uuid : String = UUID().uuidString
+    dynamic var label : String = "Label"
+    dynamic var name : String = "Name"
+    dynamic var address : String = "Address"
+    let incidents = List<Incident>()
+    
+    // Specify properties to ignore (Realm won't persist these)
+    
+    //  override static func ignoredProperties() -> [String] {
+    //    return []
+    //  }
 }
 
 
