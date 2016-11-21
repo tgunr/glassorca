@@ -1,15 +1,17 @@
 PODS:
-  - Result (3.0.0)
-  - SugarRecord/CoreData (3.0.0):
-    - Result (~> 3.0)
+  - Realm (2.1.0):
+    - Realm/Headers (= 2.1.0)
+  - Realm/Headers (2.1.0)
+  - RealmSwift (2.1.0):
+    - Realm (= 2.1.0)
 
 DEPENDENCIES:
-  - SugarRecord/CoreData
+  - RealmSwift
 
 SPEC CHECKSUMS:
-  Result: 1b3e431f37cbcd3ad89c6aa9ab0ae55515fae3b6
-  SugarRecord: c17d4a17b257cac4c4355b2790685b1e49b32de3
+  Realm: bc829ad0ef3d4eea70c34cfcc3b1704d18d50df1
+  RealmSwift: a4d4abbf0088c337cab5b738054395842e4b3052
 
-PODFILE CHECKSUM: beb3fc9da912fdb851df5acc53cc02fc66c49105
+PODFILE CHECKSUM: 9d7deae0f81be0c50e2505b16af6308b59ada90f
 
 COCOAPODS: 1.1.1
