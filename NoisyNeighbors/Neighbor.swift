@@ -33,6 +33,10 @@ class Neighbor: Object {
     //  override static func ignoredProperties() -> [String] {
     //    return []
     //  }
+    
+    static func == (lhs: Neighbor, rhs: Neighbor) -> Bool {
+        return lhs.uuid == rhs.uuid
+    }
 }
 
 

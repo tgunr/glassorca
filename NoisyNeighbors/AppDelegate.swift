@@ -13,10 +13,14 @@ import RealmSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var neighbors = [Neighbor]()
+    let realm = try! Realm()
+    var neighbors: List<Neighbor>?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let predicate  = NSPredicate.init(value: true)
+        let n1 = realm.objects(Neighbor.self).filter(predicate)
+        var dataSource:AnyRealmCollection<Neighbor>!
         return true
     }
 
@@ -42,5 +46,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func saveNeighbor(_ theNeighbor: Neighbor) {
+        if !(neighbors?.contains(theNeighbor))! {
+            try! realm.write {
+                realm.add(theNeighbor)
+            }
+        }
+    }
 }
 

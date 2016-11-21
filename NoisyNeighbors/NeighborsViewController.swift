@@ -10,7 +10,7 @@ import UIKit
 
 class NeighborsViewController: UIViewController {
 
-    var appD = UIApplication.shared.delegate
+    var appDelegate = UIApplication.shared.delegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,7 @@ class NeighborsViewController: UIViewController {
 
 class NeighborsDetailViewController: UIViewController {
     
-    var appD = UIApplication.shared.delegate
+    var appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     @IBOutlet weak var labelTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
@@ -48,8 +48,17 @@ class NeighborsDetailViewController: UIViewController {
     }
     
     
-    @IBAction func saveButton(_ sender: UIButton) {
+    @IBAction func save(_ sender: UIBarButtonItem) {
+        let newNeighbor = Neighbor()
+        newNeighbor.label = labelTextField.text!
+        newNeighbor.name = nameTextField.text!
+        newNeighbor.address = addressTextField.text!
+        newNeighbor.uuid = NSUUID().uuidString
+        appDelegate.saveNeighbor(newNeighbor)
+        self.navigationController?.popViewController(animated: true)
     }
+    
     @IBAction func cancelButton(_ sender: AnyObject) {
+        self.navigationController?.popViewController(animated: true)
     }
 }

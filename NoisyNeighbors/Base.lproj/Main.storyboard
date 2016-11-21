@@ -6,7 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -51,6 +51,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="DocumentButton" destination="7fi-Fs-8Pt" id="viP-mk-luS"/>
+                        <outlet property="neighborPickerView" destination="5E3-oN-XGV" id="AsM-yr-Vqb"/>
+                        <outlet property="typeSegmentedControl" destination="Ihw-x0-Dty" id="2AF-wI-xFP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -89,8 +94,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snL-sb-KbW">
-                                            <rect key="frame" x="8" y="23" width="90" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snL-sb-KbW" userLabel="Date Label">
+                                            <rect key="frame" x="8" y="23" width="140" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="90" id="lpL-6X-wBE"/>
                                             </constraints>
@@ -98,11 +103,14 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6NU-UZ-gd9" userLabel="Type Label">
+                                            <rect key="frame" x="286" y="44" width="81" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="snL-sb-KbW" firstAttribute="top" secondItem="Pco-BV-fpO" secondAttribute="topMargin" constant="15" id="FYG-Fc-bxU"/>
-                                        <constraint firstItem="snL-sb-KbW" firstAttribute="leading" secondItem="Pco-BV-fpO" secondAttribute="leadingMargin" id="vpp-6L-7E7"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                                 <gestureRecognizers/>
                                 <connections>
@@ -115,24 +123,40 @@
                             <outlet property="delegate" destination="SjJ-x3-TW4" id="n1L-q5-gV1"/>
                         </connections>
                     </tableView>
-                    <toolbarItems>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="addButton" destination="Bs3-X0-c6t" id="jvk-1s-Y3j"/>
+                        <outlet property="editButton" destination="DnT-D8-nY1" id="XFX-Wg-I6q"/>
+                        <outlet property="incidentTableView" destination="U2x-J8-xTL" id="OmA-vG-FK5"/>
+                    </connections>
+                </tableViewController>
+                <navigationItem title="View Controller" id="qM4-3p-QbK" userLabel="View Controller">
+                    <leftBarButtonItems>
                         <barButtonItem title="Edit" id="DnT-D8-nY1">
                             <connections>
                                 <segue destination="b2A-yg-OXZ" kind="show" id="Azx-ZX-dlW"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem systemItem="save" id="OEv-sk-eog">
+                            <connections>
+                                <action selector="save:" destination="b2A-yg-OXZ" id="Xba-K0-dFz"/>
+                            </connections>
+                        </barButtonItem>
+                    </leftBarButtonItems>
+                    <rightBarButtonItems>
                         <barButtonItem title="Add" id="Bs3-X0-c6t">
                             <connections>
                                 <segue destination="b2A-yg-OXZ" kind="show" id="coE-j1-K6z"/>
                             </connections>
                         </barButtonItem>
-                    </toolbarItems>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="addButton" destination="Bs3-X0-c6t" id="jvk-1s-Y3j"/>
-                        <outlet property="editButton" destination="DnT-D8-nY1" id="XFX-Wg-I6q"/>
-                    </connections>
-                </tableViewController>
+                        <barButtonItem title="Cancel" id="ucL-cu-MME" userLabel="Cancel Button">
+                            <connections>
+                                <action selector="cancelButton:" destination="b2A-yg-OXZ" id="OZ1-BM-8tK"/>
+                            </connections>
+                        </barButtonItem>
+                    </rightBarButtonItems>
+                </navigationItem>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QSC-hl-uoM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="EAG-S1-zeo"/>
             </objects>
@@ -233,14 +257,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem systemItem="save" id="OgE-ge-ReB">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="View Controller" id="vxb-AE-gtc" userLabel="View Controller">
+                        <barButtonItem key="leftBarButtonItem" systemItem="save" id="OgE-ge-ReB">
                             <connections>
-                                <action selector="save:" destination="b2A-yg-OXZ" id="XD5-PU-cTr"/>
+                                <action selector="save:" destination="b2A-yg-OXZ" id="zeJ-qY-dNM"/>
                             </connections>
                         </barButtonItem>
-                    </toolbarItems>
-                    <navigationItem key="navigationItem" title="View Controller" id="vxb-AE-gtc" userLabel="View Controller"/>
+                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="G10-Cd-bZM" userLabel="Cancel Button">
+                            <connections>
+                                <action selector="cancelButton:" destination="b2A-yg-OXZ" id="rzd-Se-SrE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addressTextField" destination="HKj-ch-8tz" id="9Lr-Vl-uon"/>
                         <outlet property="incidentsTableView" destination="oCL-3p-wMI" id="2Z5-Vh-Oub"/>

@@ -9,9 +9,13 @@
 import UIKit
 
 class NeighborsTableViewController: UITableViewController {
+    private var appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet weak var editButton: UIBarButtonItem!
+    @IBOutlet var incidentTableView: UITableView!
+    @IBOutlet weak var labelLabel: UILabel!
+    @IBOutlet weak var typeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,23 +38,22 @@ class NeighborsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return (appDelegate.neighbors?.count)!
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+//        let thisNeighbor = appDelegate.neighbors?.subscript(indexPath as Index)
+        
         // Configure the cell...
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

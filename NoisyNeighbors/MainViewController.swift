@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import Realm
 
 class MainViewController: UIViewController {
 
-    var appD = UIApplication.shared.delegate
+    private var appDelegate = UIApplication.shared.delegate as! AppDelegate
+    @IBOutlet weak var neighborPickerView: UIPickerView!
+    @IBOutlet weak var typeSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var DocumentButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
