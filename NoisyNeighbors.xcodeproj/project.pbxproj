@@ -18,8 +18,7 @@
 		753C74541DC2AECC007FE325 /* Neighbor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753C744F1DC2AECC007FE325 /* Neighbor.swift */; };
 		753C74551DC2AECC007FE325 /* NeighborsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753C74501DC2AECC007FE325 /* NeighborsTableViewController.swift */; };
 		753C74561DC2AECC007FE325 /* NeighborsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753C74511DC2AECC007FE325 /* NeighborsViewController.swift */; };
-		7556F5991DE275E6008F1B97 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7574F59E1DE274AF0049B333 /* Realm.framework */; };
-		7556F59A1DE275E9008F1B97 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7574F5A81DE274AF0049B333 /* RealmSwift.framework */; };
+		75461B231DE27B4D00F9677E /* RealmSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7574F5A81DE274AF0049B333 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F57C128DC8C2287DB0ECC092 /* Pods_NoisyNeighbors.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A73E3A83EF8892C6BD9012D /* Pods_NoisyNeighbors.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +36,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 75299A681DB567F6007FE325;
 			remoteInfo = NoisyNeighbors;
+		};
+		75461B1C1DE27A3D00F9677E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7574F58D1DE274AF0049B333 /* Realm.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5D660FCB1BE98C560021E04F;
+			remoteInfo = RealmSwift;
+		};
+		75461B201DE27AB700F9677E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7574F58D1DE274AF0049B333 /* Realm.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5DD7557B1BE056DE002800DA;
+			remoteInfo = "Realm iOS static";
 		};
 		7574F59B1DE274AF0049B333 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -103,6 +116,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				75461B231DE27B4D00F9677E /* RealmSwift.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,8 +152,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F57C128DC8C2287DB0ECC092 /* Pods_NoisyNeighbors.framework in Frameworks */,
-				7556F5991DE275E6008F1B97 /* Realm.framework in Frameworks */,
-				7556F59A1DE275E9008F1B97 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +291,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				75461B211DE27AB700F9677E /* PBXTargetDependency */,
+				75461B1D1DE27A3D00F9677E /* PBXTargetDependency */,
 			);
 			name = NoisyNeighbors;
 			productName = NoisyNeighbors;
@@ -578,6 +592,16 @@
 			isa = PBXTargetDependency;
 			target = 75299A681DB567F6007FE325 /* NoisyNeighbors */;
 			targetProxy = 75299A8B1DB567F6007FE325 /* PBXContainerItemProxy */;
+		};
+		75461B1D1DE27A3D00F9677E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RealmSwift;
+			targetProxy = 75461B1C1DE27A3D00F9677E /* PBXContainerItemProxy */;
+		};
+		75461B211DE27AB700F9677E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Realm iOS static";
+			targetProxy = 75461B201DE27AB700F9677E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
