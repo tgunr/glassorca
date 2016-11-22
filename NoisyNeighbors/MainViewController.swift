@@ -31,7 +31,7 @@ class NeighborPickerController: NSObject, UIPickerViewDelegate, UIPickerViewData
         return String(row + 1)
     }
     
-    func pickerView(_ pickerView: UIPickerView!, didSelectRow row: Int, inComponent component: Int)
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         print("External Controller:" + String(row + 1))
     }

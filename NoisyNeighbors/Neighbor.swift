@@ -41,6 +41,12 @@ class Neighbor: Object {
     static func == (lhs: Neighbor, rhs: Neighbor) -> Bool {
         return lhs.uuid == rhs.uuid
     }
+    
+    func initWith(label: String, name: String, address: String) {
+        self.label = label
+        self.name = name
+        self.address = address
+    }
 }
 
 

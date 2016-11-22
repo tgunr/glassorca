@@ -45,7 +45,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="80m-F3-7Wh">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="edit" id="DpB-5W-Ymg">
+                        <barButtonItem key="rightBarButtonItem" title="Configure" style="plain" id="DpB-5W-Ymg" userLabel="Configure">
                             <connections>
                                 <segue destination="SjJ-x3-TW4" kind="show" id="SSx-Ox-o5a"/>
                             </connections>
@@ -82,31 +82,29 @@
         <scene sceneID="Ch4-Qt-zLX">
             <objects>
                 <tableViewController id="SjJ-x3-TW4" customClass="NeighborsTableViewController" customModule="NoisyNeighbors" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="73" sectionHeaderHeight="28" sectionFooterHeight="28" id="U2x-J8-xTL">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="U2x-J8-xTL" userLabel="Neighbors Table View">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="73" id="K5X-Wz-Fet">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="neighborCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="neighborCell" textLabel="c8w-aW-Bnr" detailTextLabel="Ol3-JM-bNP" rowHeight="73" style="IBUITableViewCellStyleSubtitle" id="K5X-Wz-Fet" customClass="NeighborTableViewCell" customModule="NoisyNeighbors">
                                 <rect key="frame" x="0.0" y="28" width="375" height="73"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K5X-Wz-Fet" id="Pco-BV-fpO">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snL-sb-KbW" userLabel="Date Label">
-                                            <rect key="frame" x="8" y="23" width="140" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="90" id="lpL-6X-wBE"/>
-                                            </constraints>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="c8w-aW-Bnr">
+                                            <rect key="frame" x="15" y="18" width="34" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6NU-UZ-gd9" userLabel="Type Label">
-                                            <rect key="frame" x="286" y="44" width="81" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ol3-JM-bNP">
+                                            <rect key="frame" x="15" y="39" width="33" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -114,6 +112,8 @@
                                 </tableViewCellContentView>
                                 <gestureRecognizers/>
                                 <connections>
+                                    <outlet property="addressLabel" destination="Ol3-JM-bNP" id="scG-AP-7pO"/>
+                                    <outlet property="neighborLabel" destination="c8w-aW-Bnr" id="w89-G8-N4G"/>
                                     <outletCollection property="gestureRecognizers" destination="EAG-S1-zeo" appends="YES" id="yd9-MC-Dby"/>
                                 </connections>
                             </tableViewCell>

@@ -8,14 +8,20 @@
 
 import UIKit
 
+class NeighborTableViewCell: UITableViewCell {
+    @IBOutlet weak var neighborLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    
+}
+
 class NeighborsTableViewController: UITableViewController {
     private var appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet weak var editButton: UIBarButtonItem!
     @IBOutlet var incidentTableView: UITableView!
-    @IBOutlet weak var labelLabel: UILabel!
-    @IBOutlet weak var typeLabel: UILabel!
+
+    var neighbors = [Neighbor]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +33,7 @@ class NeighborsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         self.navigationItem.rightBarButtonItem=addButton
+        loadNeighbors()
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,15 +50,16 @@ class NeighborsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return (appDelegate.neighbors?.count)!
+        return (neighbors.count)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "neighborCell", for: indexPath) as! NeighborTableViewCell
 //        let thisNeighbor = appDelegate.neighbors?.subscript(indexPath as Index)
-        
+        let neighbor = neighbors[indexPath.row]
         // Configure the cell...
-
+        cell.neighborLabel.text = neighbor.label
+        cell.addressLabel.text = neighbor.address
         return cell
     }
 
@@ -100,4 +108,20 @@ class NeighborsTableViewController: UITableViewController {
     }
     */
 
+    func loadNeighbors () {
+        let n1 = "N1"
+        let a1 = "Address 1"
+        
+        let n2 = "N2"
+        let a2 = "Address 2"
+        
+        let N1 = Neighbor()
+        N1.initWith(label: n1, name: n1, address: a1)
+        let N2 = Neighbor()
+        N2.initWith(label: n2, name: n2, address: a2)
+        
+        self.neighbors = [N1, N2]
+//        self.neighbors = appDelegate.neighbors
+        
+    }
 }
