@@ -5,8 +5,6 @@ platform :ios, '10.0'
 use_frameworks!
 
 target 'NoisyNeighbors' do
-#pod "SugarRecord/CoreData"
-pod 'RealmSwift'
 end
 
 post_install do |installer|
