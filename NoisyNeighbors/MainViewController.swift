@@ -23,15 +23,13 @@ class NeighborPickerController: NSObject, UIPickerViewDelegate, UIPickerViewData
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        let n = appDelegate.neighbors?.count
-        return n!
+        let n = appDelegate.neighbors.count
+        return n
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let ns = appDelegate.neighbors
-        let n = (ns?.subscript(row))! as Neighbor
-        let l = n.label
-        return l
+        let n = appDelegate.neighbors[row].label
+        return n
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
@@ -48,16 +46,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var DocumentButton: UIButton!
 
     var pv: NeighborPickerController!
-    
-    var neighbors: Results<Neighbor> {
-        get {
-            let realm = try! Realm()
-            let predicate  = NSPredicate.init(value: true)
-            let n1 = realm.objects(Neighbor.self).filter(predicate)
-            return n1
-        }
-    }
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

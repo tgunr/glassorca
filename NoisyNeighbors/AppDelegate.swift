@@ -7,18 +7,17 @@
 //
 
 import UIKit
-import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let realm = try! Realm()
-    var neighbors: Results<Neighbor>!
+    var neighbors = [Neighbor]()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let predicate  = NSPredicate.init(value: true)
-        neighbors = realm.objects(Neighbor.self).filter(predicate)
+//        neighbors = realm.objects(Neighbor.self).filter(predicate)
         return true
     }
 
@@ -45,12 +44,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func saveNeighbor(_ theNeighbor: Neighbor) {
-        let realm = try! Realm()
-        if !(neighbors?.contains(theNeighbor))! {
-            try! realm.write {
-                realm.add(theNeighbor)
-            }
-        }
+//        let realm = try! Realm()
+//        if !(neighbors?.contains(theNeighbor))! {
+//            try! realm.write {
+//                realm.add(theNeighbor)
+//            }
+//        }
     }
 }
 
