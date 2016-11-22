@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--Main-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="MainViewController" customModule="NoisyNeighbors" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Main" id="9pv-A4-QxB" customClass="MainViewController" customModule="NoisyNeighbors" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -66,7 +66,7 @@
             <objects>
                 <navigationController id="Gpj-UO-jYg" sceneMemberID="viewController">
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="d0e-CZ-88H">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="d0e-CZ-88H">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -78,11 +78,11 @@
             </objects>
             <point key="canvasLocation" x="-594" y="-100"/>
         </scene>
-        <!--Neighbors Table View Controller-->
+        <!--Neighbors-->
         <scene sceneID="Ch4-Qt-zLX">
             <objects>
-                <tableViewController id="SjJ-x3-TW4" customClass="NeighborsTableViewController" customModule="NoisyNeighbors" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="U2x-J8-xTL" userLabel="Neighbors Table View">
+                <tableViewController title="Neighbors" id="SjJ-x3-TW4" customClass="NeighborsTableViewController" customModule="NoisyNeighbors" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="U2x-J8-xTL" userLabel="Neighbor Table View">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -91,18 +91,18 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="73"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K5X-Wz-Fet" id="Pco-BV-fpO">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="72.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="c8w-aW-Bnr">
-                                            <rect key="frame" x="15" y="18" width="34" height="21"/>
+                                            <rect key="frame" x="15" y="19" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ol3-JM-bNP">
-                                            <rect key="frame" x="15" y="39" width="33" height="15"/>
+                                            <rect key="frame" x="15" y="39.5" width="33" height="14.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
@@ -162,10 +162,10 @@
             </objects>
             <point key="canvasLocation" x="304.80000000000001" y="694.90254872563719"/>
         </scene>
-        <!--View Controller-->
+        <!--Neighbor Detail-->
         <scene sceneID="AbW-w7-ziY">
             <objects>
-                <viewController id="b2A-yg-OXZ" customClass="NeighborsDetailViewController" customModule="NoisyNeighbors" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Neighbor Detail" id="b2A-yg-OXZ" customClass="NeighborsDetailViewController" customModule="NoisyNeighbors" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3F0-e5-rnw"/>
                         <viewControllerLayoutGuide type="bottom" id="oNo-hY-b4t"/>
@@ -228,7 +228,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="WJH-cs-6hD">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="incidents" id="WJH-cs-6hD" customClass="IncidentsTableViewCell" customModule="NoisyNeighbors" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WJH-cs-6hD" id="G6C-VS-Vbu">
@@ -251,6 +251,10 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="xjU-ZK-XJ3" id="JnK-SI-nLu"/>
+                                            <outlet property="incidentLabel" destination="BrY-7z-QHk" id="oBh-Rp-ySj"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

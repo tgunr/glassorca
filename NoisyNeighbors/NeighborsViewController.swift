@@ -10,7 +10,7 @@ import UIKit
 
 class NeighborsViewController: UIViewController {
 
-    var appDelegate = UIApplication.shared.delegate
+    private var appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +27,15 @@ class NeighborsViewController: UIViewController {
 
 }
 
+class IncidentsTableViewCell: UITableViewCell {
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var incidentLabel: UILabel!
+    
+}
+
 class NeighborsDetailViewController: UIViewController {
     
-    var appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private var appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     @IBOutlet weak var labelTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!

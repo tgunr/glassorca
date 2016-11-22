@@ -122,6 +122,8 @@ class NeighborsTableViewController: UITableViewController {
         
         self.neighbors = [N1, N2]
 //        self.neighbors = appDelegate.neighbors
+        appDelegate.saveNeighbor(N1)
+        appDelegate.saveNeighbor(N2)
         
     }
 }

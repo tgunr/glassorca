@@ -28,7 +28,10 @@ class NeighborPickerController: NSObject, UIPickerViewDelegate, UIPickerViewData
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return String(row + 1)
+        let ns = appDelegate.neighbors
+        let n = (ns?.subscript(row))! as Neighbor
+        let l = n.label
+        return l
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
