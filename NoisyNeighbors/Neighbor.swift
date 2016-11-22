@@ -34,6 +34,10 @@ class Neighbor: Object {
     //    return []
     //  }
     
+    override static func primaryKey() -> String? {
+        return "uuid"
+    }
+
     static func == (lhs: Neighbor, rhs: Neighbor) -> Bool {
         return lhs.uuid == rhs.uuid
     }

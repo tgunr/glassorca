@@ -14,13 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     let realm = try! Realm()
-    var neighbors: List<Neighbor>?
+    var neighbors: Results<Neighbor>?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let predicate  = NSPredicate.init(value: true)
-        let n1 = realm.objects(Neighbor.self).filter(predicate)
-        var dataSource:AnyRealmCollection<Neighbor>!
+        neighbors = realm.objects(Neighbor.self).filter(predicate)
         return true
     }
 
@@ -47,6 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func saveNeighbor(_ theNeighbor: Neighbor) {
+        let realm = try! Realm()
         if !(neighbors?.contains(theNeighbor))! {
             try! realm.write {
                 realm.add(theNeighbor)

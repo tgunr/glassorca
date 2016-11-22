@@ -8,6 +8,34 @@
 
 import UIKit
 import Realm
+import RealmSwift
+
+class NeighborPickerController: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
+    private var appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let ElementCount: Int!
+    
+    init(pickerInterval: Int) {
+        ElementCount = pickerInterval
+    }
+    
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        let n = appDelegate.neighbors?.count
+        return n!
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return String(row + 1)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView!, didSelectRow row: Int, inComponent component: Int)
+    {
+        print("External Controller:" + String(row + 1))
+    }
+}
 
 class MainViewController: UIViewController {
 
@@ -16,10 +44,23 @@ class MainViewController: UIViewController {
     @IBOutlet weak var typeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var DocumentButton: UIButton!
 
+    var pv: NeighborPickerController!
+    
+    var neighbors: Results<Neighbor> {
+        get {
+            let realm = try! Realm()
+            let predicate  = NSPredicate.init(value: true)
+            let n1 = realm.objects(Neighbor.self).filter(predicate)
+            return n1
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-//        delegate = appD
+        pv = NeighborPickerController.init(pickerInterval: 10)
+        neighborPickerView.dataSource = pv as UIPickerViewDataSource?
+        neighborPickerView.delegate = pv as UIPickerViewDelegate?
     }
 
     override func didReceiveMemoryWarning() {
