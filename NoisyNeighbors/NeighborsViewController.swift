@@ -34,7 +34,7 @@ class IncidentsTableViewCell: UITableViewCell {
     
 }
 
-class NeighborsDetailViewController: UIViewController {
+class NeighborsDetailViewController: UIViewController, UITextFieldDelegate {
 
     private var appDelegate = UIApplication.shared.delegate as! AppDelegate
 
@@ -46,23 +46,17 @@ class NeighborsDetailViewController: UIViewController {
     @IBOutlet weak var addressTextField: UITextField?
     @IBOutlet weak var incidentsTableView: UITableView?
     @IBOutlet weak var saveButton: UIButton!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        initWithNeighbor(selectedNeighborObject!)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+    @IBOutlet weak var trashButton: UIBarButtonItem!
 
     @IBAction func save(_ sender: UIBarButtonItem) {
-        let newNeighbor = Neighbor()
-        newNeighbor.initWith(label: (labelTextField?.text)!, name: (nameTextField?.text)!, address: (addressTextField?.text)!)
-        appDelegate.saveNeighbor(newNeighbor)
+        if selectedNeighborObject == nil {
+            let newNeighbor = Neighbor()
+            newNeighbor.initWith(label: (labelTextField?.text)!, name: (nameTextField?.text)!, address: (addressTextField?.text)!)
+            appDelegate.addNeighbor(newNeighbor)
+        } else {
+            selectedNeighborObject!.initWith(label: (labelTextField?.text)!, name: (nameTextField?.text)!, address: (addressTextField?.text)!)
+            appDelegate.saveNeighbor(selectedNeighborObject!)
+        }
         _ = self.navigationController?.popViewController(animated: true)
     }
 
@@ -70,6 +64,13 @@ class NeighborsDetailViewController: UIViewController {
         _ = self.navigationController?.popViewController(animated: true)
     }
 
+    @IBAction func trash(_ sender: Any) {
+        if selectedNeighborObject != nil {
+            appDelegate.removeNeighbor(selectedNeighborObject!)
+        }
+        _ = self.navigationController?.popViewController(animated: true)
+    }
+    
     func initWith(uuid: String, label: String?, name: String?, address: String?) {
         self.neighborUUID?.text = uuid
         self.labelTextField?.text = label
@@ -79,5 +80,34 @@ class NeighborsDetailViewController: UIViewController {
     
     func initWithNeighbor(_ neighbor: Neighbor) {
         initWith(uuid: neighbor.uuid, label: neighbor.label, name: neighbor.name, address: neighbor.address)
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.labelTextField?.delegate = self;
+
+        // Do any additional setup after loading the view, typically from a nib.
+        if selectedNeighborObject != nil {
+            initWithNeighbor(selectedNeighborObject!)
+            trashButton.isEnabled =  true
+            saveButton.isEnabled =  true
+        } else {
+            trashButton.isEnabled = false
+            saveButton.isEnabled = false
+        }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        let text = labelTextField?.text
+        if textField.text == "" {
+            saveButton.isEnabled = false
+        } else {
+            saveButton.isEnabled =  true
+        }
     }
 }

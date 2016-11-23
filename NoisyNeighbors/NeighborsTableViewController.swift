@@ -11,25 +11,37 @@ import UIKit
 class NeighborTableViewCell: UITableViewCell {
     @IBOutlet weak var neighborLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
-    
+    @IBOutlet weak var infoButton: UIButton!
 }
 
 class NeighborsTableViewController: UITableViewController {
     private var appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var selectedIndexPath: IndexPath?
 
     @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet weak var neigborsTableView: UITableView!
-    
-    var selectedIndexPath: IndexPath?
+    @IBAction func add(_ sender: Any) {
+        selectedIndexPath = nil
+        _ = NeighborsDetailViewController()
+        performSegue(withIdentifier: "neighborDetail", sender: sender)
+    }
+   
+    @IBAction func info(_ sender: UIButton, forEvent: UIEvent) {
+        let view = sender.superview!
+        let cell = view.superview as! NeighborTableViewCell
+        selectedIndexPath = neigborsTableView.indexPath(for: cell)
+        _ = NeighborsDetailViewController()
+        performSegue(withIdentifier: "neighborDetail", sender: sender)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+         self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+//         self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         self.navigationItem.rightBarButtonItem=addButton
         if appDelegate.neighbors.count == 0 {
@@ -65,6 +77,7 @@ class NeighborsTableViewController: UITableViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
+//        let count = self.neigborsTableView.numberOfRows(inSection: 0)
         self.neigborsTableView.reloadData()
     }
     
@@ -81,8 +94,7 @@ class NeighborsTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             let thatNeighbor = appDelegate.neighbors[indexPath.row]
-            appDelegate.neighbors.remove(at: indexPath.row)
-            appDelegate.saveNeighbors()
+            appDelegate.removeNeighbor(thatNeighbor)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -105,7 +117,7 @@ class NeighborsTableViewController: UITableViewController {
     */
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndexPath = indexPath
-        neigborsTableView.deselectRow(at: indexPath as IndexPath, animated: true)
+//        neigborsTableView.deselectRow(at: indexPath as IndexPath, animated: true)
     }
 
     // MARK: - Navigation
@@ -118,6 +130,8 @@ class NeighborsTableViewController: UITableViewController {
         if selectedIndexPath != nil {
             let neighbor = appDelegate.neighbors[(selectedIndexPath?.row)!]
             dest.selectedNeighborObject = neighbor
+        } else {
+            dest.selectedNeighborObject = nil
         }
     }
 
@@ -140,7 +154,4 @@ class NeighborsTableViewController: UITableViewController {
         
     }
 
-   @IBAction func addButton(_ sender: Any) {
-        print("Tap at \(neigborsTableView)")
-    }
 }

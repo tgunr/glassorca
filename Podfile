@@ -5,6 +5,7 @@ platform :ios, '10.0'
 use_frameworks!
 
 target 'NoisyNeighbors' do
+    pod 'Reveal-iOS-SDK', :configurations => ['Debug']
 end
 
 post_install do |installer|

@@ -60,11 +60,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func saveNeighbor(_ theNeighbor: Neighbor) {
+    func addNeighbor(_ theNeighbor: Neighbor) {
         neighbors.append(theNeighbor)
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(neighbors, toFile: Neighbor.ArchiveURL)
-        if !isSuccessfulSave {
-            print("Unable to save neighbors")
+        saveNeighbors()
+    }
+
+    func saveNeighbor(_ theNeighbor: Neighbor) {
+        let found = neighbors.index(of: theNeighbor)
+        if found != nil {
+            neighbors[found!] = theNeighbor
+            saveNeighbors()
+        }
+    }
+    
+    func removeNeighbor(_ theNeighbor: Neighbor) {
+        let found = neighbors.index(of: theNeighbor)
+        if found != nil {
+            neighbors.remove(at: found!)
+            saveNeighbors()
         }
     }
 }
