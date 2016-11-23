@@ -21,6 +21,8 @@ class NeighborsTableViewController: UITableViewController {
     @IBOutlet weak var editButton: UIBarButtonItem!
     @IBOutlet var neigborsTableView: UITableView!
     
+    @IBOutlet var tapGesture: UITapGestureRecognizer!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -75,17 +77,18 @@ class NeighborsTableViewController: UITableViewController {
     }
     */
 
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            let thatNeighbor = appDelegate.neighbors[indexPath.row]
+            appDelegate.neighbors.remove(at: indexPath.row)
+            appDelegate.saveNeighbors()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-    */
 
     /*
     // Override to support rearranging the table view.
@@ -112,6 +115,10 @@ class NeighborsTableViewController: UITableViewController {
     }
     */
 
+    @IBAction func tableTap(_ sender: Any) {
+        print("Tap at \(neigborsTableView)")
+    }
+    
     func loadNeighbors () {
         let n1 = "N1"
         let a1 = "Address 1"

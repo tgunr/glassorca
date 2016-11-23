@@ -86,6 +86,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="neighborCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="neighborCell" textLabel="c8w-aW-Bnr" detailTextLabel="Ol3-JM-bNP" rowHeight="73" style="IBUITableViewCellStyleSubtitle" id="K5X-Wz-Fet" customClass="NeighborTableViewCell" customModule="NoisyNeighbors">
                                 <rect key="frame" x="0.0" y="28" width="375" height="73"/>
@@ -121,6 +122,7 @@
                         <connections>
                             <outlet property="dataSource" destination="SjJ-x3-TW4" id="huQ-dD-HcR"/>
                             <outlet property="delegate" destination="SjJ-x3-TW4" id="n1L-q5-gV1"/>
+                            <outletCollection property="gestureRecognizers" destination="Cal-bW-dFn" appends="YES" id="7qK-tH-V3I"/>
                         </connections>
                     </tableView>
                     <toolbarItems/>
@@ -129,6 +131,7 @@
                         <outlet property="addButton" destination="Bs3-X0-c6t" id="jvk-1s-Y3j"/>
                         <outlet property="editButton" destination="DnT-D8-nY1" id="XFX-Wg-I6q"/>
                         <outlet property="neigborsTableView" destination="U2x-J8-xTL" id="Dph-BF-dLj"/>
+                        <outlet property="tapGesture" destination="Cal-bW-dFn" id="GHM-ha-1Gr"/>
                     </connections>
                 </tableViewController>
                 <navigationItem title="View Controller" id="qM4-3p-QbK" userLabel="View Controller">
@@ -159,6 +162,11 @@
                 </navigationItem>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QSC-hl-uoM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="EAG-S1-zeo"/>
+                <tapGestureRecognizer id="Cal-bW-dFn">
+                    <connections>
+                        <action selector="tableTap:" destination="SjJ-x3-TW4" id="x8U-X3-y5C"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="304.80000000000001" y="694.90254872563719"/>
         </scene>

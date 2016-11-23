@@ -46,7 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func saveNeighbors() {
         let nd = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
         let ArchiveURL = nd.appendingPathComponent("neighbors").standardizedFileURL.path
-
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(neighbors, toFile: ArchiveURL)
         if !isSuccessfulSave {
             print("Failed to save neighbors...")
