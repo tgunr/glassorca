@@ -38,16 +38,19 @@ class NeighborsDetailViewController: UIViewController {
 
     private var appDelegate = UIApplication.shared.delegate as! AppDelegate
 
-    @IBOutlet weak var neighborUUID: UITextField!
-    @IBOutlet weak var labelTextField: UITextField!
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var addressTextField: UITextField!
-    @IBOutlet weak var incidentsTableView: UITableView!
+    var selectedNeighborObject: Neighbor?
+
+    @IBOutlet weak var neighborUUID: UITextField?
+    @IBOutlet weak var labelTextField: UITextField?
+    @IBOutlet weak var nameTextField: UITextField?
+    @IBOutlet weak var addressTextField: UITextField?
+    @IBOutlet weak var incidentsTableView: UITableView?
     @IBOutlet weak var saveButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        initWithNeighbor(selectedNeighborObject!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,22 +61,23 @@ class NeighborsDetailViewController: UIViewController {
 
     @IBAction func save(_ sender: UIBarButtonItem) {
         let newNeighbor = Neighbor()
-        newNeighbor.label = labelTextField.text!
-        newNeighbor.name = nameTextField.text!
-        newNeighbor.address = addressTextField.text!
-        newNeighbor.uuid = NSUUID().uuidString
+        newNeighbor.initWith(label: (labelTextField?.text)!, name: (nameTextField?.text)!, address: (addressTextField?.text)!)
         appDelegate.saveNeighbor(newNeighbor)
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
 
     @IBAction func cancelButton(_ sender: AnyObject) {
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
 
     func initWith(uuid: String, label: String?, name: String?, address: String?) {
-        self.neighborUUID.text = uuid
-        self.labelTextField.text = label
-        self.nameTextField.text = name
-        self.addressTextField.text = address
+        self.neighborUUID?.text = uuid
+        self.labelTextField?.text = label
+        self.nameTextField?.text = name
+        self.addressTextField?.text = address
+    }
+    
+    func initWithNeighbor(_ neighbor: Neighbor) {
+        initWith(uuid: neighbor.uuid, label: neighbor.label, name: neighbor.name, address: neighbor.address)
     }
 }

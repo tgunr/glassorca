@@ -18,11 +18,10 @@ class NeighborsTableViewController: UITableViewController {
     private var appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     @IBOutlet weak var addButton: UIBarButtonItem!
-    @IBOutlet weak var editButton: UIBarButtonItem!
     @IBOutlet weak var neigborsTableView: UITableView!
     
-    @IBOutlet var tapGesture: UITapGestureRecognizer!
-    
+    var selectedIndexPath: IndexPath?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -104,6 +103,10 @@ class NeighborsTableViewController: UITableViewController {
         return true
     }
     */
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndexPath = indexPath
+        neigborsTableView.deselectRow(at: indexPath as IndexPath, animated: true)
+    }
 
     // MARK: - Navigation
 
@@ -112,10 +115,9 @@ class NeighborsTableViewController: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         let dest = segue.destination as! NeighborsDetailViewController
-        let index = self.neigborsTableView.indexPathForSelectedRow
-        if index != nil {
-            let neighbor = appDelegate.neighbors[(index?.row)!]
-            dest.initWith(uuid: neighbor.uuid, label: neighbor.label, name: neighbor.name, address: neighbor.address)
+        if selectedIndexPath != nil {
+            let neighbor = appDelegate.neighbors[(selectedIndexPath?.row)!]
+            dest.selectedNeighborObject = neighbor
         }
     }
 
@@ -138,7 +140,7 @@ class NeighborsTableViewController: UITableViewController {
         
     }
 
-   @IBAction func tableTap(_ sender: Any) {
+   @IBAction func addButton(_ sender: Any) {
         print("Tap at \(neigborsTableView)")
     }
 }
