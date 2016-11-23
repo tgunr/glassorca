@@ -19,9 +19,7 @@ class NeighborsTableViewController: UITableViewController {
 
     @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet weak var editButton: UIBarButtonItem!
-    @IBOutlet var incidentTableView: UITableView!
-
-    var neighbors = [Neighbor]()
+    @IBOutlet var neigborsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +31,9 @@ class NeighborsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         self.navigationItem.rightBarButtonItem=addButton
-        loadNeighbors()
+        if appDelegate.neighbors.count == 0 {
+            loadNeighbors()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,19 +50,23 @@ class NeighborsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return (neighbors.count)
+        return (appDelegate.neighbors.count)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "neighborCell", for: indexPath) as! NeighborTableViewCell
 //        let thisNeighbor = appDelegate.neighbors?.subscript(indexPath as Index)
-        let neighbor = neighbors[indexPath.row]
+        let neighbor = appDelegate.neighbors[indexPath.row]
         // Configure the cell...
         cell.neighborLabel.text = neighbor.label
         cell.addressLabel.text = neighbor.address
         return cell
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        self.neigborsTableView.reloadData()
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -120,7 +124,7 @@ class NeighborsTableViewController: UITableViewController {
         let N2 = Neighbor()
         N2.initWith(label: n2, name: n2, address: a2)
         
-        self.neighbors = [N1, N2]
+        appDelegate.neighbors = [N1, N2]
 //        self.neighbors = appDelegate.neighbors
         appDelegate.saveNeighbor(N1)
         appDelegate.saveNeighbor(N2)

@@ -66,7 +66,7 @@
             <objects>
                 <navigationController id="Gpj-UO-jYg" sceneMemberID="viewController">
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="d0e-CZ-88H">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="d0e-CZ-88H">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -128,7 +128,7 @@
                     <connections>
                         <outlet property="addButton" destination="Bs3-X0-c6t" id="jvk-1s-Y3j"/>
                         <outlet property="editButton" destination="DnT-D8-nY1" id="XFX-Wg-I6q"/>
-                        <outlet property="incidentTableView" destination="U2x-J8-xTL" id="OmA-vG-FK5"/>
+                        <outlet property="neigborsTableView" destination="U2x-J8-xTL" id="Dph-BF-dLj"/>
                     </connections>
                 </tableViewController>
                 <navigationItem title="View Controller" id="qM4-3p-QbK" userLabel="View Controller">

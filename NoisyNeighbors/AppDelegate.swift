@@ -16,8 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let predicate  = NSPredicate.init(value: true)
-//        neighbors = realm.objects(Neighbor.self).filter(predicate)
+        loadNeighbors()
+        //        neighbors = realm.objects(Neighbor.self).filter(predicate)
         return true
     }
 
@@ -43,13 +43,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func saveNeighbors() {
+        let nd = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+        let ArchiveURL = nd.appendingPathComponent("neighbors").standardizedFileURL.path
+
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(neighbors, toFile: ArchiveURL)
+        if !isSuccessfulSave {
+            print("Failed to save neighbors...")
+        }
+    }
+    
+    func loadNeighbors() {
+        let u = Neighbor.ArchiveURL
+        let n =  NSKeyedUnarchiver.unarchiveObject(withFile: u) as? [Neighbor]
+        if n != nil {
+            neighbors = n!
+        }
+    }
+    
     func saveNeighbor(_ theNeighbor: Neighbor) {
-//        let realm = try! Realm()
-//        if !(neighbors?.contains(theNeighbor))! {
-//            try! realm.write {
-//                realm.add(theNeighbor)
-//            }
-//        }
+        neighbors.append(theNeighbor)
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(neighbors, toFile: Neighbor.ArchiveURL)
+        if !isSuccessfulSave {
+            print("Unable to save neighbors")
+        }
     }
 }
 

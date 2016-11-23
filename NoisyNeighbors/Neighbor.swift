@@ -49,13 +49,17 @@ class Incident: NSObject, NSCoding {
 }
 
 class Neighbor: NSObject, NSCoding {
+    static var DocumentsDirectory: URL = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    static var ArchiveURL: String = DocumentsDirectory.appendingPathComponent("neighbors").standardizedFileURL.path
+
     var uuid : String = UUID().uuidString
     var label : String = "Label"
     var name : String = "Name"
     var address : String = "Address"
     let incidents = [Incident]()
     
-    public override init() {
+    
+    override init() {
         super.init()
     }
     
@@ -84,6 +88,7 @@ class Neighbor: NSObject, NSCoding {
         self.name = name
         self.address = address
     }
+
 }
 
 
