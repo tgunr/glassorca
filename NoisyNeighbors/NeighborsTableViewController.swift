@@ -19,7 +19,7 @@ class NeighborsTableViewController: UITableViewController {
 
     @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet weak var editButton: UIBarButtonItem!
-    @IBOutlet var neigborsTableView: UITableView!
+    @IBOutlet weak var neigborsTableView: UITableView!
     
     @IBOutlet var tapGesture: UITapGestureRecognizer!
     
@@ -105,20 +105,20 @@ class NeighborsTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        let dest = segue.destination as! NeighborsDetailViewController
+        let index = self.neigborsTableView.indexPathForSelectedRow
+        if index != nil {
+            let neighbor = appDelegate.neighbors[(index?.row)!]
+            dest.initWith(uuid: neighbor.uuid, label: neighbor.label, name: neighbor.name, address: neighbor.address)
+        }
     }
-    */
 
-    @IBAction func tableTap(_ sender: Any) {
-        print("Tap at \(neigborsTableView)")
-    }
-    
     func loadNeighbors () {
         let n1 = "N1"
         let a1 = "Address 1"
@@ -132,9 +132,13 @@ class NeighborsTableViewController: UITableViewController {
         N2.initWith(label: n2, name: n2, address: a2)
         
         appDelegate.neighbors = [N1, N2]
-//        self.neighbors = appDelegate.neighbors
+        //        self.neighbors = appDelegate.neighbors
         appDelegate.saveNeighbor(N1)
         appDelegate.saveNeighbor(N2)
         
+    }
+
+   @IBAction func tableTap(_ sender: Any) {
+        print("Tap at \(neigborsTableView)")
     }
 }

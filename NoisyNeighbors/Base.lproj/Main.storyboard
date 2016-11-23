@@ -88,7 +88,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="neighborCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="neighborCell" textLabel="c8w-aW-Bnr" detailTextLabel="Ol3-JM-bNP" rowHeight="73" style="IBUITableViewCellStyleSubtitle" id="K5X-Wz-Fet" customClass="NeighborTableViewCell" customModule="NoisyNeighbors">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="neighborCell" selectionStyle="blue" indentationWidth="10" reuseIdentifier="neighborCell" textLabel="c8w-aW-Bnr" detailTextLabel="Ol3-JM-bNP" rowHeight="73" style="IBUITableViewCellStyleSubtitle" id="K5X-Wz-Fet" customClass="NeighborTableViewCell" customModule="NoisyNeighbors">
                                 <rect key="frame" x="0.0" y="28" width="375" height="73"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K5X-Wz-Fet" id="Pco-BV-fpO">
@@ -111,6 +111,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                </accessibility>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outlet property="addressLabel" destination="Ol3-JM-bNP" id="scG-AP-7pO"/>
@@ -165,6 +168,7 @@
                 <tapGestureRecognizer id="Cal-bW-dFn">
                     <connections>
                         <action selector="tableTap:" destination="SjJ-x3-TW4" id="x8U-X3-y5C"/>
+                        <segue destination="b2A-yg-OXZ" kind="show" id="g1E-J1-P8F"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -184,6 +188,13 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="siU-Im-oph">
                                 <rect key="frame" x="16" y="96" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UUID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdq-T1-7OI">
+                                <rect key="frame" x="16" y="28" width="41" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -266,6 +277,13 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4eH-8U-iwB" userLabel="UUID Text Field">
+                                <rect key="frame" x="16" y="57" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -288,6 +306,7 @@
                         <outlet property="incidentsTableView" destination="oCL-3p-wMI" id="2Z5-Vh-Oub"/>
                         <outlet property="labelTextField" destination="taQ-ce-4pW" id="sKR-RS-Ffj"/>
                         <outlet property="nameTextField" destination="GgN-ZP-cFh" id="url-gp-6gv"/>
+                        <outlet property="neighborUUID" destination="4eH-8U-iwB" id="FFx-Fa-WLr"/>
                         <outlet property="saveButton" destination="OgE-ge-ReB" id="fOb-h9-dyL"/>
                     </connections>
                 </viewController>
@@ -297,6 +316,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="coE-j1-K6z"/>
+        <segue reference="Azx-ZX-dlW"/>
     </inferredMetricsTieBreakers>
 </document>
