@@ -28,12 +28,6 @@ class NeighborsViewController: UIViewController {
     }
 }
 
-class IncidentsTableViewCell: UITableViewCell {
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var incidentLabel: UILabel!
-    
-}
-
 class NeighborsDetailViewController: UIViewController, UITextFieldDelegate {
 
     private var appDelegate = UIApplication.shared.delegate as! AppDelegate

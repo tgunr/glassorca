@@ -68,7 +68,7 @@ class NeighborsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "neighborCell", for: indexPath) as! NeighborTableViewCell
-//        let thisNeighbor = appDelegate.neighbors?.subscript(indexPath as Index)
+//        let thisNeighbor = appDelegate.neighbors.subscript(indexPath as Index)
         let neighbor = appDelegate.neighbors[indexPath.row]
         // Configure the cell...
         cell.neighborLabel.text = neighbor.label

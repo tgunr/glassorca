@@ -18,36 +18,6 @@ struct PropertyKey {
     static let incidentsKey = "incidents"
 }
 
-enum IncidentType {
-    case dog
-    case music
-    case voices
-    case other
-    case notype
-}
-
-class Incident: NSObject, NSCoding {
-    var neighbor : Neighbor?
-    var occured : Date = Date.init()
-    var type: IncidentType = .notype
-    
-    public override init() {
-        super.init()
-    }
-    
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(neighbor, forKey: PropertyKey.neighborKey)
-        aCoder.encode(occured, forKey: PropertyKey.occuredKey)
-        aCoder.encode(type, forKey: PropertyKey.typeKey)
-    }
-
-    public required init?(coder aDecoder: NSCoder) {
-        neighbor = (aDecoder.decodeObject(forKey: PropertyKey.neighborKey) as! Neighbor)
-        occured = (aDecoder.decodeObject(forKey: PropertyKey.occuredKey) as! Date)
-        type = (aDecoder.decodeObject(forKey: PropertyKey.typeKey) as! IncidentType)
-    }
-}
-
 class Neighbor: NSObject, NSCoding {
     static var DocumentsDirectory: URL = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
     static var ArchiveURL: String = DocumentsDirectory.appendingPathComponent("neighbors").standardizedFileURL.path
