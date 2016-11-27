@@ -7,20 +7,17 @@
 //
 
 import UIKit
-import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let realm = try! Realm()
-    var neighbors: List<Neighbor>?
-
+    var neighbors = [Neighbor]()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let predicate  = NSPredicate.init(value: true)
-        let n1 = realm.objects(Neighbor.self).filter(predicate)
-        var dataSource:AnyRealmCollection<Neighbor>!
+        loadNeighbors()
+        //        neighbors = realm.objects(Neighbor.self).filter(predicate)
         return true
     }
 
@@ -46,11 +43,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func saveNeighbors() {
+        let nd = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+        let ArchiveURL = nd.appendingPathComponent("neighbors").standardizedFileURL.path
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(neighbors, toFile: ArchiveURL)
+        if !isSuccessfulSave {
+            print("Failed to save neighbors...")
+        }
+    }
+    
+    func loadNeighbors() {
+        let u = Neighbor.ArchiveURL
+        let n =  NSKeyedUnarchiver.unarchiveObject(withFile: u) as? [Neighbor]
+        if n != nil {
+            neighbors = n!
+        }
+    }
+    
+    func addNeighbor(_ theNeighbor: Neighbor) {
+        neighbors.append(theNeighbor)
+        saveNeighbors()
+    }
+
     func saveNeighbor(_ theNeighbor: Neighbor) {
-        if !(neighbors?.contains(theNeighbor))! {
-            try! realm.write {
-                realm.add(theNeighbor)
-            }
+        let found = neighbors.index(of: theNeighbor)
+        if found != nil {
+            neighbors[found!] = theNeighbor
+            saveNeighbors()
+        }
+    }
+    
+    func removeNeighbor(_ theNeighbor: Neighbor) {
+        let found = neighbors.index(of: theNeighbor)
+        if found != nil {
+            neighbors.remove(at: found!)
+            saveNeighbors()
         }
     }
 }

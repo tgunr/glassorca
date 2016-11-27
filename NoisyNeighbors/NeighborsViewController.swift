@@ -10,13 +10,12 @@ import UIKit
 
 class NeighborsViewController: UIViewController {
 
-    var appDelegate = UIApplication.shared.delegate
+    private var appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-//        delegate = appD
-
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,41 +23,91 @@ class NeighborsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
 }
 
-class NeighborsDetailViewController: UIViewController {
+class IncidentsTableViewCell: UITableViewCell {
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var incidentLabel: UILabel!
     
-    var appDelegate = UIApplication.shared.delegate as! AppDelegate
+}
 
-    @IBOutlet weak var labelTextField: UITextField!
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var addressTextField: UITextField!
-    @IBOutlet weak var incidentsTableView: UITableView!
+class NeighborsDetailViewController: UIViewController, UITextFieldDelegate {
+
+    private var appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+    var selectedNeighborObject: Neighbor?
+
+    @IBOutlet weak var neighborUUID: UITextField?
+    @IBOutlet weak var labelTextField: UITextField?
+    @IBOutlet weak var nameTextField: UITextField?
+    @IBOutlet weak var addressTextField: UITextField?
+    @IBOutlet weak var incidentsTableView: UITableView?
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var trashButton: UIBarButtonItem!
+
+    @IBAction func save(_ sender: UIBarButtonItem) {
+        if selectedNeighborObject == nil {
+            let newNeighbor = Neighbor()
+            newNeighbor.initWith(label: (labelTextField?.text)!, name: (nameTextField?.text)!, address: (addressTextField?.text)!)
+            appDelegate.addNeighbor(newNeighbor)
+        } else {
+            selectedNeighborObject!.initWith(label: (labelTextField?.text)!, name: (nameTextField?.text)!, address: (addressTextField?.text)!)
+            appDelegate.saveNeighbor(selectedNeighborObject!)
+        }
+        _ = self.navigationController?.popViewController(animated: true)
+    }
+
+    @IBAction func cancelButton(_ sender: AnyObject) {
+        _ = self.navigationController?.popViewController(animated: true)
+    }
+
+    @IBAction func trash(_ sender: Any) {
+        if selectedNeighborObject != nil {
+            appDelegate.removeNeighbor(selectedNeighborObject!)
+        }
+        _ = self.navigationController?.popViewController(animated: true)
+    }
+    
+    func initWith(uuid: String, label: String?, name: String?, address: String?) {
+        self.neighborUUID?.text = uuid
+        self.labelTextField?.text = label
+        self.nameTextField?.text = name
+        self.addressTextField?.text = address
+    }
+    
+    func initWithNeighbor(_ neighbor: Neighbor) {
+        initWith(uuid: neighbor.uuid, label: neighbor.label, name: neighbor.name, address: neighbor.address)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.labelTextField?.delegate = self;
+
         // Do any additional setup after loading the view, typically from a nib.
+        if selectedNeighborObject != nil {
+            initWithNeighbor(selectedNeighborObject!)
+            trashButton.isEnabled =  true
+            saveButton.isEnabled =  true
+        } else {
+            trashButton.isEnabled = false
+            saveButton.isEnabled = false
+        }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    @IBAction func save(_ sender: UIBarButtonItem) {
-        let newNeighbor = Neighbor()
-        newNeighbor.label = labelTextField.text!
-        newNeighbor.name = nameTextField.text!
-        newNeighbor.address = addressTextField.text!
-        newNeighbor.uuid = NSUUID().uuidString
-        appDelegate.saveNeighbor(newNeighbor)
-        self.navigationController?.popViewController(animated: true)
-    }
-    
-    @IBAction func cancelButton(_ sender: AnyObject) {
-        self.navigationController?.popViewController(animated: true)
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        let text = labelTextField?.text
+        if textField.text == "" {
+            saveButton.isEnabled = false
+        } else {
+            saveButton.isEnabled =  true
+        }
     }
 }
