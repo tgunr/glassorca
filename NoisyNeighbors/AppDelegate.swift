@@ -10,10 +10,11 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
-    var neighbors = [Neighbor]()
-    
+    var neighbors: [Neighbor] = [Neighbor]()
+    var incidents: [Incident] = [Incident]()
+    var stagedIncident: Incident?
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         loadNeighbors()
@@ -79,6 +80,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             neighbors.remove(at: found!)
             saveNeighbors()
         }
+    }
+
+    func stageIncident(_ incident: Incident) {
+        // Save any previous stage incident
+        if self.stagedIncident != nil {
+            self.stagedIncident!.stopped = Date()
+            self.incidents.append(stagedIncident!)
+        }
+        self.stagedIncident = incident
     }
 }
 

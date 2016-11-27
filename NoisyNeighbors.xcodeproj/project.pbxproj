@@ -18,6 +18,8 @@
 		753C74531DC2AECC007FE325 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753C744E1DC2AECC007FE325 /* MainViewController.swift */; };
 		753C74541DC2AECC007FE325 /* Neighbor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753C744F1DC2AECC007FE325 /* Neighbor.swift */; };
 		753C74551DC2AECC007FE325 /* NeighborsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753C74501DC2AECC007FE325 /* NeighborsTableViewController.swift */; };
+		755E6CF51DEB77FC00F601EC /* IncidentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755E6CF41DEB77FC00F601EC /* IncidentsViewController.swift */; };
+		75C1AA671DEB6412002CED1F /* Incident.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C1AA661DEB6412002CED1F /* Incident.swift */; };
 		F57C128DC8C2287DB0ECC092 /* Pods_NoisyNeighbors.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A73E3A83EF8892C6BD9012D /* Pods_NoisyNeighbors.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +73,9 @@
 		753C744E1DC2AECC007FE325 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		753C744F1DC2AECC007FE325 /* Neighbor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Neighbor.swift; sourceTree = "<group>"; };
 		753C74501DC2AECC007FE325 /* NeighborsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighborsTableViewController.swift; sourceTree = "<group>"; };
+		755E6CF41DEB77FC00F601EC /* IncidentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncidentsViewController.swift; sourceTree = "<group>"; };
+		755E6CF61DEB9DC200F601EC /* NoisyNeighbors.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NoisyNeighbors.entitlements; sourceTree = "<group>"; };
+		75C1AA661DEB6412002CED1F /* Incident.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Incident.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,9 +130,11 @@
 		75299A6B1DB567F6007FE325 /* NoisyNeighbors */ = {
 			isa = PBXGroup;
 			children = (
+				755E6CF61DEB9DC200F601EC /* NoisyNeighbors.entitlements */,
 				753C744D1DC2AECC007FE325 /* Extensions.swift */,
 				753C744E1DC2AECC007FE325 /* MainViewController.swift */,
 				753C744F1DC2AECC007FE325 /* Neighbor.swift */,
+				75C1AA661DEB6412002CED1F /* Incident.swift */,
 				753C74501DC2AECC007FE325 /* NeighborsTableViewController.swift */,
 				75299A6C1DB567F6007FE325 /* AppDelegate.swift */,
 				5AF0D663F18268B456B5F3BC /* NeighborsViewController.swift */,
@@ -157,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				75299A721DB567F6007FE325 /* Main.storyboard */,
+				755E6CF41DEB77FC00F601EC /* IncidentsViewController.swift */,
 				75299A751DB567F6007FE325 /* Assets.xcassets */,
 				75299A771DB567F6007FE325 /* LaunchScreen.storyboard */,
 				75299A7A1DB567F6007FE325 /* Info.plist */,
@@ -250,6 +258,9 @@
 		75299A611DB567F5007FE325 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Dave Carlton";
@@ -258,6 +269,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = NL3267E99V;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 					75299A7E1DB567F6007FE325 = {
 						CreatedOnToolsVersion = 8.0;
@@ -399,11 +415,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				755E6CF51DEB77FC00F601EC /* IncidentsViewController.swift in Sources */,
 				753C74551DC2AECC007FE325 /* NeighborsTableViewController.swift in Sources */,
 				753C74541DC2AECC007FE325 /* Neighbor.swift in Sources */,
 				75299A6D1DB567F6007FE325 /* AppDelegate.swift in Sources */,
 				753C74521DC2AECC007FE325 /* Extensions.swift in Sources */,
 				753C74531DC2AECC007FE325 /* MainViewController.swift in Sources */,
+				75C1AA671DEB6412002CED1F /* Incident.swift in Sources */,
 				5AF0DCCD88D444B958B5D8D9 /* NeighborsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

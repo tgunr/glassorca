@@ -54,8 +54,6 @@ class NeighborsTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -68,7 +66,7 @@ class NeighborsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "neighborCell", for: indexPath) as! NeighborTableViewCell
-//        let thisNeighbor = appDelegate.neighbors?.subscript(indexPath as Index)
+//        let thisNeighbor = appDelegate.neighbors.subscript(indexPath as Index)
         let neighbor = appDelegate.neighbors[indexPath.row]
         // Configure the cell...
         cell.neighborLabel.text = neighbor.label
