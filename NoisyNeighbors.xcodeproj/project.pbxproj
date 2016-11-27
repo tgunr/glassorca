@@ -74,6 +74,7 @@
 		753C744F1DC2AECC007FE325 /* Neighbor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Neighbor.swift; sourceTree = "<group>"; };
 		753C74501DC2AECC007FE325 /* NeighborsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighborsTableViewController.swift; sourceTree = "<group>"; };
 		755E6CF41DEB77FC00F601EC /* IncidentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncidentsViewController.swift; sourceTree = "<group>"; };
+		755E6CF61DEB9DC200F601EC /* NoisyNeighbors.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NoisyNeighbors.entitlements; sourceTree = "<group>"; };
 		75C1AA661DEB6412002CED1F /* Incident.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Incident.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,6 +130,7 @@
 		75299A6B1DB567F6007FE325 /* NoisyNeighbors */ = {
 			isa = PBXGroup;
 			children = (
+				755E6CF61DEB9DC200F601EC /* NoisyNeighbors.entitlements */,
 				753C744D1DC2AECC007FE325 /* Extensions.swift */,
 				753C744E1DC2AECC007FE325 /* MainViewController.swift */,
 				753C744F1DC2AECC007FE325 /* Neighbor.swift */,
@@ -256,6 +258,9 @@
 		75299A611DB567F5007FE325 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Dave Carlton";
@@ -264,6 +269,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = NL3267E99V;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 					75299A7E1DB567F6007FE325 = {
 						CreatedOnToolsVersion = 8.0;

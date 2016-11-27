@@ -17,15 +17,27 @@ class IncidentsTableViewCell: UITableViewCell {
 
 class IncidentsTableViewController: UITableViewController {
     private var appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
+
+    @IBOutlet weak var incidentsTableView: UITableView!
+
     func dateFormatted(_ date: Date) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         dateFormatter.isLenient = true
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
         let result = dateFormatter.string(from: date) // returns "2015-09-16T13:51:53.316000+00:00"
         return result
+    }
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return (appDelegate.incidents.count)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -43,4 +55,7 @@ class IncidentsTableViewController: UITableViewController {
         return cell
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        self.incidentsTableView.reloadData()
+    }
 }

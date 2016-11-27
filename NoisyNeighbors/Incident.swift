@@ -31,11 +31,11 @@ class Incident: NSObject, NSCoding {
         switch type {
         case 0:
             self.type = .Dog
-        case 0:
+        case 1:
             self.type = .Music
-        case 0:
+        case 2:
             self.type = .Voices
-        case 0:
+        case 3:
             self.type = .Other
         default:
             self.type = .None
