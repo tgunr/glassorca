@@ -22,17 +22,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fi-Fs-8Pt">
-                                <rect key="frame" x="168" y="418" width="39" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3h-LG-JhT" userLabel="Incidents Button">
+                                <rect key="frame" x="156" y="430" width="63" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Noise"/>
+                                <state key="normal" title="Incidents"/>
+                                <connections>
+                                    <action selector="incidents:" destination="9pv-A4-QxB" eventType="touchUpInside" id="sWi-sE-Qew"/>
+                                </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5E3-oN-XGV">
-                                <rect key="frame" x="0.0" y="114" width="375" height="216"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="126"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ihw-x0-Dty">
-                                <rect key="frame" x="16" y="338" width="343" height="29"/>
+                                <rect key="frame" x="16" y="206" width="343" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Dog"/>
@@ -41,6 +44,14 @@
                                     <segment title="Other"/>
                                 </segments>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fi-Fs-8Pt" userLabel="Noise Button">
+                                <rect key="frame" x="168" y="330" width="39" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Noise"/>
+                                <connections>
+                                    <action selector="noise:" destination="9pv-A4-QxB" eventType="touchUpInside" id="DW3-Aj-4eT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -53,7 +64,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="DocumentButton" destination="7fi-Fs-8Pt" id="viP-mk-luS"/>
+                        <outlet property="incidentsButton" destination="X3h-LG-JhT" id="45Z-9o-3q7"/>
                         <outlet property="neighborPickerView" destination="5E3-oN-XGV" id="AsM-yr-Vqb"/>
+                        <outlet property="noiseButton" destination="7fi-Fs-8Pt" id="VcW-fO-6Pb"/>
                         <outlet property="typeSegmentedControl" destination="Ihw-x0-Dty" id="2AF-wI-xFP"/>
                     </connections>
                 </viewController>
@@ -143,23 +156,11 @@
                     </connections>
                 </tableViewController>
                 <navigationItem title="View Controller" id="qM4-3p-QbK" userLabel="Neighbors">
-                    <barButtonItem key="leftBarButtonItem" systemItem="save" id="OEv-sk-eog">
+                    <barButtonItem key="rightBarButtonItem" systemItem="add" id="Bs3-X0-c6t">
                         <connections>
-                            <action selector="save:" destination="b2A-yg-OXZ" id="Xba-K0-dFz"/>
+                            <action selector="add:" destination="SjJ-x3-TW4" id="3cb-nk-RCM"/>
                         </connections>
                     </barButtonItem>
-                    <rightBarButtonItems>
-                        <barButtonItem systemItem="add" id="Bs3-X0-c6t">
-                            <connections>
-                                <action selector="add:" destination="SjJ-x3-TW4" id="3cb-nk-RCM"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem title="Cancel" id="ucL-cu-MME" userLabel="Cancel Button">
-                            <connections>
-                                <action selector="cancelButton:" destination="b2A-yg-OXZ" id="OZ1-BM-8tK"/>
-                            </connections>
-                        </barButtonItem>
-                    </rightBarButtonItems>
                 </navigationItem>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QSC-hl-uoM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

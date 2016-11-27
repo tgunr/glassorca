@@ -41,11 +41,18 @@ class NeighborPickerController: NSObject, UIPickerViewDelegate, UIPickerViewData
 class MainViewController: UIViewController {
 
     private var appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private var pv: NeighborPickerController!
+    
     @IBOutlet weak var neighborPickerView: UIPickerView!
     @IBOutlet weak var typeSegmentedControl: UISegmentedControl!
-    @IBOutlet weak var DocumentButton: UIButton!
+    @IBOutlet weak var noiseButton: UIButton!
+    @IBOutlet weak var incidentsButton: UIButton!
 
-    var pv: NeighborPickerController!
+    @IBAction func noise(_ sender: Any) {
+    }
+
+    @IBAction func incidents(_ sender: Any) {
+    }
         
     override func viewDidLoad() {
         super.viewDidLoad()
