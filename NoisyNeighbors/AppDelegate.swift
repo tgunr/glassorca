@@ -10,12 +10,15 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
-
+    var neighbors: [Neighbor] = [Neighbor]()
+    var incidents: [Incident] = [Incident]()
+    var stagedIncident: Incident?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        loadNeighbors()
+        //        neighbors = realm.objects(Neighbor.self).filter(predicate)
         return true
     }
 
@@ -41,6 +44,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func saveNeighbors() {
+        let nd = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+        let ArchiveURL = nd.appendingPathComponent("neighbors").standardizedFileURL.path
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(neighbors, toFile: ArchiveURL)
+        if !isSuccessfulSave {
+            print("Failed to save neighbors...")
+        }
+    }
+    
+    func loadNeighbors() {
+        let u = Neighbor.ArchiveURL
+        let n =  NSKeyedUnarchiver.unarchiveObject(withFile: u) as? [Neighbor]
+        if n != nil {
+            neighbors = n!
+        }
+    }
+    
+    func addNeighbor(_ theNeighbor: Neighbor) {
+        neighbors.append(theNeighbor)
+        saveNeighbors()
+    }
 
+    func saveNeighbor(_ theNeighbor: Neighbor) {
+        let found = neighbors.index(of: theNeighbor)
+        if found != nil {
+            neighbors[found!] = theNeighbor
+            saveNeighbors()
+        }
+    }
+    
+    func removeNeighbor(_ theNeighbor: Neighbor) {
+        let found = neighbors.index(of: theNeighbor)
+        if found != nil {
+            neighbors.remove(at: found!)
+            saveNeighbors()
+        }
+    }
+
+    func stageIncident(_ incident: Incident) {
+        // Save any previous stage incident
+        if self.stagedIncident != nil {
+            self.stagedIncident!.stopped = Date()
+            self.incidents.append(stagedIncident!)
+        }
+        self.stagedIncident = incident
+    }
 }
 
