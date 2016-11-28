@@ -79,6 +79,7 @@ class MainViewController: UIViewController {
         } else {
             activityIndicator.startAnimating()
         }
+        self.neighborPickerView.reloadAllComponents()
     }
 
     override func didReceiveMemoryWarning() {

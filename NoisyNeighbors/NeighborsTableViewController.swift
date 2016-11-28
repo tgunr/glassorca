@@ -44,9 +44,9 @@ class NeighborsTableViewController: UITableViewController {
 //         self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         self.navigationItem.rightBarButtonItem=addButton
-        if gNeighbors.count == 0 {
-            loadNeighbors()
-        }
+//        if gNeighbors.count == 0 {
+//            loadNeighbors()
+//        }
     }
 
     override func didReceiveMemoryWarning() {
