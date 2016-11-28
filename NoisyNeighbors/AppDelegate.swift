@@ -83,12 +83,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func stageIncident(_ incident: Incident) {
+        self.stagedIncident = incident
+    }
+
+    func unstageIncident() {
         // Save any previous stage incident
         if self.stagedIncident != nil {
             self.stagedIncident!.stopped = Date()
             self.incidents.append(stagedIncident!)
         }
-        self.stagedIncident = incident
+        self.stagedIncident = nil
     }
 }
 
