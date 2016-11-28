@@ -44,7 +44,7 @@ class NeighborsTableViewController: UITableViewController {
 //         self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         self.navigationItem.rightBarButtonItem=addButton
-        if appDelegate.neighbors.count == 0 {
+        if gNeighbors.count == 0 {
             loadNeighbors()
         }
     }
@@ -61,13 +61,13 @@ class NeighborsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return (appDelegate.neighbors.count)
+        return (gNeighbors.count)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "neighborCell", for: indexPath) as! NeighborTableViewCell
-//        let thisNeighbor = appDelegate.neighbors.subscript(indexPath as Index)
-        let neighbor = appDelegate.neighbors[indexPath.row]
+//        let thisNeighbor = gNeighbors.subscript(indexPath as Index)
+        let neighbor = gNeighbors[indexPath.row]
         // Configure the cell...
         cell.neighborLabel.text = neighbor.label
         cell.addressLabel.text = neighbor.address
@@ -91,7 +91,7 @@ class NeighborsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            let thatNeighbor = appDelegate.neighbors[indexPath.row]
+            let thatNeighbor = gNeighbors[indexPath.row]
             appDelegate.removeNeighbor(thatNeighbor)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
@@ -126,7 +126,7 @@ class NeighborsTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         let dest = segue.destination as! NeighborsDetailViewController
         if selectedIndexPath != nil {
-            let neighbor = appDelegate.neighbors[(selectedIndexPath?.row)!]
+            let neighbor = gNeighbors[(selectedIndexPath?.row)!]
             dest.selectedNeighborObject = neighbor
         } else {
             dest.selectedNeighborObject = nil
@@ -145,8 +145,8 @@ class NeighborsTableViewController: UITableViewController {
         let N2 = Neighbor()
         N2.initWith(label: n2, name: n2, address: a2)
         
-        appDelegate.neighbors = [N1, N2]
-        //        self.neighbors = appDelegate.neighbors
+        gNeighbors = [N1, N2]
+        //        self.gNeighbors = gNeighbors
         appDelegate.saveNeighbor(N1)
         appDelegate.saveNeighbor(N2)
         

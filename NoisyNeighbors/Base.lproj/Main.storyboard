@@ -95,7 +95,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4eo-I6-gWg" id="Y9f-Oy-m93">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Hbr-gZ-sMW">
@@ -105,7 +105,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vvc-JY-N5U" userLabel="Duration">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vvc-JY-N5U">
                                             <rect key="frame" x="287" y="11" width="80" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -123,18 +123,18 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="dateLabel" destination="Hbr-gZ-sMW" id="biS-Nk-j6O"/>
-                                    <outlet property="durationLabel" destination="Vvc-JY-N5U" id="IE2-8I-aON"/>
+                                    <outlet property="durationLabel" destination="Vvc-JY-N5U" id="7gp-u7-XyI"/>
                                     <outlet property="incidentLabel" destination="Zh5-Fl-Krz" id="hmG-qL-KqC"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="X8B-Ez-BUQ" id="FvU-Jl-t8T"/>
-                            <outlet property="delegate" destination="X8B-Ez-BUQ" id="6Qi-LC-rbo"/>
+                            <outlet property="dataSource" destination="X8B-Ez-BUQ" id="dRe-6f-DM2"/>
+                            <outlet property="delegate" destination="X8B-Ez-BUQ" id="mEd-z1-ofv"/>
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="incidentsTableView" destination="n9d-yr-gAr" id="QQx-vJ-di4"/>
+                        <outlet property="incidentsTableView" destination="n9d-yr-gAr" id="Cep-nK-GUY"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aeh-AH-mjW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -303,7 +303,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WJH-cs-6hD" id="G6C-VS-Vbu">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjU-ZK-XJ3">

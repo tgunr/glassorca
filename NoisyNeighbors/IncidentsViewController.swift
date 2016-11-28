@@ -43,7 +43,7 @@ class IncidentsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "incidentCell", for: indexPath) as! IncidentsTableViewCell
-        //        let thisNeighbor = appDelegate.neighbors.subscript(indexPath as Index)
+        //        let thisNeighbor = gNeighbors.subscript(indexPath as Index)
         let incident = localIncidents![indexPath.row]
         // Configure the cell...
         let aDate = incident.occured
@@ -57,7 +57,7 @@ class IncidentsTableViewController: UITableViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        let allIncidents = appDelegate.incidents
+        let allIncidents = gIncidents
         let theFilter = self.title
         localIncidents = allIncidents.filter {
             $0.neighbor?.label == theFilter
@@ -66,7 +66,7 @@ class IncidentsTableViewController: UITableViewController {
     }
     
     override func viewDidLoad() {
-        let allIncidents = appDelegate.incidents
+        let allIncidents = gIncidents
         let theFilter = self.title
         localIncidents = allIncidents.filter {
             $0.neighbor?.label == theFilter

@@ -21,12 +21,12 @@ class NeighborPickerController: NSObject, UIPickerViewDelegate, UIPickerViewData
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        let n = appDelegate.neighbors.count
+        let n = gNeighbors.count
         return n
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let n = appDelegate.neighbors[row].label
+        let n = gNeighbors[row].label
         return n
     }
     
@@ -93,7 +93,7 @@ class MainViewController: UIViewController {
 
     private func pickerNeighbor() -> Neighbor {
         let pickerRow = neighborPickerView.selectedRow(inComponent: 0)
-        let incidentNeighbor = appDelegate.neighbors[pickerRow]
+        let incidentNeighbor = gNeighbors[pickerRow]
         return incidentNeighbor
     }
     

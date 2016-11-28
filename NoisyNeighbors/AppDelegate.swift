@@ -8,18 +8,36 @@
 
 import UIKit
 
+var DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    var neighbors: [Neighbor] = [Neighbor]()
-    var incidents: [Incident] = [Incident]()
     var stagedIncident: Incident?
-
+    var version = "0.2"
+    var firstLaunch = false
+    var apiKey = "keyx0gx0iobbmtuZl"
+   
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        loadNeighbors()
-        //        neighbors = realm.objects(Neighbor.self).filter(predicate)
-        return true
+        Neighbor.restoreUserDefaults()
+        Incident.restoreUserDefaults()
+//        let fm = FileManager.default
+//        let icloudToken = fm.ubiquityIdentityToken
+//        let userDefaults: UserDefaults = UserDefaults.standard
+//        if icloudToken != nil {
+//            let docs = FileManager().urls(for: .cachesDirectory, in: .userDomainMask).first!
+//            let newTokenData = NSKeyedArchiver.archiveRootObject(icloudToken, toFile: docs.)
+//            userDefaults.set(icloudToken, forKey: "net.polymicro.noisyneighbors.UbiquityIdentityToken")
+//        } else {
+//            userDefaults.removeObject(forKey: "net.polymicro.noisyneighbors.UbiquityIdentityToken")
+//        }
+//        let nc = NotificationCenter.default
+//        nc.addObserver(self, selector: (iCloudAccountAvailabilityChanged:), name: NSUbiquityIdentityDidChangeNotification, object: nil)
+//        if (icloudToken && firstLaunchWithiCloudAvailable) {
+//
+//        }
+            return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -44,41 +62,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-    func saveNeighbors() {
-        let nd = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-        let ArchiveURL = nd.appendingPathComponent("neighbors").standardizedFileURL.path
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(neighbors, toFile: ArchiveURL)
-        if !isSuccessfulSave {
-            print("Failed to save neighbors...")
-        }
-    }
-    
-    func loadNeighbors() {
-        let u = Neighbor.ArchiveURL
-        let n =  NSKeyedUnarchiver.unarchiveObject(withFile: u) as? [Neighbor]
-        if n != nil {
-            neighbors = n!
-        }
-    }
-    
     func addNeighbor(_ theNeighbor: Neighbor) {
-        neighbors.append(theNeighbor)
-        saveNeighbors()
+        gNeighbors.append(theNeighbor)
+        Neighbor.saveUserDefaults()
     }
 
     func saveNeighbor(_ theNeighbor: Neighbor) {
-        let found = neighbors.index(of: theNeighbor)
+        let found = gNeighbors.index(of: theNeighbor)
         if found != nil {
-            neighbors[found!] = theNeighbor
-            saveNeighbors()
+            gNeighbors[found!] = theNeighbor
+            Neighbor.saveUserDefaults()
         }
     }
     
     func removeNeighbor(_ theNeighbor: Neighbor) {
-        let found = neighbors.index(of: theNeighbor)
+        let found = gNeighbors.index(of: theNeighbor)
         if found != nil {
-            neighbors.remove(at: found!)
-            saveNeighbors()
+            gNeighbors.remove(at: found!)
+            Neighbor.saveUserDefaults()
         }
     }
 
@@ -90,7 +91,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Save any previous stage incident
         if self.stagedIncident != nil {
             self.stagedIncident!.stopped = Date()
-            self.incidents.append(stagedIncident!)
+            gIncidents.append(stagedIncident!)
+            Incident.saveUserDefaults()
         }
         self.stagedIncident = nil
     }
