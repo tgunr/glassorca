@@ -28,7 +28,7 @@
                                 <state key="normal" title="Incidents"/>
                                 <connections>
                                     <action selector="incidents:" destination="9pv-A4-QxB" eventType="touchUpInside" id="sWi-sE-Qew"/>
-                                    <segue destination="X8B-Ez-BUQ" kind="show" id="GIt-Pg-i2E"/>
+                                    <segue destination="X8B-Ez-BUQ" kind="show" identifier="incidents" id="GIt-Pg-i2E"/>
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5E3-oN-XGV">
@@ -66,7 +66,7 @@
                     <navigationItem key="navigationItem" id="80m-F3-7Wh">
                         <barButtonItem key="rightBarButtonItem" title="Configure" style="plain" id="DpB-5W-Ymg" userLabel="Configure">
                             <connections>
-                                <segue destination="SjJ-x3-TW4" kind="show" id="SSx-Ox-o5a"/>
+                                <segue destination="SjJ-x3-TW4" kind="show" identifier="neighbors" id="SSx-Ox-o5a"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

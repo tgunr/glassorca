@@ -100,11 +100,13 @@ class MainViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        let dest = segue.destination as! IncidentsTableViewController
-        let incidentNeighbor = pickerNeighbor()
-        let ivc = IncidentsTableViewController()
-        let oldttile = dest.title
-        dest.title = incidentNeighbor.label
+        let dest = segue.destination // as! IncidentsTableViewController
+        if segue.identifier == "incidents" {
+            let incidentNeighbor = pickerNeighbor()
+            let ivc = IncidentsTableViewController()
+            let oldttile = dest.title
+            dest.title = incidentNeighbor.label
+        }
     }
 
 }
