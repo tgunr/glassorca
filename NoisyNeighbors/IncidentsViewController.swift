@@ -17,7 +17,8 @@ class IncidentsTableViewCell: UITableViewCell {
 
 class IncidentsTableViewController: UITableViewController {
     private var appDelegate = UIApplication.shared.delegate as! AppDelegate
-
+    private var localIncidents: [Incident]?
+    
     @IBOutlet weak var incidentsTableView: UITableView!
 
     func dateFormatted(_ date: Date) -> String {
@@ -37,13 +38,13 @@ class IncidentsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return (appDelegate.incidents.count)
+        return (localIncidents!.count)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "incidentCell", for: indexPath) as! IncidentsTableViewCell
         //        let thisNeighbor = appDelegate.neighbors.subscript(indexPath as Index)
-        let incident = appDelegate.incidents[indexPath.row]
+        let incident = localIncidents![indexPath.row]
         // Configure the cell...
         let aDate = incident.occured
         let dateFormat = dateFormatted(aDate)
@@ -56,6 +57,22 @@ class IncidentsTableViewController: UITableViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        let allIncidents = appDelegate.incidents
+        let theFilter = self.title
+        localIncidents = allIncidents.filter {
+            $0.neighbor?.label == theFilter
+        }
         self.incidentsTableView.reloadData()
+    }
+    
+    override func viewDidLoad() {
+        let allIncidents = appDelegate.incidents
+        let theFilter = self.title
+        localIncidents = allIncidents.filter {
+            $0.neighbor?.label == theFilter
+        }
+        if localIncidents == nil {
+            localIncidents = allIncidents
+        }
     }
 }

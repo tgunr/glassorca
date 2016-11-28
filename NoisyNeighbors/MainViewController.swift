@@ -51,8 +51,7 @@ class MainViewController: UIViewController {
         if appDelegate.stagedIncident == nil {
             activityIndicator.startAnimating()
             let newIncident = Incident()
-            let pickerRow = neighborPickerView.selectedRow(inComponent: 0)
-            let incidentNeighbor = appDelegate.neighbors[pickerRow]
+            let incidentNeighbor = pickerNeighbor()
             let typeIndex = typeSegmentedControl.selectedSegmentIndex
             newIncident.initWith(neighbor: incidentNeighbor, type: typeIndex)
             appDelegate.stageIncident(newIncident)
@@ -63,6 +62,10 @@ class MainViewController: UIViewController {
     }
 
     @IBAction func incidents(_ sender: Any) {
+        let incidentNeighbor = pickerNeighbor()
+        let ivc = IncidentsTableViewController()
+        let oldttile = ivc.title
+        ivc.title = incidentNeighbor.label
     }
         
     override func viewDidLoad() {
@@ -71,6 +74,11 @@ class MainViewController: UIViewController {
         pv = NeighborPickerController.init(pickerInterval: 10)
         neighborPickerView.dataSource = pv as UIPickerViewDataSource?
         neighborPickerView.delegate = pv as UIPickerViewDelegate?
+        if appDelegate.stagedIncident == nil {
+            activityIndicator.stopAnimating()
+        } else {
+            activityIndicator.startAnimating()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -82,6 +90,23 @@ class MainViewController: UIViewController {
         super.viewWillAppear(animated)
         self.neighborPickerView.reloadAllComponents()
     }
+
+    private func pickerNeighbor() -> Neighbor {
+        let pickerRow = neighborPickerView.selectedRow(inComponent: 0)
+        let incidentNeighbor = appDelegate.neighbors[pickerRow]
+        return incidentNeighbor
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        let dest = segue.destination as! IncidentsTableViewController
+        let incidentNeighbor = pickerNeighbor()
+        let ivc = IncidentsTableViewController()
+        let oldttile = dest.title
+        dest.title = incidentNeighbor.label
+    }
+
 }
 
 class MainDetailViewController: UIViewController {
