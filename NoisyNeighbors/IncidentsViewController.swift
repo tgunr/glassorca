@@ -56,12 +56,19 @@ class IncidentsTableViewController: UITableViewController {
         return cell
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        let allIncidents = gIncidents
-        let theFilter = self.title
-        localIncidents = allIncidents.filter {
-            $0.neighbor?.label == theFilter
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            let thatIncident = gIncidents[indexPath.row]
+            appDelegate.removeIncident(thatIncident)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        viewDidLoad()
         self.incidentsTableView.reloadData()
     }
     

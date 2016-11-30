@@ -114,7 +114,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return
         }
 
-        let result = handleShortCutItem(shortcutItem: shortcut)
+        let _ = handleShortCutItem(shortcutItem: shortcut)
 
         launchedShortcutItem = nil
     }
@@ -166,6 +166,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
             
             self.inputViewController?.present(alertController, animated: true, completion: nil)
+        }
+    }
+
+    func removeIncident(_ incident: Incident) {
+        let found = gIncidents.index(of: incident)
+        if found != nil {
+            gIncidents.remove(at: found!)
+            Incident.saveUserDefaults()
         }
     }
 
