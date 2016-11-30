@@ -9,6 +9,20 @@
 import UIKit
 
 var DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+enum ShortcutIdentifier: String {
+    case Start
+    case Stop
+    case Share
+
+    init?(fullType: String) {
+        guard let last = fullType.components(separatedBy: ".").last else { return nil }
+        self.init(rawValue: last)
+    }
+
+    var type: String {
+        return Bundle.main.bundleIdentifier! + ".\(self.rawValue)" as String
+    }
+}
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,28 +31,67 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var version = "0.2"
     var firstLaunch = false
     var apiKey = "keyx0gx0iobbmtuZl"
-   
+
+    static let applicationShortcutUserInfoIconKey = "applicationShortcutUserInfoIconKey"
+    var shortcutItem: UIApplicationShortcutItem?
+    var shortCutType: String?
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
         Neighbor.restoreUserDefaults()
         Incident.restoreUserDefaults()
-//        let fm = FileManager.default
-//        let icloudToken = fm.ubiquityIdentityToken
-//        let userDefaults: UserDefaults = UserDefaults.standard
-//        if icloudToken != nil {
-//            let docs = FileManager().urls(for: .cachesDirectory, in: .userDomainMask).first!
-//            let newTokenData = NSKeyedArchiver.archiveRootObject(icloudToken, toFile: docs.)
-//            userDefaults.set(icloudToken, forKey: "net.polymicro.noisyneighbors.UbiquityIdentityToken")
-//        } else {
-//            userDefaults.removeObject(forKey: "net.polymicro.noisyneighbors.UbiquityIdentityToken")
-//        }
-//        let nc = NotificationCenter.default
-//        nc.addObserver(self, selector: (iCloudAccountAvailabilityChanged:), name: NSUbiquityIdentityDidChangeNotification, object: nil)
-//        if (icloudToken && firstLaunchWithiCloudAvailable) {
-//
-//        }
-            return true
+
+        // Override point for customization after application launch.
+        var shouldPerformAdditionalDelegateHandling = true
+
+        // If a shortcut was launched, display its information and take the appropriate action
+        shortcutItem = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem
+        if shortcutItem != nil {
+
+            launchedShortcutItem = shortcutItem
+
+            // This will block "performActionForShortcutItem:completionHandler" from being called.
+            shouldPerformAdditionalDelegateHandling = false
+        }
+
+        // Install initial versions of our two extra dynamic shortcuts.
+        let shortcutItems = application.shortcutItems
+        if (shortcutItems != nil) {
+            // Construct the items.
+            let shortcut1 = UIMutableApplicationShortcutItem(type: ShortcutIdentifier.Start.type, localizedTitle: "Start", localizedSubtitle: "Start new incident", icon: UIApplicationShortcutIcon(type: .task), userInfo: [
+                    AppDelegate.applicationShortcutUserInfoIconKey: UIApplicationShortcutIconType.task.rawValue
+            ]
+            )
+            let shortcut2 = UIMutableApplicationShortcutItem(type: ShortcutIdentifier.Stop.type, localizedTitle: "Stop", localizedSubtitle: "Stop current incident", icon: UIApplicationShortcutIcon(type: .taskCompleted), userInfo: [
+                    AppDelegate.applicationShortcutUserInfoIconKey: UIApplicationShortcutIconType.taskCompleted.rawValue
+            ]
+            )
+            let shortcut3 = UIMutableApplicationShortcutItem(type: ShortcutIdentifier.Share.type, localizedTitle: "Share", localizedSubtitle: "Share NoisyNeighbors", icon: UIApplicationShortcutIcon(type: .share), userInfo: [
+                    AppDelegate.applicationShortcutUserInfoIconKey: UIApplicationShortcutIconType.share.rawValue
+            ]
+            )
+
+            // Update the application providing the initial 'dynamic' shortcut items.
+            application.shortcutItems = [shortcut3, shortcut2, shortcut1]
+        }
+
+        return shouldPerformAdditionalDelegateHandling
     }
+
+    var launchedShortcutItem: UIApplicationShortcutItem?
+
+    func handleShortCutItem(shortcutItem: UIApplicationShortcutItem) -> Bool {
+        
+        return true
+    }
+
+    func application(_ application: UIApplication,
+                     performActionFor shortcutItem: UIApplicationShortcutItem,
+                     completionHandler: @escaping (Bool) -> Void) {
+        self.shortcutItem = shortcutItem
+        let handledShortCutItem = handleShortCutItem(shortcutItem: shortcutItem)
+        completionHandler(handledShortCutItem)
+}
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -56,6 +109,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        guard let shortcut = launchedShortcutItem
+                else {
+            return
+        }
+
+        let result = handleShortCutItem(shortcutItem: shortcut)
+
+        launchedShortcutItem = nil
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -96,5 +157,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         self.stagedIncident = nil
     }
+    
+    func longPress(_ sender: Any) {
+        if (sender as AnyObject).state == UIGestureRecognizerState.began
+        {
+            let alertController = UIAlertController(title: nil, message:
+                "Long-Press Gesture Detected", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.inputViewController?.present(alertController, animated: true, completion: nil)
+        }
+    }
+
+//    func application(_ application: UIApplication,
+//                     performActionFor shortcutItem: UIApplicationShortcutItem,
+//                     completionHandler: @escaping (Bool) -> Void) {
+//        let alert = UIAlertControllerStyle(title: "Alert", message: "Here's a message", preferredStyle: alert)
+//        alert.addButton(withTitle: "Understod")
+//        alert.show()
+//    }
+
 }
 

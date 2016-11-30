@@ -38,26 +38,38 @@ class NeighborPickerController: NSObject, UIPickerViewDelegate, UIPickerViewData
 
 class MainViewController: UIViewController {
 
+    static let sharedInstance = MainViewController()
+
     private var appDelegate = UIApplication.shared.delegate as! AppDelegate
     private var pv: NeighborPickerController!
-    
+
     @IBOutlet weak var neighborPickerView: UIPickerView!
     @IBOutlet weak var typeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var noiseButton: UIButton!
     @IBOutlet weak var incidentsButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
+    /// Used to share information between this controller and its parent.
+//    var shortcutItem: UIApplicationShortcutItem?
+
+    func startNoise() {
+        let newIncident = Incident()
+        let incidentNeighbor = pickerNeighbor()
+        let typeIndex = typeSegmentedControl.selectedSegmentIndex
+        newIncident.initWith(neighbor: incidentNeighbor, type: typeIndex)
+        appDelegate.stageIncident(newIncident)
+    }
+
+    func stopNoise() {
+        appDelegate.unstageIncident()
+    }
     @IBAction func noise(_ sender: Any) {
         if appDelegate.stagedIncident == nil {
             activityIndicator.startAnimating()
-            let newIncident = Incident()
-            let incidentNeighbor = pickerNeighbor()
-            let typeIndex = typeSegmentedControl.selectedSegmentIndex
-            newIncident.initWith(neighbor: incidentNeighbor, type: typeIndex)
-            appDelegate.stageIncident(newIncident)
+            startNoise()
         } else {
-            appDelegate.unstageIncident()
             activityIndicator.stopAnimating()
+            stopNoise()
         }
     }
 
@@ -67,7 +79,18 @@ class MainViewController: UIViewController {
         let oldttile = ivc.title
         ivc.title = incidentNeighbor.label
     }
-        
+
+    @IBAction func longPress(_ sender: Any) {
+        if (sender as AnyObject).state == UIGestureRecognizerState.began
+        {
+            let alertController = UIAlertController(title: nil, message:
+                "Long-Press Gesture Detected", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
+
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -80,6 +103,63 @@ class MainViewController: UIViewController {
             activityIndicator.startAnimating()
         }
         self.neighborPickerView.reloadAllComponents()
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress))
+        self.view.addGestureRecognizer(longPressRecognizer)
+
+        addNotifier(selector: #selector(applicationDidEnterForeground))
+
+    }
+
+    func addNotifier(selector: Selector) {
+        NotificationCenter.default.addObserver(self, selector: selector,
+                name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+    }
+
+    func applicationDidEnterForeground(notifier: NSNotification) {
+        let shortCutItem = appDelegate.shortcutItem
+        if shortCutItem != nil {
+            handleShortCutItem(shortCutItem!)
+        }
+    }
+
+    func handleShortCutItem(_ shortcutItem: UIApplicationShortcutItem) {
+        // Verify that the provided `shortcutItem`'s `type` is one handled by the application.
+        guard ShortcutIdentifier(fullType: shortcutItem.type) != nil else { return  }
+
+        guard let shortCutType = shortcutItem.type as String? else { return  }
+
+        switch (shortCutType) {
+        case ShortcutIdentifier.Start.type:
+            if appDelegate.stagedIncident == nil {
+                startNoise()
+            } else {
+                stopNoise()
+                startNoise()
+            }
+            activityIndicator.startAnimating()
+            break
+        case ShortcutIdentifier.Stop.type:
+            stopNoise()
+            activityIndicator.stopAnimating()
+            break
+        case ShortcutIdentifier.Share.type:
+            let text = "How to add Facebook and Twitter sharing to an iOS app"
+            let url: Any = URL(string: "http://roadfiresoftware.com/2014/02/how-to-add-facebook-and-twitter-sharing-to-an-ios-app/")
+            let objectsToShare = [text, url]
+            let activityViewController = UIActivityViewController(activityItems: objectsToShare,
+                    applicationActivities: nil)
+            self.present(activityViewController, animated: true)
+            break
+        default:
+            break
+        }
+
+        // Construct an alert using the details of the shortcut used to open the application.
+//        let alertController = UIAlertController(title: "Shortcut Handled", message: "\"\(shortcutItem.localizedTitle)\"", preferredStyle: .alert)
+//        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+//        alertController.addAction(okAction)
+        // Display an alert indicating the shortcut selected from the home screen.
+//        window!.rootViewController?.present(alertController, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -104,8 +184,6 @@ class MainViewController: UIViewController {
         let dest = segue.destination // as! IncidentsTableViewController
         if segue.identifier == "incidents" {
             let incidentNeighbor = pickerNeighbor()
-            let ivc = IncidentsTableViewController()
-            let oldttile = dest.title
             dest.title = incidentNeighbor.label
         }
     }
