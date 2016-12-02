@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5AF0D49EA7BCE7C82E886748 /* IncidentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF0D6FF4D2D75D62DBE3079 /* IncidentList.swift */; };
 		5AF0DCCD88D444B958B5D8D9 /* NeighborsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF0D663F18268B456B5F3BC /* NeighborsViewController.swift */; };
 		75299A6D1DB567F6007FE325 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75299A6C1DB567F6007FE325 /* AppDelegate.swift */; };
 		75299A741DB567F6007FE325 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75299A721DB567F6007FE325 /* Main.storyboard */; };
@@ -57,6 +58,7 @@
 		3A73E3A83EF8892C6BD9012D /* Pods_NoisyNeighbors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NoisyNeighbors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F1D3723EA5732DC2685B2F7 /* Pods-NoisyNeighbors.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoisyNeighbors.release.xcconfig"; path = "Pods/Target Support Files/Pods-NoisyNeighbors/Pods-NoisyNeighbors.release.xcconfig"; sourceTree = "<group>"; };
 		5AF0D663F18268B456B5F3BC /* NeighborsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighborsViewController.swift; sourceTree = "<group>"; };
+		5AF0D6FF4D2D75D62DBE3079 /* IncidentList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncidentList.swift; sourceTree = "<group>"; };
 		5B65C643D5ABE3AC7228AE96 /* Pods-NoisyNeighbors.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoisyNeighbors.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NoisyNeighbors/Pods-NoisyNeighbors.debug.xcconfig"; sourceTree = "<group>"; };
 		75299A691DB567F6007FE325 /* NoisyNeighbors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoisyNeighbors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75299A6C1DB567F6007FE325 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -141,6 +143,7 @@
 				753C74501DC2AECC007FE325 /* NeighborsTableViewController.swift */,
 				75299A6C1DB567F6007FE325 /* AppDelegate.swift */,
 				5AF0D663F18268B456B5F3BC /* NeighborsViewController.swift */,
+				5AF0D6FF4D2D75D62DBE3079 /* IncidentList.swift */,
 			);
 			path = NoisyNeighbors;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				753C74531DC2AECC007FE325 /* MainViewController.swift in Sources */,
 				75C1AA671DEB6412002CED1F /* Incident.swift in Sources */,
 				5AF0DCCD88D444B958B5D8D9 /* NeighborsViewController.swift in Sources */,
+				5AF0D49EA7BCE7C82E886748 /* IncidentList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

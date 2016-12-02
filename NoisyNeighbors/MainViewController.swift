@@ -48,6 +48,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var noiseButton: UIButton!
     @IBOutlet weak var incidentsButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var configureButton: UIBarButtonItem!
 
     /// Used to share information between this controller and its parent.
 //    var shortcutItem: UIApplicationShortcutItem?
@@ -57,14 +58,15 @@ class MainViewController: UIViewController {
         let incidentNeighbor = pickerNeighbor()
         let typeIndex = typeSegmentedControl.selectedSegmentIndex
         newIncident.initWith(neighbor: incidentNeighbor, type: typeIndex)
-        appDelegate.stageIncident(newIncident)
+        IncidentList.stageIncident(newIncident)
     }
 
     func stopNoise() {
-        appDelegate.unstageIncident()
+        IncidentList.commitIncident()
     }
+    
     @IBAction func noise(_ sender: Any) {
-        if appDelegate.stagedIncident == nil {
+        if IncidentList.staged() {
             activityIndicator.startAnimating()
             startNoise()
         } else {
@@ -76,7 +78,6 @@ class MainViewController: UIViewController {
     @IBAction func incidents(_ sender: Any) {
         let incidentNeighbor = pickerNeighbor()
         let ivc = IncidentsTableViewController()
-        let oldttile = ivc.title
         ivc.title = incidentNeighbor.label
     }
 
@@ -97,11 +98,13 @@ class MainViewController: UIViewController {
         pv = NeighborPickerController.init(pickerInterval: 10)
         neighborPickerView.dataSource = pv as UIPickerViewDataSource?
         neighborPickerView.delegate = pv as UIPickerViewDelegate?
-        if appDelegate.stagedIncident == nil {
-            activityIndicator.stopAnimating()
-        } else {
+        if IncidentList.staged() {
             activityIndicator.startAnimating()
+        } else {
+            activityIndicator.stopAnimating()
         }
+        self.navigationItem.rightBarButtonItem = configureButton
+ 
         self.neighborPickerView.reloadAllComponents()
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress))
         self.view.addGestureRecognizer(longPressRecognizer)
@@ -130,7 +133,7 @@ class MainViewController: UIViewController {
 
         switch (shortCutType) {
         case ShortcutIdentifier.Start.type:
-            if appDelegate.stagedIncident == nil {
+            if IncidentList.staged() {
                 startNoise()
             } else {
                 stopNoise()
@@ -143,9 +146,9 @@ class MainViewController: UIViewController {
             activityIndicator.stopAnimating()
             break
         case ShortcutIdentifier.Share.type:
-            let text = "How to add Facebook and Twitter sharing to an iOS app"
-            let url: Any = URL(string: "http://roadfiresoftware.com/2014/02/how-to-add-facebook-and-twitter-sharing-to-an-ios-app/")
-            let objectsToShare = [text, url]
+            let text = "Share NoisyNeighbors"
+            let url: URL = URL(string: "http://polymicro.net/noisyneighbors")!
+            let objectsToShare = [text, url] as [Any]
             let activityViewController = UIActivityViewController(activityItems: objectsToShare,
                     applicationActivities: nil)
             self.present(activityViewController, animated: true)

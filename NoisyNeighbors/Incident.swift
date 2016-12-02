@@ -16,15 +16,11 @@ enum IncidentType: String {
     case None
 }
 
-var gIncidents: [Incident] = [Incident]()
-
 class Incident: NSObject, NSCoding {
     var neighbor : Neighbor?
     var occured : Date = Date.init()
     var stopped : Date = Date.init()
     var type: IncidentType = .None
-    
-    static var ArchiveURL = DocumentsDirectory.appendingPathComponent("incidents").standardizedFileURL.path
 
     public override init() {
         super.init()
@@ -59,22 +55,7 @@ class Incident: NSObject, NSCoding {
         type = IncidentType(rawValue: (aDecoder.decodeObject(forKey: PropertyKey.typeKey) as! String)) ?? .None
     }
 
-    class func saveUserDefaults() {
-        let result = NSKeyedArchiver.archiveRootObject(gIncidents, toFile: ArchiveURL)
-        if !result {
-            print("Failed to save gIncidents...")
-        }
-    }
-    
-    class func restoreUserDefaults() {
-        let result =  NSKeyedUnarchiver.unarchiveObject(withFile: ArchiveURL) as? [Incident]
-        if result != nil {
-            gIncidents = result!
-        } else {
-            print("Failed to restore gIncidents...")
-        }
-    }
-    
+
     func interval () -> TimeInterval {
         let then = stopped.timeIntervalSince1970
         let now = occured.timeIntervalSince1970

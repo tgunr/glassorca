@@ -9,6 +9,7 @@
 import UIKit
 
 var DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+
 enum ShortcutIdentifier: String {
     case Start
     case Stop
@@ -27,7 +28,6 @@ enum ShortcutIdentifier: String {
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    var stagedIncident: Incident?
     var version = "0.2"
     var firstLaunch = false
     var apiKey = "keyx0gx0iobbmtuZl"
@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         Neighbor.restoreUserDefaults()
-        Incident.restoreUserDefaults()
+        IncidentList.sharedInstance.restoreUserDefaults()
 
         // Override point for customization after application launch.
         var shouldPerformAdditionalDelegateHandling = true
@@ -144,20 +144,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
-    func stageIncident(_ incident: Incident) {
-        self.stagedIncident = incident
-    }
-
-    func unstageIncident() {
-        // Save any previous stage incident
-        if self.stagedIncident != nil {
-            self.stagedIncident!.stopped = Date()
-            gIncidents.append(stagedIncident!)
-            Incident.saveUserDefaults()
-        }
-        self.stagedIncident = nil
-    }
-    
     func longPress(_ sender: Any) {
         if (sender as AnyObject).state == UIGestureRecognizerState.began
         {
@@ -168,22 +154,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.inputViewController?.present(alertController, animated: true, completion: nil)
         }
     }
-
-    func removeIncident(_ incident: Incident) {
-        let found = gIncidents.index(of: incident)
-        if found != nil {
-            gIncidents.remove(at: found!)
-            Incident.saveUserDefaults()
-        }
-    }
-
-//    func application(_ application: UIApplication,
-//                     performActionFor shortcutItem: UIApplicationShortcutItem,
-//                     completionHandler: @escaping (Bool) -> Void) {
-//        let alert = UIAlertControllerStyle(title: "Alert", message: "Here's a message", preferredStyle: alert)
-//        alert.addButton(withTitle: "Understod")
-//        alert.show()
-//    }
 
 }
 

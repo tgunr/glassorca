@@ -97,7 +97,6 @@ class NeighborsDetailViewController: UIViewController, UITextFieldDelegate {
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
-        let text = labelTextField?.text
         if textField.text == "" {
             saveButton.isEnabled = false
         } else {
