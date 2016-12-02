@@ -103,7 +103,7 @@ class MainViewController: UIViewController {
         } else {
             activityIndicator.stopAnimating()
         }
-        self.navigationItem.rightBarButtonItem = configureButton
+//        self.navigationItem.rightBarButtonItem = configureButton
  
         self.neighborPickerView.reloadAllComponents()
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress))
