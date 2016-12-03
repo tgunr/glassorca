@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5AF0D49EA7BCE7C82E886748 /* IncidentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF0D6FF4D2D75D62DBE3079 /* IncidentList.swift */; };
 		5AF0DCCD88D444B958B5D8D9 /* NeighborsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF0D663F18268B456B5F3BC /* NeighborsViewController.swift */; };
 		75299A6D1DB567F6007FE325 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75299A6C1DB567F6007FE325 /* AppDelegate.swift */; };
 		75299A741DB567F6007FE325 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75299A721DB567F6007FE325 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 		753C74551DC2AECC007FE325 /* NeighborsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753C74501DC2AECC007FE325 /* NeighborsTableViewController.swift */; };
 		755E6CF51DEB77FC00F601EC /* IncidentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755E6CF41DEB77FC00F601EC /* IncidentsViewController.swift */; };
 		75C1AA671DEB6412002CED1F /* Incident.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C1AA661DEB6412002CED1F /* Incident.swift */; };
+		75CA595C1DEBA87F009271AC /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CA595B1DEBA87F009271AC /* CloudKit.framework */; };
 		F57C128DC8C2287DB0ECC092 /* Pods_NoisyNeighbors.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A73E3A83EF8892C6BD9012D /* Pods_NoisyNeighbors.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,9 +58,10 @@
 		3A73E3A83EF8892C6BD9012D /* Pods_NoisyNeighbors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NoisyNeighbors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F1D3723EA5732DC2685B2F7 /* Pods-NoisyNeighbors.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoisyNeighbors.release.xcconfig"; path = "Pods/Target Support Files/Pods-NoisyNeighbors/Pods-NoisyNeighbors.release.xcconfig"; sourceTree = "<group>"; };
 		5AF0D663F18268B456B5F3BC /* NeighborsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighborsViewController.swift; sourceTree = "<group>"; };
+		5AF0D6FF4D2D75D62DBE3079 /* IncidentList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncidentList.swift; sourceTree = "<group>"; };
 		5B65C643D5ABE3AC7228AE96 /* Pods-NoisyNeighbors.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoisyNeighbors.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NoisyNeighbors/Pods-NoisyNeighbors.debug.xcconfig"; sourceTree = "<group>"; };
 		75299A691DB567F6007FE325 /* NoisyNeighbors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoisyNeighbors.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		75299A6C1DB567F6007FE325 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		75299A6C1DB567F6007FE325 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		75299A731DB567F6007FE325 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		75299A751DB567F6007FE325 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75299A781DB567F6007FE325 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -70,12 +73,13 @@
 		75299A8E1DB567F6007FE325 /* NoisyNeighborsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoisyNeighborsUITests.swift; sourceTree = "<group>"; };
 		75299A901DB567F6007FE325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		753C744D1DC2AECC007FE325 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		753C744E1DC2AECC007FE325 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		753C744F1DC2AECC007FE325 /* Neighbor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Neighbor.swift; sourceTree = "<group>"; };
-		753C74501DC2AECC007FE325 /* NeighborsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighborsTableViewController.swift; sourceTree = "<group>"; };
-		755E6CF41DEB77FC00F601EC /* IncidentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncidentsViewController.swift; sourceTree = "<group>"; };
+		753C744E1DC2AECC007FE325 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MainViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		753C744F1DC2AECC007FE325 /* Neighbor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Neighbor.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		753C74501DC2AECC007FE325 /* NeighborsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = NeighborsTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		755E6CF41DEB77FC00F601EC /* IncidentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = IncidentsViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		755E6CF61DEB9DC200F601EC /* NoisyNeighbors.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NoisyNeighbors.entitlements; sourceTree = "<group>"; };
-		75C1AA661DEB6412002CED1F /* Incident.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Incident.swift; sourceTree = "<group>"; };
+		75C1AA661DEB6412002CED1F /* Incident.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Incident.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		75CA595B1DEBA87F009271AC /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F57C128DC8C2287DB0ECC092 /* Pods_NoisyNeighbors.framework in Frameworks */,
+				75CA595C1DEBA87F009271AC /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,13 +136,15 @@
 			isa = PBXGroup;
 			children = (
 				755E6CF61DEB9DC200F601EC /* NoisyNeighbors.entitlements */,
+				75299A6C1DB567F6007FE325 /* AppDelegate.swift */,
 				753C744D1DC2AECC007FE325 /* Extensions.swift */,
 				753C744E1DC2AECC007FE325 /* MainViewController.swift */,
-				753C744F1DC2AECC007FE325 /* Neighbor.swift */,
+				755E6CF41DEB77FC00F601EC /* IncidentsViewController.swift */,
 				75C1AA661DEB6412002CED1F /* Incident.swift */,
-				753C74501DC2AECC007FE325 /* NeighborsTableViewController.swift */,
-				75299A6C1DB567F6007FE325 /* AppDelegate.swift */,
+				5AF0D6FF4D2D75D62DBE3079 /* IncidentList.swift */,
+				753C744F1DC2AECC007FE325 /* Neighbor.swift */,
 				5AF0D663F18268B456B5F3BC /* NeighborsViewController.swift */,
+				753C74501DC2AECC007FE325 /* NeighborsTableViewController.swift */,
 			);
 			path = NoisyNeighbors;
 			sourceTree = "<group>";
@@ -164,7 +171,6 @@
 			isa = PBXGroup;
 			children = (
 				75299A721DB567F6007FE325 /* Main.storyboard */,
-				755E6CF41DEB77FC00F601EC /* IncidentsViewController.swift */,
 				75299A751DB567F6007FE325 /* Assets.xcassets */,
 				75299A771DB567F6007FE325 /* LaunchScreen.storyboard */,
 				75299A7A1DB567F6007FE325 /* Info.plist */,
@@ -176,6 +182,7 @@
 		8799F7D39AC5740BE4FCF15A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				75CA595B1DEBA87F009271AC /* CloudKit.framework */,
 				3A73E3A83EF8892C6BD9012D /* Pods_NoisyNeighbors.framework */,
 			);
 			name = Frameworks;
@@ -270,8 +277,11 @@
 						DevelopmentTeam = NL3267E99V;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
 							com.apple.iCloud = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -423,6 +433,7 @@
 				753C74531DC2AECC007FE325 /* MainViewController.swift in Sources */,
 				75C1AA671DEB6412002CED1F /* Incident.swift in Sources */,
 				5AF0DCCD88D444B958B5D8D9 /* NeighborsViewController.swift in Sources */,
+				5AF0D49EA7BCE7C82E886748 /* IncidentList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,6 +586,7 @@
 			baseConfigurationReference = 5B65C643D5ABE3AC7228AE96 /* Pods-NoisyNeighbors.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NoisyNeighbors/NoisyNeighbors.entitlements;
 				DEVELOPMENT_TEAM = NL3267E99V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -583,9 +595,10 @@
 				);
 				INFOPLIST_FILE = NoisyNeighbors/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.NoisyNeighbors;
+				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.ios.noisyneighors;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
 			};
 			name = Debug;
 		};
@@ -594,6 +607,7 @@
 			baseConfigurationReference = 4F1D3723EA5732DC2685B2F7 /* Pods-NoisyNeighbors.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NoisyNeighbors/NoisyNeighbors.entitlements;
 				DEVELOPMENT_TEAM = NL3267E99V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -602,9 +616,10 @@
 				);
 				INFOPLIST_FILE = NoisyNeighbors/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.NoisyNeighbors;
+				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.ios.noisyneighors;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
 			};
 			name = Release;
 		};

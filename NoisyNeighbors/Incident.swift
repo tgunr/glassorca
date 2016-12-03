@@ -21,7 +21,7 @@ class Incident: NSObject, NSCoding {
     var occured : Date = Date.init()
     var stopped : Date = Date.init()
     var type: IncidentType = .None
-    
+
     public override init() {
         super.init()
     }
@@ -45,14 +45,16 @@ class Incident: NSObject, NSCoding {
     func encode(with aCoder: NSCoder) {
         aCoder.encode(neighbor, forKey: PropertyKey.neighborKey)
         aCoder.encode(occured, forKey: PropertyKey.occuredKey)
-        aCoder.encode(type, forKey: PropertyKey.typeKey)
+        aCoder.encode(stopped, forKey: PropertyKey.stoppedKey)
+        aCoder.encode(type.rawValue, forKey: PropertyKey.typeKey)
     }
     
-    public required init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         neighbor = (aDecoder.decodeObject(forKey: PropertyKey.neighborKey) as! Neighbor)
         occured = (aDecoder.decodeObject(forKey: PropertyKey.occuredKey) as! Date)
-        type = (aDecoder.decodeObject(forKey: PropertyKey.typeKey) as! IncidentType)
+        type = IncidentType(rawValue: (aDecoder.decodeObject(forKey: PropertyKey.typeKey) as! String)) ?? .None
     }
+
 
     func interval () -> TimeInterval {
         let then = stopped.timeIntervalSince1970

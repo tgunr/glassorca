@@ -22,18 +22,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3h-LG-JhT" userLabel="Incidents Button">
-                                <rect key="frame" x="156" y="298" width="63" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Incidents"/>
-                                <connections>
-                                    <action selector="incidents:" destination="9pv-A4-QxB" eventType="touchUpInside" id="sWi-sE-Qew"/>
-                                    <segue destination="X8B-Ez-BUQ" kind="show" id="GIt-Pg-i2E"/>
-                                </connections>
-                            </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5E3-oN-XGV">
                                 <rect key="frame" x="0.0" y="72" width="375" height="126"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="X4E-7q-FWE" appends="YES" id="Ec2-Dn-E1Q"/>
+                                </connections>
                             </pickerView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ihw-x0-Dty">
                                 <rect key="frame" x="16" y="206" width="343" height="29"/>
@@ -45,25 +40,46 @@
                                     <segment title="Other"/>
                                 </segments>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fi-Fs-8Pt" userLabel="Noise Button">
-                                <rect key="frame" x="168" y="260" width="39" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Noise"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fi-Fs-8Pt" userLabel="Noise Button">
+                                <rect key="frame" x="109" y="293" width="156" height="184"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
+                                <state key="normal" title="Noise" image="noise"/>
                                 <connections>
                                     <action selector="noise:" destination="9pv-A4-QxB" eventType="touchUpInside" id="DW3-Aj-4eT"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleAspectFill" semanticContentAttribute="spatial" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Rzt-p8-TPX">
+                                <rect key="frame" x="181" y="265" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3h-LG-JhT" userLabel="Incidents Button">
+                                <rect key="frame" x="156" y="588" width="63" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Incidents"/>
+                                <connections>
+                                    <action selector="incidents:" destination="9pv-A4-QxB" eventType="touchUpInside" id="sWi-sE-Qew"/>
+                                    <segue destination="X8B-Ez-BUQ" kind="show" identifier="incidents" id="GIt-Pg-i2E"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="X4E-7q-FWE" appends="YES" id="Xca-3F-k4a"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="80m-F3-7Wh">
                         <barButtonItem key="rightBarButtonItem" title="Configure" style="plain" id="DpB-5W-Ymg" userLabel="Configure">
                             <connections>
-                                <segue destination="SjJ-x3-TW4" kind="show" id="SSx-Ox-o5a"/>
+                                <segue destination="SjJ-x3-TW4" kind="show" identifier="neighbors" id="SSx-Ox-o5a"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="Rzt-p8-TPX" id="PO8-oH-b52"/>
                         <outlet property="incidentsButton" destination="X3h-LG-JhT" id="45Z-9o-3q7"/>
                         <outlet property="neighborPickerView" destination="5E3-oN-XGV" id="AsM-yr-Vqb"/>
                         <outlet property="noiseButton" destination="7fi-Fs-8Pt" id="VcW-fO-6Pb"/>
@@ -71,6 +87,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="X4E-7q-FWE">
+                    <connections>
+                        <action selector="longPress:" destination="9pv-A4-QxB" id="ZHF-Vx-3oW"/>
+                        <outlet property="delegate" destination="9pv-A4-QxB" id="mEL-tI-QFW"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="304.80000000000001" y="-100.29985007496252"/>
         </scene>
@@ -78,34 +100,41 @@
         <scene sceneID="aFT-yf-vTl">
             <objects>
                 <tableViewController title="Incidents" id="X8B-Ez-BUQ" customClass="IncidentsTableViewController" customModule="NoisyNeighbors" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="n9d-yr-gAr" userLabel="Incidents Table View">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" allowsMultipleSelection="YES" rowHeight="57" sectionHeaderHeight="28" sectionFooterHeight="28" id="n9d-yr-gAr" userLabel="Incidents Table View">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="incidentCell" id="4eo-I6-gWg" customClass="IncidentsTableViewCell" customModule="NoisyNeighbors" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="incidentCell" rowHeight="57" id="4eo-I6-gWg" customClass="IncidentsTableViewCell" customModule="NoisyNeighbors" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="57"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4eo-I6-gWg" id="Y9f-Oy-m93">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Hbr-gZ-sMW">
-                                            <rect key="frame" x="8" y="11" width="186" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Hbr-gZ-sMW" userLabel="Occurred Label">
+                                            <rect key="frame" x="8" y="8" width="154" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vvc-JY-N5U" userLabel="Duration">
-                                            <rect key="frame" x="287" y="11" width="80" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2qz-5G-qpA" userLabel="Stopped Label">
+                                            <rect key="frame" x="8" y="35" width="154" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Incident" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zh5-Fl-Krz">
+                                            <rect key="frame" x="188" y="18" width="61" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Incident" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zh5-Fl-Krz">
-                                            <rect key="frame" x="202" y="11" width="77" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vvc-JY-N5U">
+                                            <rect key="frame" x="266" y="18" width="72" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -114,21 +143,40 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="dateLabel" destination="Hbr-gZ-sMW" id="biS-Nk-j6O"/>
-                                    <outlet property="durationLabel" destination="Vvc-JY-N5U" id="IE2-8I-aON"/>
+                                    <outlet property="durationLabel" destination="Vvc-JY-N5U" id="7gp-u7-XyI"/>
                                     <outlet property="incidentLabel" destination="Zh5-Fl-Krz" id="hmG-qL-KqC"/>
+                                    <outlet property="occurredLabel" destination="Hbr-gZ-sMW" id="ogD-YW-73Y"/>
+                                    <outlet property="stoppedLabel" destination="2qz-5G-qpA" id="eTO-dU-sL3"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="X8B-Ez-BUQ" id="FvU-Jl-t8T"/>
-                            <outlet property="delegate" destination="X8B-Ez-BUQ" id="6Qi-LC-rbo"/>
+                            <outlet property="dataSource" destination="X8B-Ez-BUQ" id="dRe-6f-DM2"/>
+                            <outlet property="delegate" destination="X8B-Ez-BUQ" id="mEd-z1-ofv"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="incidentsTableView" destination="n9d-yr-gAr" id="QQx-vJ-di4"/>
+                        <outlet property="incidentsTableView" destination="n9d-yr-gAr" id="Cep-nK-GUY"/>
+                        <outlet property="mergeButton" destination="ooW-tq-ci7" id="1QN-bS-oYF"/>
+                        <outlet property="trashButton" destination="8VK-uR-xWA" id="QQc-ah-CSb"/>
                     </connections>
                 </tableViewController>
+                <navigationItem id="Jgl-og-G0C">
+                    <rightBarButtonItems>
+                        <barButtonItem systemItem="trash" id="8VK-uR-xWA" userLabel="Trash">
+                            <connections>
+                                <action selector="trash:" destination="X8B-Ez-BUQ" id="aBm-en-EVG"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="Merge" style="plain" id="ooW-tq-ci7" userLabel="Merge">
+                            <connections>
+                                <action selector="merge:" destination="X8B-Ez-BUQ" id="odR-Q8-lLG"/>
+                            </connections>
+                        </barButtonItem>
+                    </rightBarButtonItems>
+                </navigationItem>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aeh-AH-mjW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1093.5999999999999" y="-102.09895052473765"/>
@@ -374,4 +422,7 @@
             <point key="canvasLocation" x="1181.5999999999999" y="694.90254872563719"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="noise" width="158" height="148"/>
+    </resources>
 </document>

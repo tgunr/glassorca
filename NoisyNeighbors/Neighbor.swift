@@ -14,20 +14,20 @@ struct PropertyKey {
     static let addressKey = "address"
     static let neighborKey = "neighbor"
     static let occuredKey = "occured"
+    static let stoppedKey = "stopped"
     static let typeKey = "type"
     static let incidentsKey = "incidents"
 }
 
+var gNeighbors: [Neighbor] = [Neighbor]()
+
 class Neighbor: NSObject, NSCoding {
-    static var DocumentsDirectory: URL = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-    static var ArchiveURL: String = DocumentsDirectory.appendingPathComponent("neighbors").standardizedFileURL.path
+    static let ArchiveURL: String = DocumentsDirectory.appendingPathComponent("neighbors").standardizedFileURL.path
 
     var uuid : String = UUID().uuidString
     var label : String = "Label"
     var name : String = "Name"
     var address : String = "Address"
-    let incidents = [Incident]()
-    
     
     override init() {
         super.init()
@@ -38,7 +38,6 @@ class Neighbor: NSObject, NSCoding {
         aCoder.encode(label, forKey: PropertyKey.labelKey)
         aCoder.encode(name, forKey: PropertyKey.nameKey)
         aCoder.encode(address, forKey: PropertyKey.addressKey)
-        aCoder.encode(incidents, forKey: PropertyKey.incidentsKey)
    }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -49,6 +48,23 @@ class Neighbor: NSObject, NSCoding {
         uuid = (aDecoder.decodeObject(forKey: PropertyKey.uuidKey) as! String)
     }
 
+    class func saveUserDefaults() {
+        let result = NSKeyedArchiver.archiveRootObject(gNeighbors, toFile: ArchiveURL)
+        if !result {
+            print("Failed to save gNeighbors...")
+        }
+    }
+    
+    class func restoreUserDefaults() {
+        NSLog("Restoring")
+        let result =  NSKeyedUnarchiver.unarchiveObject(withFile: ArchiveURL) as? [Neighbor]
+        if result != nil {
+            gNeighbors = result!
+        } else {
+            print("Failed to restore gNeighbors...")
+        }
+    }
+    
     static func == (lhs: Neighbor, rhs: Neighbor) -> Bool {
         return lhs.uuid == rhs.uuid
     }
