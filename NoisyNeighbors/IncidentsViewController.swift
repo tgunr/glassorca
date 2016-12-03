@@ -25,6 +25,31 @@ class IncidentsTableViewController: UITableViewController {
     @IBOutlet weak var incidentsTableView: UITableView!
     @IBOutlet weak var mergeButton: UIBarButtonItem!
     @IBOutlet weak var trashButton: UIBarButtonItem!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+    
+    @IBAction func share(_ sender: Any) {
+        var body = ""
+        let incidents = localIncidents.count
+        let i = 0
+        for i in 0..<incidents {
+            let incident = localIncidents[i]
+                let aDate = incident.occured
+                let dateFormat = dateFormatted(aDate)
+                let interval = incident.interval()
+                let duration = incident.stringFromTimeInterval(interval: interval)
+
+                body = "\(body)\(incident.type) noise occurred at: \(dateFormat)! for \(duration) minutes\n"
+        }
+        let neighbor = localIncidents[i].neighbor
+        let name:String = neighbor!.name 
+        let address:String = neighbor!.address 
+        let text = "\(name)\n\(address)\n\(body)"
+        let objectsToShare = [text] as [Any]
+        let activityViewController = UIActivityViewController(activityItems: objectsToShare,
+                                                              applicationActivities: nil)
+        self.present(activityViewController, animated: true)
+
+    }
     
     @IBAction func merge(_ sender: Any) {
         selectedCells = incidentsTableView.indexPathsForSelectedRows
@@ -71,11 +96,8 @@ class IncidentsTableViewController: UITableViewController {
     @IBAction func trash(_ sender: Any) {
         selectedCells = incidentsTableView.indexPathsForSelectedRows
         for theIncident in selectedCells! {
-            incidentsTableView.deselectRow(at: theIncident, animated: true)
             deleteIncident(indexPath: theIncident)
         }
-        viewDidLoad()
-        incidentsTableView.reloadData()
     }
     
     func dateFormatted(_ date: Date) -> String {
@@ -96,8 +118,8 @@ class IncidentsTableViewController: UITableViewController {
     func deleteIncident(indexPath: IndexPath) {
         let thatIncident = IncidentList.incident(indexPath: indexPath)
         IncidentList.remove(thatIncident)
-        filterIncidents()
-        tableView.deleteRows(at: [indexPath], with: .fade)
+        viewDidLoad()
+        incidentsTableView.reloadData()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -172,7 +194,7 @@ class IncidentsTableViewController: UITableViewController {
 //    }
     
     override func viewDidLoad() {
-        self.navigationItem.setRightBarButtonItems([mergeButton, trashButton], animated: true)
+        self.navigationItem.setRightBarButtonItems([mergeButton, trashButton, shareButton], animated: true)
         setItemsEnabled()
         filterIncidents()
     }

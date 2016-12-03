@@ -109,7 +109,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="57"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4eo-I6-gWg" id="Y9f-Oy-m93">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="57"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Hbr-gZ-sMW" userLabel="Occurred Label">
@@ -160,6 +160,7 @@
                     <connections>
                         <outlet property="incidentsTableView" destination="n9d-yr-gAr" id="Cep-nK-GUY"/>
                         <outlet property="mergeButton" destination="ooW-tq-ci7" id="1QN-bS-oYF"/>
+                        <outlet property="shareButton" destination="inF-Dg-khW" id="zoP-6E-3s4"/>
                         <outlet property="trashButton" destination="8VK-uR-xWA" id="QQc-ah-CSb"/>
                     </connections>
                 </tableViewController>
@@ -173,6 +174,11 @@
                         <barButtonItem title="Merge" style="plain" id="ooW-tq-ci7" userLabel="Merge">
                             <connections>
                                 <action selector="merge:" destination="X8B-Ez-BUQ" id="odR-Q8-lLG"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem systemItem="action" id="inF-Dg-khW" userLabel="Share">
+                            <connections>
+                                <action selector="share:" destination="X8B-Ez-BUQ" id="wog-7g-hud"/>
                             </connections>
                         </barButtonItem>
                     </rightBarButtonItems>
@@ -212,18 +218,18 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="73"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K5X-Wz-Fet" id="Pco-BV-fpO">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="72.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="c8w-aW-Bnr">
-                                            <rect key="frame" x="15" y="18" width="34" height="21"/>
+                                            <rect key="frame" x="15" y="19" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ol3-JM-bNP">
-                                            <rect key="frame" x="15" y="39" width="33" height="15"/>
+                                            <rect key="frame" x="15" y="39.5" width="33" height="14.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
