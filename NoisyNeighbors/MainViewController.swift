@@ -67,11 +67,11 @@ class MainViewController: UIViewController {
     
     @IBAction func noise(_ sender: Any) {
         if IncidentList.staged() {
-            activityIndicator.startAnimating()
-            startNoise()
-        } else {
             activityIndicator.stopAnimating()
             stopNoise()
+        } else {
+            activityIndicator.startAnimating()
+            startNoise()
         }
     }
 

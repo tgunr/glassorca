@@ -9,7 +9,8 @@
 import UIKit
 
 class IncidentsTableViewCell: UITableViewCell {
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var occurredLabel: UILabel!
+    @IBOutlet weak var stoppedLabel: UILabel!
     @IBOutlet weak var incidentLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     
@@ -29,7 +30,7 @@ class IncidentsTableViewController: UITableViewController {
         selectedCells = incidentsTableView.indexPathsForSelectedRows
         // Save any staged incident
         IncidentList.commitIncident()
-        var all = IncidentList.allIncidents()
+        var localsToRemove = [Incident]()
         let newIncident = Incident()
         // As we iterate, the selected incident occurred date will always be earlier thab
         // the newIncident.occured on first pass.
@@ -38,7 +39,7 @@ class IncidentsTableViewController: UITableViewController {
         // latest to first incident encountered
         var latest: Date = Date.init(timeIntervalSince1970: 0)
         for thisIncident in selectedCells! {
-            let thatIncident = all[thisIncident.row]
+            let thatIncident = localIncidents[thisIncident.row]
             if thatIncident.occured < earlist {
                 earlist = thatIncident.occured
             }
@@ -47,19 +48,34 @@ class IncidentsTableViewController: UITableViewController {
             }
             newIncident.neighbor = thatIncident.neighbor
             newIncident.type = thatIncident.type
-            all.remove(at: thisIncident.row)
-            IncidentList.remove(thatIncident)
+            localsToRemove.append(thatIncident)
         }
-        IncidentList.setIncidents(all)
-        IncidentList.stageIncident(newIncident)
-        viewDidAppear(true)
+        newIncident.occured = earlist
+        newIncident.stopped = latest
+        // Remove found items from both localIncidents and global incidents
+        for anIncident in localsToRemove {
+            let found = localIncidents.index(of: anIncident)
+            if found != nil {
+                localIncidents.remove(at: found!)
+            }
+            IncidentList.remove(anIncident)
+        }
+        var someIncidents = IncidentList.sharedInstance.incidents
+        someIncidents.append(newIncident)
+        IncidentList.sharedInstance.incidents = someIncidents
+        viewDidLoad()
+        incidentsTableView.reloadData()
     }
+
 
     @IBAction func trash(_ sender: Any) {
         selectedCells = incidentsTableView.indexPathsForSelectedRows
         for theIncident in selectedCells! {
+            incidentsTableView.deselectRow(at: theIncident, animated: true)
             deleteIncident(indexPath: theIncident)
         }
+        viewDidLoad()
+        incidentsTableView.reloadData()
     }
     
     func dateFormatted(_ date: Date) -> String {
@@ -67,7 +83,7 @@ class IncidentsTableViewController: UITableViewController {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         dateFormatter.isLenient = true
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
+//        dateFormatter.timeZone = TimeZone(abbreviation: "HST")
         let result = dateFormatter.string(from: date)
         return result
     }
@@ -98,9 +114,12 @@ class IncidentsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "incidentCell", for: indexPath) as! IncidentsTableViewCell
         let incident = localIncidents[indexPath.row]
         // Configure the cell...
-        let aDate = incident.occured
-        let dateFormat = dateFormatted(aDate)
-        cell.dateLabel.text = dateFormat
+        var aDate = incident.occured
+        var dateFormat = dateFormatted(aDate)
+        cell.occurredLabel.text = dateFormat
+        aDate = incident.stopped
+        dateFormat = dateFormatted(aDate)
+        cell.stoppedLabel.text = dateFormat
         cell.incidentLabel.text = incident.type.rawValue
 
         let interval = incident.interval()
@@ -120,22 +139,41 @@ class IncidentsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath)!.accessoryType = .checkmark
         selectedCells = incidentsTableView.indexPathsForSelectedRows
+        setItemsEnabled()
     }
 
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath)!.accessoryType = .none
         selectedCells = incidentsTableView.indexPathsForSelectedRows
+        setItemsEnabled()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        viewDidLoad()
+    func setItemsEnabled() {
         selectedCells = incidentsTableView.indexPathsForSelectedRows
-        self.incidentsTableView.reloadData()
+        if selectedCells != nil {
+            if (selectedCells?.count)! > 0 {
+                trashButton.isEnabled = true
+            } else {
+                trashButton.isEnabled = false
+            }
+            if (selectedCells?.count)! > 1 {
+                mergeButton.isEnabled = true
+            } else {
+                mergeButton.isEnabled = false
+            }
+        } else {
+            trashButton.isEnabled = false
+            mergeButton.isEnabled = false
+        }
     }
+    //    override func viewDidAppear(_ animated: Bool) {
+//        viewDidLoad()
+//        self.incidentsTableView.reloadData()
+//    }
     
     override func viewDidLoad() {
-        self.navigationItem.rightBarButtonItem=mergeButton
-//        self.navigationItem.rightBarButtonItem=trashButton
+        self.navigationItem.setRightBarButtonItems([mergeButton, trashButton], animated: true)
+        setItemsEnabled()
         filterIncidents()
     }
 }
