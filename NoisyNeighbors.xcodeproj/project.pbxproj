@@ -20,6 +20,7 @@
 		753C74541DC2AECC007FE325 /* Neighbor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753C744F1DC2AECC007FE325 /* Neighbor.swift */; };
 		753C74551DC2AECC007FE325 /* NeighborsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753C74501DC2AECC007FE325 /* NeighborsTableViewController.swift */; };
 		755E6CF51DEB77FC00F601EC /* IncidentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755E6CF41DEB77FC00F601EC /* IncidentsViewController.swift */; };
+		75AE56A41DF3ADE4002CADAE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75AE56A31DF3ADE4002CADAE /* AudioToolbox.framework */; };
 		75C1AA671DEB6412002CED1F /* Incident.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C1AA661DEB6412002CED1F /* Incident.swift */; };
 		75CA595C1DEBA87F009271AC /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CA595B1DEBA87F009271AC /* CloudKit.framework */; };
 		F57C128DC8C2287DB0ECC092 /* Pods_NoisyNeighbors.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A73E3A83EF8892C6BD9012D /* Pods_NoisyNeighbors.framework */; };
@@ -78,6 +79,7 @@
 		753C74501DC2AECC007FE325 /* NeighborsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = NeighborsTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		755E6CF41DEB77FC00F601EC /* IncidentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = IncidentsViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		755E6CF61DEB9DC200F601EC /* NoisyNeighbors.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NoisyNeighbors.entitlements; sourceTree = "<group>"; };
+		75AE56A31DF3ADE4002CADAE /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		75C1AA661DEB6412002CED1F /* Incident.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Incident.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		75CA595B1DEBA87F009271AC /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -87,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75AE56A41DF3ADE4002CADAE /* AudioToolbox.framework in Frameworks */,
 				F57C128DC8C2287DB0ECC092 /* Pods_NoisyNeighbors.framework in Frameworks */,
 				75CA595C1DEBA87F009271AC /* CloudKit.framework in Frameworks */,
 			);
@@ -182,6 +185,7 @@
 		8799F7D39AC5740BE4FCF15A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				75AE56A31DF3ADE4002CADAE /* AudioToolbox.framework */,
 				75CA595B1DEBA87F009271AC /* CloudKit.framework */,
 				3A73E3A83EF8892C6BD9012D /* Pods_NoisyNeighbors.framework */,
 			);

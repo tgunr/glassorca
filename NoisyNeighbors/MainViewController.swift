@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class NeighborPickerController: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
     private var appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -52,25 +53,74 @@ class MainViewController: UIViewController {
 
     /// Used to share information between this controller and its parent.
 //    var shortcutItem: UIApplicationShortcutItem?
-
+    var alertController: UIAlertController?
+    
+    func startTimer() {
+        Timer.scheduledTimer(timeInterval: 120, target: self, selector: #selector(self.timedReminder), userInfo: nil, repeats: false);
+    }
+    
     func startNoise() {
         let newIncident = Incident()
         let incidentNeighbor = pickerNeighbor()
         let typeIndex = typeSegmentedControl.selectedSegmentIndex
         newIncident.initWith(neighbor: incidentNeighbor, type: typeIndex)
         IncidentList.stageIncident(newIncident)
+        activityIndicator.startAnimating()
+        startTimer()
     }
 
+    func stopOnTimeout()
+    {
+        stopNoise()
+        alertController?.dismiss(animated: true, completion: nil)
+    }
+    
+
+    func timedReminder(timer: Timer) {
+            alertController = UIAlertController(title: "Title", message:
+            "Still Making Noise?", preferredStyle: UIAlertControllerStyle.alert)
+            alertController?.addAction(UIAlertAction(title: "YES", style: UIAlertActionStyle.default, handler: { action in
+            switch action.style{
+            case .default:
+                print("default")
+                self.startTimer()
+            case .cancel:
+                print("cancel")
+            case .destructive:
+                print("destructive")
+            }
+        }))
+        alertController?.addAction(UIAlertAction(title: "NO", style: UIAlertActionStyle.default, handler: { action in
+            switch action.style{
+            case .default:
+                print("default")
+                self.stopNoise()
+            case .cancel:
+                print("cancel")
+            case .destructive:
+                print("destructive")
+            }
+        }))
+        
+        let feedbackGenerator = UISelectionFeedbackGenerator()
+        feedbackGenerator.prepare()
+        feedbackGenerator.selectionChanged()
+        AudioServicesPlaySystemSound(1322);
+
+        Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.stopOnTimeout), userInfo: nil, repeats: false);
+        self.present(alertController!, animated: true, completion: nil)
+
+    }
+    
     func stopNoise() {
         IncidentList.commitIncident()
+        activityIndicator.stopAnimating()
     }
     
     @IBAction func noise(_ sender: Any) {
         if IncidentList.staged() {
-            activityIndicator.stopAnimating()
             stopNoise()
         } else {
-            activityIndicator.startAnimating()
             startNoise()
         }
     }
@@ -139,11 +189,9 @@ class MainViewController: UIViewController {
                 stopNoise()
                 startNoise()
             }
-            activityIndicator.startAnimating()
             break
         case ShortcutIdentifier.Stop.type:
             stopNoise()
-            activityIndicator.stopAnimating()
             break
         case ShortcutIdentifier.Share.type:
             let text = "Share NoisyNeighbors"
