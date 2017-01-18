@@ -21,6 +21,15 @@
 		753C74551DC2AECC007FE325 /* NeighborsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753C74501DC2AECC007FE325 /* NeighborsTableViewController.swift */; };
 		755E6CF51DEB77FC00F601EC /* IncidentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755E6CF41DEB77FC00F601EC /* IncidentsViewController.swift */; };
 		75AE56A41DF3ADE4002CADAE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75AE56A31DF3ADE4002CADAE /* AudioToolbox.framework */; };
+		75AE56AB1DF3B36E002CADAE /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75AE56A91DF3B36E002CADAE /* Interface.storyboard */; };
+		75AE56AD1DF3B36E002CADAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75AE56AC1DF3B36E002CADAE /* Assets.xcassets */; };
+		75AE56B41DF3B36E002CADAE /* NoisyNeighborsWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 75AE56B31DF3B36E002CADAE /* NoisyNeighborsWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		75AE56BB1DF3B36E002CADAE /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AE56BA1DF3B36E002CADAE /* InterfaceController.swift */; };
+		75AE56BD1DF3B36E002CADAE /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AE56BC1DF3B36E002CADAE /* ExtensionDelegate.swift */; };
+		75AE56BF1DF3B36E002CADAE /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AE56BE1DF3B36E002CADAE /* NotificationController.swift */; };
+		75AE56C11DF3B36E002CADAE /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AE56C01DF3B36E002CADAE /* ComplicationController.swift */; };
+		75AE56C31DF3B36E002CADAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75AE56C21DF3B36E002CADAE /* Assets.xcassets */; };
+		75AE56C81DF3B36E002CADAE /* NoisyNeighborsWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 75AE56A71DF3B36E002CADAE /* NoisyNeighborsWatch.app */; };
 		75C1AA671DEB6412002CED1F /* Incident.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C1AA661DEB6412002CED1F /* Incident.swift */; };
 		75CA595C1DEBA87F009271AC /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CA595B1DEBA87F009271AC /* CloudKit.framework */; };
 		F57C128DC8C2287DB0ECC092 /* Pods_NoisyNeighbors.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A73E3A83EF8892C6BD9012D /* Pods_NoisyNeighbors.framework */; };
@@ -41,6 +50,20 @@
 			remoteGlobalIDString = 75299A681DB567F6007FE325;
 			remoteInfo = NoisyNeighbors;
 		};
+		75AE56B51DF3B36E002CADAE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75299A611DB567F5007FE325 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 75AE56B21DF3B36E002CADAE;
+			remoteInfo = "NoisyNeighborsWatch Extension";
+		};
+		75AE56C51DF3B36E002CADAE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75299A611DB567F5007FE325 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 75AE56A61DF3B36E002CADAE;
+			remoteInfo = NoisyNeighborsWatch;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,6 +74,28 @@
 			dstSubfolderSpec = 10;
 			files = (
 			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		75AE56C71DF3B36E002CADAE /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				75AE56C81DF3B36E002CADAE /* NoisyNeighborsWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		75AE56CC1DF3B36F002CADAE /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				75AE56B41DF3B36E002CADAE /* NoisyNeighborsWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -80,6 +125,18 @@
 		755E6CF41DEB77FC00F601EC /* IncidentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = IncidentsViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		755E6CF61DEB9DC200F601EC /* NoisyNeighbors.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NoisyNeighbors.entitlements; sourceTree = "<group>"; };
 		75AE56A31DF3ADE4002CADAE /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		75AE56A71DF3B36E002CADAE /* NoisyNeighborsWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoisyNeighborsWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		75AE56AA1DF3B36E002CADAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		75AE56AC1DF3B36E002CADAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		75AE56AE1DF3B36E002CADAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75AE56B31DF3B36E002CADAE /* NoisyNeighborsWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "NoisyNeighborsWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		75AE56B91DF3B36E002CADAE /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		75AE56BA1DF3B36E002CADAE /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		75AE56BC1DF3B36E002CADAE /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		75AE56BE1DF3B36E002CADAE /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		75AE56C01DF3B36E002CADAE /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		75AE56C21DF3B36E002CADAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		75AE56C41DF3B36E002CADAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75C1AA661DEB6412002CED1F /* Incident.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Incident.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		75CA595B1DEBA87F009271AC /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -109,6 +166,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		75AE56B01DF3B36E002CADAE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -119,6 +183,8 @@
 				75299A6B1DB567F6007FE325 /* NoisyNeighbors */,
 				75299A821DB567F6007FE325 /* NoisyNeighborsTests */,
 				75299A8D1DB567F6007FE325 /* NoisyNeighborsUITests */,
+				75AE56A81DF3B36E002CADAE /* NoisyNeighborsWatch */,
+				75AE56B71DF3B36E002CADAE /* NoisyNeighborsWatch Extension */,
 				75299A6A1DB567F6007FE325 /* Products */,
 				F4852BFA3D3D6775846629AB /* Pods */,
 				8799F7D39AC5740BE4FCF15A /* Frameworks */,
@@ -131,6 +197,8 @@
 				75299A691DB567F6007FE325 /* NoisyNeighbors.app */,
 				75299A7F1DB567F6007FE325 /* NoisyNeighborsTests.xctest */,
 				75299A8A1DB567F6007FE325 /* NoisyNeighborsUITests.xctest */,
+				75AE56A71DF3B36E002CADAE /* NoisyNeighborsWatch.app */,
+				75AE56B31DF3B36E002CADAE /* NoisyNeighborsWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -182,6 +250,38 @@
 			path = NoisyNeighbors;
 			sourceTree = "<group>";
 		};
+		75AE56A81DF3B36E002CADAE /* NoisyNeighborsWatch */ = {
+			isa = PBXGroup;
+			children = (
+				75AE56A91DF3B36E002CADAE /* Interface.storyboard */,
+				75AE56AC1DF3B36E002CADAE /* Assets.xcassets */,
+				75AE56AE1DF3B36E002CADAE /* Info.plist */,
+			);
+			path = NoisyNeighborsWatch;
+			sourceTree = "<group>";
+		};
+		75AE56B71DF3B36E002CADAE /* NoisyNeighborsWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				75AE56BA1DF3B36E002CADAE /* InterfaceController.swift */,
+				75AE56BC1DF3B36E002CADAE /* ExtensionDelegate.swift */,
+				75AE56BE1DF3B36E002CADAE /* NotificationController.swift */,
+				75AE56C01DF3B36E002CADAE /* ComplicationController.swift */,
+				75AE56C21DF3B36E002CADAE /* Assets.xcassets */,
+				75AE56C41DF3B36E002CADAE /* Info.plist */,
+				75AE56B81DF3B36E002CADAE /* Supporting Files */,
+			);
+			path = "NoisyNeighborsWatch Extension";
+			sourceTree = "<group>";
+		};
+		75AE56B81DF3B36E002CADAE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				75AE56B91DF3B36E002CADAE /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		8799F7D39AC5740BE4FCF15A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,10 +317,12 @@
 				F54FF5B9D16FFEA48D8B66E1 /* [CP] Copy Pods Resources */,
 				753C74471DC29D06007FE325 /* CopyFiles */,
 				753AA8291DC2C06A007FE325 /* ShellScript */,
+				75AE56C71DF3B36E002CADAE /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				75AE56C61DF3B36E002CADAE /* PBXTargetDependency */,
 			);
 			name = NoisyNeighbors;
 			productName = NoisyNeighbors;
@@ -263,6 +365,40 @@
 			productReference = 75299A8A1DB567F6007FE325 /* NoisyNeighborsUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		75AE56A61DF3B36E002CADAE /* NoisyNeighborsWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 75AE56CD1DF3B36F002CADAE /* Build configuration list for PBXNativeTarget "NoisyNeighborsWatch" */;
+			buildPhases = (
+				75AE56A51DF3B36E002CADAE /* Resources */,
+				75AE56CC1DF3B36F002CADAE /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				75AE56B61DF3B36E002CADAE /* PBXTargetDependency */,
+			);
+			name = NoisyNeighborsWatch;
+			productName = NoisyNeighborsWatch;
+			productReference = 75AE56A71DF3B36E002CADAE /* NoisyNeighborsWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		75AE56B21DF3B36E002CADAE /* NoisyNeighborsWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 75AE56C91DF3B36F002CADAE /* Build configuration list for PBXNativeTarget "NoisyNeighborsWatch Extension" */;
+			buildPhases = (
+				75AE56AF1DF3B36E002CADAE /* Sources */,
+				75AE56B01DF3B36E002CADAE /* Frameworks */,
+				75AE56B11DF3B36E002CADAE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "NoisyNeighborsWatch Extension";
+			productName = "NoisyNeighborsWatch Extension";
+			productReference = 75AE56B31DF3B36E002CADAE /* NoisyNeighborsWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -272,7 +408,7 @@
 				KnownAssetTags = (
 					New,
 				);
-				LastSwiftUpdateCheck = 0800;
+				LastSwiftUpdateCheck = 0810;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Dave Carlton";
 				TargetAttributes = {
@@ -301,6 +437,16 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 75299A681DB567F6007FE325;
 					};
+					75AE56A61DF3B36E002CADAE = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = NL3267E99V;
+						ProvisioningStyle = Automatic;
+					};
+					75AE56B21DF3B36E002CADAE = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = NL3267E99V;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 75299A641DB567F5007FE325 /* Build configuration list for PBXProject "NoisyNeighbors" */;
@@ -319,6 +465,8 @@
 				75299A681DB567F6007FE325 /* NoisyNeighbors */,
 				75299A7E1DB567F6007FE325 /* NoisyNeighborsTests */,
 				75299A891DB567F6007FE325 /* NoisyNeighborsUITests */,
+				75AE56A61DF3B36E002CADAE /* NoisyNeighborsWatch */,
+				75AE56B21DF3B36E002CADAE /* NoisyNeighborsWatch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -345,6 +493,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		75AE56A51DF3B36E002CADAE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75AE56AD1DF3B36E002CADAE /* Assets.xcassets in Resources */,
+				75AE56AB1DF3B36E002CADAE /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		75AE56B11DF3B36E002CADAE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75AE56C31DF3B36E002CADAE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +622,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		75AE56AF1DF3B36E002CADAE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75AE56BF1DF3B36E002CADAE /* NotificationController.swift in Sources */,
+				75AE56C11DF3B36E002CADAE /* ComplicationController.swift in Sources */,
+				75AE56BD1DF3B36E002CADAE /* ExtensionDelegate.swift in Sources */,
+				75AE56BB1DF3B36E002CADAE /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -469,6 +645,16 @@
 			isa = PBXTargetDependency;
 			target = 75299A681DB567F6007FE325 /* NoisyNeighbors */;
 			targetProxy = 75299A8B1DB567F6007FE325 /* PBXContainerItemProxy */;
+		};
+		75AE56B61DF3B36E002CADAE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 75AE56B21DF3B36E002CADAE /* NoisyNeighborsWatch Extension */;
+			targetProxy = 75AE56B51DF3B36E002CADAE /* PBXContainerItemProxy */;
+		};
+		75AE56C61DF3B36E002CADAE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 75AE56A61DF3B36E002CADAE /* NoisyNeighborsWatch */;
+			targetProxy = 75AE56C51DF3B36E002CADAE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -487,6 +673,14 @@
 				75299A781DB567F6007FE325 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		75AE56A91DF3B36E002CADAE /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				75AE56AA1DF3B36E002CADAE /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -685,6 +879,76 @@
 			};
 			name = Release;
 		};
+		75AE56CA1DF3B36F002CADAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = NL3267E99V;
+				INFOPLIST_FILE = "NoisyNeighborsWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.ios.noisyneighors.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Debug;
+		};
+		75AE56CB1DF3B36F002CADAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = NL3267E99V;
+				INFOPLIST_FILE = "NoisyNeighborsWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.ios.noisyneighors.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Release;
+		};
+		75AE56CE1DF3B36F002CADAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = NL3267E99V;
+				IBSC_MODULE = NoisyNeighborsWatch_Extension;
+				INFOPLIST_FILE = NoisyNeighborsWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.ios.noisyneighors.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Debug;
+		};
+		75AE56CF1DF3B36F002CADAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = NL3267E99V;
+				IBSC_MODULE = NoisyNeighborsWatch_Extension;
+				INFOPLIST_FILE = NoisyNeighborsWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.ios.noisyneighors.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -723,6 +987,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		75AE56C91DF3B36F002CADAE /* Build configuration list for PBXNativeTarget "NoisyNeighborsWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75AE56CA1DF3B36F002CADAE /* Debug */,
+				75AE56CB1DF3B36F002CADAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		75AE56CD1DF3B36F002CADAE /* Build configuration list for PBXNativeTarget "NoisyNeighborsWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75AE56CE1DF3B36F002CADAE /* Debug */,
+				75AE56CF1DF3B36F002CADAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
