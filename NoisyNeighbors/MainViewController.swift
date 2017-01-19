@@ -11,11 +11,6 @@ import AudioToolbox
 
 class NeighborPickerController: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
     private var appDelegate = UIApplication.shared.delegate as! AppDelegate
-    let ElementCount: Int!
-    
-    init(pickerInterval: Int) {
-        ElementCount = pickerInterval
-    }
     
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -142,10 +137,28 @@ class MainViewController: UIViewController {
         }
     }
 
+    func checkIfConfigured() {
+        let n = gNeighbors.count
+        if n == 0 {
+            func configHandler() {
+                self.performSegue(withIdentifier: "neighbors", sender:self)
+            }
+            let alertController = UIAlertController(title: nil, message:
+                "Not Configured", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(
+                UIAlertAction(
+                title: "Configure",
+                style: UIAlertActionStyle.default,
+                handler: { action in configHandler() } ))
+            
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        pv = NeighborPickerController.init(pickerInterval: 10)
+        pv = NeighborPickerController()
         neighborPickerView.dataSource = pv as UIPickerViewDataSource?
         neighborPickerView.delegate = pv as UIPickerViewDelegate?
         if IncidentList.staged() {
@@ -160,7 +173,6 @@ class MainViewController: UIViewController {
         self.view.addGestureRecognizer(longPressRecognizer)
 
         addNotifier(selector: #selector(applicationDidEnterForeground))
-
     }
 
     func addNotifier(selector: Selector) {
@@ -221,6 +233,7 @@ class MainViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.neighborPickerView.reloadAllComponents()
+        checkIfConfigured()
     }
 
     private func pickerNeighbor() -> Neighbor {
