@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WatchConnectivity
 
 var DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
 
@@ -73,6 +74,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
             // Update the application providing the initial 'dynamic' shortcut items.
             application.shortcutItems = [shortcut3, shortcut2, shortcut1]
+        }
+
+        if WCSession.isSupported() {
+            let defaultSession = WCSession.default()
+            defaultSession.delegate = WatchConnectivityManager.sharedConnectivityManager
+            defaultSession.activate()
         }
 
         return shouldPerformAdditionalDelegateHandling

@@ -11,7 +11,16 @@ import Foundation
 
 
 class InterfaceController: WKInterfaceController {
-
+    
+    let neighborItems: [ (String, String) ] = [
+    ("1", "Loud Dog"),
+    ("2", "5 Dog Lady"),
+    ("3", "Dragon Lady"),
+    ("4", "Stupid Guy")
+    ]
+    
+    let neighbors: [WKPickerItem] = []
+    
     @IBOutlet var picker: WKInterfacePicker!
 
     @IBAction func picked(_ value: Int) {
@@ -21,8 +30,16 @@ class InterfaceController: WKInterfaceController {
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
+        let pickerItems: [WKPickerItem] = neighborItems.map {
+            let pickerItem = WKPickerItem()
+            pickerItem.caption = $0.0
+            pickerItem.title = $0.1
+            return pickerItem
+        }
+        
         // Configure interface objects here.
-    }
+        picker.setItems(pickerItems)
+        picker.focus()    }
     
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
@@ -33,5 +50,6 @@ class InterfaceController: WKInterfaceController {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
+    
 
 }
