@@ -20,6 +20,7 @@ class InterfaceController: WKInterfaceController {
     ]
     
     let neighbors: [WKPickerItem] = []
+    let defaults = UserDefaults.init(suiteName: "NoisyNeighbors")
     
     @IBOutlet var picker: WKInterfacePicker!
 
@@ -29,7 +30,7 @@ class InterfaceController: WKInterfaceController {
 
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        
+
         let pickerItems: [WKPickerItem] = neighborItems.map {
             let pickerItem = WKPickerItem()
             pickerItem.caption = $0.0
@@ -44,6 +45,7 @@ class InterfaceController: WKInterfaceController {
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        let n = defaults?.array(forKey: "Neighbors") as? [String]
     }
     
     override func didDeactivate() {

@@ -28,18 +28,43 @@ enum ShortcutIdentifier: String {
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    let ArchiveURL: String = DocumentsDirectory.appendingPathComponent("neighbors").standardizedFileURL.path
     var window: UIWindow?
     var version = "0.2"
     var firstLaunch = false
     var apiKey = "keyx0gx0iobbmtuZl"
+    var defaults = UserDefaults.init(suiteName: "NoisyNeighbors")
 
     static let applicationShortcutUserInfoIconKey = "applicationShortcutUserInfoIconKey"
     var shortcutItem: UIApplicationShortcutItem?
     var shortCutType: String?
 
+    func saveUserDefaults() {
+        let result = NSKeyedArchiver.archiveRootObject(gNeighbors, toFile: ArchiveURL)
+        if !result {
+            print("Failed to save gNeighbors...")
+        }
+        let strings = gNeighbors.map({
+            $0.label
+        })
+        defaults?.set(strings, forKey: "Neighbors")
+    }
+    
+    func restoreUserDefaults() {
+        NSLog("Restoring")
+        let result =  NSKeyedUnarchiver.unarchiveObject(withFile: ArchiveURL) as? [Neighbor]
+        if result != nil {
+            gNeighbors = result!
+        } else {
+            print("Failed to restore gNeighbors...")
+        }
+    }
+    
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        Neighbor.restoreUserDefaults()
+        self.restoreUserDefaults()
+        self.saveUserDefaults()
         IncidentList.sharedInstance.restoreUserDefaults()
 
         // Override point for customization after application launch.
@@ -132,14 +157,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func addNeighbor(_ theNeighbor: Neighbor) {
         gNeighbors.append(theNeighbor)
-        Neighbor.saveUserDefaults()
+        self.saveUserDefaults()
     }
 
     func saveNeighbor(_ theNeighbor: Neighbor) {
         let found = gNeighbors.index(of: theNeighbor)
         if found != nil {
             gNeighbors[found!] = theNeighbor
-            Neighbor.saveUserDefaults()
+            self.saveUserDefaults()
         }
     }
     
@@ -147,7 +172,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let found = gNeighbors.index(of: theNeighbor)
         if found != nil {
             gNeighbors.remove(at: found!)
-            Neighbor.saveUserDefaults()
+            self.saveUserDefaults()
         }
     }
 
