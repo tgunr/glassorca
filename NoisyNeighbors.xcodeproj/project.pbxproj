@@ -29,7 +29,7 @@
 		75AE56BD1DF3B36E002CADAE /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AE56BC1DF3B36E002CADAE /* ExtensionDelegate.swift */; };
 		75AE56BF1DF3B36E002CADAE /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AE56BE1DF3B36E002CADAE /* NotificationController.swift */; };
 		75AE56C11DF3B36E002CADAE /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AE56C01DF3B36E002CADAE /* ComplicationController.swift */; };
-		75AE56C31DF3B36E002CADAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75AE56C21DF3B36E002CADAE /* Assets.xcassets */; };
+		75AE56C31DF3B36E002CADAE /* Watch Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75AE56C21DF3B36E002CADAE /* Watch Assets.xcassets */; };
 		75AE56C81DF3B36E002CADAE /* NoisyNeighborsWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 75AE56A71DF3B36E002CADAE /* NoisyNeighborsWatch.app */; };
 		75C1AA671DEB6412002CED1F /* Incident.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C1AA661DEB6412002CED1F /* Incident.swift */; };
 		75CA595C1DEBA87F009271AC /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CA595B1DEBA87F009271AC /* CloudKit.framework */; };
@@ -136,10 +136,11 @@
 		75AE56BC1DF3B36E002CADAE /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		75AE56BE1DF3B36E002CADAE /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		75AE56C01DF3B36E002CADAE /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
-		75AE56C21DF3B36E002CADAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		75AE56C21DF3B36E002CADAE /* Watch Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Watch Assets.xcassets"; sourceTree = "<group>"; };
 		75AE56C41DF3B36E002CADAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75C1AA661DEB6412002CED1F /* Incident.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Incident.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		75CA595B1DEBA87F009271AC /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		92502548848A09D8F2DA1D87 /* Pods_NoisyNeighborsWatch_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NoisyNeighborsWatch_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,7 +284,7 @@
 				75AE56BA1DF3B36E002CADAE /* InterfaceController.swift */,
 				75AE56BE1DF3B36E002CADAE /* NotificationController.swift */,
 				75AE56C01DF3B36E002CADAE /* ComplicationController.swift */,
-				75AE56C21DF3B36E002CADAE /* Assets.xcassets */,
+				75AE56C21DF3B36E002CADAE /* Watch Assets.xcassets */,
 				75AE56C41DF3B36E002CADAE /* Info.plist */,
 				75AE56B81DF3B36E002CADAE /* Supporting Files */,
 			);
@@ -304,6 +305,7 @@
 				75AE56A31DF3ADE4002CADAE /* AudioToolbox.framework */,
 				75CA595B1DEBA87F009271AC /* CloudKit.framework */,
 				3A73E3A83EF8892C6BD9012D /* Pods_NoisyNeighbors.framework */,
+				92502548848A09D8F2DA1D87 /* Pods_NoisyNeighborsWatch_Extension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -525,7 +527,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75AE56C31DF3B36E002CADAE /* Assets.xcassets in Resources */,
+				75AE56C31DF3B36E002CADAE /* Watch Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
