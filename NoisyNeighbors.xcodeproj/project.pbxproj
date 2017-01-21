@@ -33,7 +33,6 @@
 		75AE56C81DF3B36E002CADAE /* NoisyNeighborsWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 75AE56A71DF3B36E002CADAE /* NoisyNeighborsWatch.app */; };
 		75C1AA671DEB6412002CED1F /* Incident.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C1AA661DEB6412002CED1F /* Incident.swift */; };
 		75CA595C1DEBA87F009271AC /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CA595B1DEBA87F009271AC /* CloudKit.framework */; };
-		F57C128DC8C2287DB0ECC092 /* Pods_NoisyNeighbors.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A73E3A83EF8892C6BD9012D /* Pods_NoisyNeighbors.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,11 +101,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3A73E3A83EF8892C6BD9012D /* Pods_NoisyNeighbors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NoisyNeighbors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F1D3723EA5732DC2685B2F7 /* Pods-NoisyNeighbors.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoisyNeighbors.release.xcconfig"; path = "Pods/Target Support Files/Pods-NoisyNeighbors/Pods-NoisyNeighbors.release.xcconfig"; sourceTree = "<group>"; };
 		5AF0D663F18268B456B5F3BC /* NeighborsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighborsViewController.swift; sourceTree = "<group>"; };
 		5AF0D6FF4D2D75D62DBE3079 /* IncidentList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncidentList.swift; sourceTree = "<group>"; };
-		5B65C643D5ABE3AC7228AE96 /* Pods-NoisyNeighbors.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoisyNeighbors.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NoisyNeighbors/Pods-NoisyNeighbors.debug.xcconfig"; sourceTree = "<group>"; };
 		75299A691DB567F6007FE325 /* NoisyNeighbors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoisyNeighbors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75299A6C1DB567F6007FE325 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		75299A731DB567F6007FE325 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -140,7 +136,6 @@
 		75AE56C41DF3B36E002CADAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75C1AA661DEB6412002CED1F /* Incident.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Incident.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		75CA595B1DEBA87F009271AC /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		92502548848A09D8F2DA1D87 /* Pods_NoisyNeighborsWatch_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NoisyNeighborsWatch_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,7 +144,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				75AE56A41DF3ADE4002CADAE /* AudioToolbox.framework in Frameworks */,
-				F57C128DC8C2287DB0ECC092 /* Pods_NoisyNeighbors.framework in Frameworks */,
 				75CA595C1DEBA87F009271AC /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,7 +190,6 @@
 				75AE56A81DF3B36E002CADAE /* NoisyNeighborsWatch */,
 				75AE56B71DF3B36E002CADAE /* NoisyNeighborsWatch Extension */,
 				75299A6A1DB567F6007FE325 /* Products */,
-				F4852BFA3D3D6775846629AB /* Pods */,
 				8799F7D39AC5740BE4FCF15A /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -304,19 +297,8 @@
 			children = (
 				75AE56A31DF3ADE4002CADAE /* AudioToolbox.framework */,
 				75CA595B1DEBA87F009271AC /* CloudKit.framework */,
-				3A73E3A83EF8892C6BD9012D /* Pods_NoisyNeighbors.framework */,
-				92502548848A09D8F2DA1D87 /* Pods_NoisyNeighborsWatch_Extension.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		F4852BFA3D3D6775846629AB /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5B65C643D5ABE3AC7228AE96 /* Pods-NoisyNeighbors.debug.xcconfig */,
-				4F1D3723EA5732DC2685B2F7 /* Pods-NoisyNeighbors.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,13 +308,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 75299A931DB567F6007FE325 /* Build configuration list for PBXNativeTarget "NoisyNeighbors" */;
 			buildPhases = (
-				D7F58208BB011D3972F37798 /* [CP] Check Pods Manifest.lock */,
 				753C744C1DC29E5B007FE325 /* ShellScript */,
 				75299A651DB567F6007FE325 /* Sources */,
 				75299A661DB567F6007FE325 /* Frameworks */,
 				75299A671DB567F6007FE325 /* Resources */,
-				12696C2F97B502D642565E1E /* [CP] Embed Pods Frameworks */,
-				F54FF5B9D16FFEA48D8B66E1 /* [CP] Copy Pods Resources */,
 				753C74471DC29D06007FE325 /* CopyFiles */,
 				753AA8291DC2C06A007FE325 /* ShellScript */,
 				75AE56C71DF3B36E002CADAE /* Embed Watch Content */,
@@ -534,21 +513,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		12696C2F97B502D642565E1E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NoisyNeighbors/Pods-NoisyNeighbors-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		753AA8291DC2C06A007FE325 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -574,36 +538,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = "/bin/bash -x";
 			shellScript = "if [[ -d ${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME} ]] ; then\n    rm -fr ${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}\nfi";
-		};
-		D7F58208BB011D3972F37798 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		F54FF5B9D16FFEA48D8B66E1 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NoisyNeighbors/Pods-NoisyNeighbors-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -727,7 +661,6 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -777,7 +710,6 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -801,7 +733,6 @@
 		};
 		75299A941DB567F6007FE325 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B65C643D5ABE3AC7228AE96 /* Pods-NoisyNeighbors.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -823,7 +754,6 @@
 		};
 		75299A951DB567F6007FE325 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F1D3723EA5732DC2685B2F7 /* Pods-NoisyNeighbors.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -905,6 +835,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_IDENTITY = "";
 				DEVELOPMENT_TEAM = NL3267E99V;
 				INFOPLIST_FILE = "NoisyNeighborsWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -922,6 +853,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_IDENTITY = "";
 				DEVELOPMENT_TEAM = NL3267E99V;
 				INFOPLIST_FILE = "NoisyNeighborsWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -940,7 +872,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				DEVELOPMENT_TEAM = NL3267E99V;
 				IBSC_MODULE = NoisyNeighborsWatch_Extension;
 				INFOPLIST_FILE = NoisyNeighborsWatch/Info.plist;
@@ -959,7 +891,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				DEVELOPMENT_TEAM = NL3267E99V;
 				IBSC_MODULE = NoisyNeighborsWatch_Extension;
 				INFOPLIST_FILE = NoisyNeighborsWatch/Info.plist;

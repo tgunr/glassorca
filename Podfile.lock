@@ -1,12 +1,17 @@
 PODS:
+  - MMWormhole (2.0.0):
+    - MMWormhole/Core (= 2.0.0)
+  - MMWormhole/Core (2.0.0)
   - Reveal-iOS-SDK (1.6.2)
 
 DEPENDENCIES:
+  - MMWormhole
   - Reveal-iOS-SDK
 
 SPEC CHECKSUMS:
+  MMWormhole: 0cd3fd35a9118b2e2d762b499f54eeaace0be791
   Reveal-iOS-SDK: e2250b3c155bcfac53ae223ddc1f76d08f206c33
 
-PODFILE CHECKSUM: 8296b17ea64545524314b6492ecb0df2ce3d84c9
+PODFILE CHECKSUM: 85d6b55ad54fc71eff06ac6454a957d118e2bc83
 
 COCOAPODS: 1.1.1
