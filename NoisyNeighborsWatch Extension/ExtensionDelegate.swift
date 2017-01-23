@@ -8,6 +8,7 @@
 
 import WatchKit
 import WatchConnectivity
+import MMWormhole
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
     var wcBackgroundTasks: [WKWatchConnectivityRefreshBackgroundTask]
@@ -25,8 +26,12 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
          */
         defaultSession.addObserver(self, forKeyPath: "activationState", options: [], context: nil)
         defaultSession.addObserver(self, forKeyPath: "hasContentPending", options: [], context: nil)
+        let wormhole = MMWormhole(applicationGroupIdentifier: "group.net.polymicro.ithappened", optionalDirectory: "wormhole")
+        wormhole.listenForMessage(withIdentifier: "updateNeighbors", listener: { (message) -> Void in
+        })
         
         defaultSession.activate()
+
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
