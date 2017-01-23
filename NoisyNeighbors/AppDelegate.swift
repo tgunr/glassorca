@@ -8,6 +8,7 @@
 
 import UIKit
 import WatchConnectivity
+import MMWormhole
 
 var DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
 
@@ -34,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var firstLaunch = false
     var apiKey = "keyx0gx0iobbmtuZl"
     var defaults = UserDefaults.init(suiteName: "NoisyNeighbors")
+    let wormhole = MMWormhole(applicationGroupIdentifier: "group.net.polymicro.ithappened", optionalDirectory: "wormhole")
 
     static let applicationShortcutUserInfoIconKey = "applicationShortcutUserInfoIconKey"
     var shortcutItem: UIApplicationShortcutItem?

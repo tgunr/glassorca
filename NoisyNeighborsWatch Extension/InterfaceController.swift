@@ -45,7 +45,7 @@ class InterfaceController: WKInterfaceController {
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
-        let n = defaults?.array(forKey: "Neighbors") as? [String]
+//        let n = defaults?.array(forKey: "Neighbors") as? [String]
     }
     
     override func didDeactivate() {
