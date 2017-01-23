@@ -8,7 +8,6 @@
 
 import WatchKit
 import WatchConnectivity
-import MMWormhole
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
     var wcBackgroundTasks: [WKWatchConnectivityRefreshBackgroundTask]
