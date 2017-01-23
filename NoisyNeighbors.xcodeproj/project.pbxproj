@@ -22,6 +22,10 @@
 		755E6CF51DEB77FC00F601EC /* IncidentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755E6CF41DEB77FC00F601EC /* IncidentsViewController.swift */; };
 		7586C2EB1E2FDBBC00D1D38D /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7586C2EA1E2FDBBC00D1D38D /* WatchConnectivityManager.swift */; };
 		7586C2EC1E2FDBBC00D1D38D /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7586C2EA1E2FDBBC00D1D38D /* WatchConnectivityManager.swift */; };
+		75A832F81E36986E00989DFC /* MMWormhole.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75A832F31E36982600989DFC /* MMWormhole.framework */; };
+		75A832F91E36987E00989DFC /* MMWormhole.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 75A832F31E36982600989DFC /* MMWormhole.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		75A832FB1E369AB000989DFC /* MMWormhole.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75A832F71E36982600989DFC /* MMWormhole.framework */; };
+		75A832FC1E369ABC00989DFC /* MMWormhole.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 75A832F71E36982600989DFC /* MMWormhole.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		75AE56A41DF3ADE4002CADAE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75AE56A31DF3ADE4002CADAE /* AudioToolbox.framework */; };
 		75AE56AB1DF3B36E002CADAE /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75AE56A91DF3B36E002CADAE /* Interface.storyboard */; };
 		75AE56B41DF3B36E002CADAE /* NoisyNeighborsWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 75AE56B31DF3B36E002CADAE /* NoisyNeighborsWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -50,6 +54,41 @@
 			remoteGlobalIDString = 75299A681DB567F6007FE325;
 			remoteInfo = NoisyNeighbors;
 		};
+		75A832F21E36982600989DFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75A832EC1E36982600989DFC /* MMWormhole.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9B44A4C61B00570E00C9969A;
+			remoteInfo = "MMWormhole-iOS";
+		};
+		75A832F41E36982600989DFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75A832EC1E36982600989DFC /* MMWormhole.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9B44A5021B00571F00C9969A;
+			remoteInfo = "MMWormhole-Mac";
+		};
+		75A832F61E36982600989DFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75A832EC1E36982600989DFC /* MMWormhole.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 75064B5F1E356E170077207D;
+			remoteInfo = "MMWormhole-Watch";
+		};
+		75A832FD1E369AF200989DFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75A832EC1E36982600989DFC /* MMWormhole.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 75064B5E1E356E170077207D;
+			remoteInfo = "MMWormhole-Watch";
+		};
+		75A832FF1E369AFD00989DFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75A832EC1E36982600989DFC /* MMWormhole.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9B44A4C51B00570E00C9969A;
+			remoteInfo = "MMWormhole-iOS";
+		};
 		75AE56B51DF3B36E002CADAE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 75299A611DB567F5007FE325 /* Project object */;
@@ -73,6 +112,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				75A832FC1E369ABC00989DFC /* MMWormhole.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +122,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				75A832F91E36987E00989DFC /* MMWormhole.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,7 +153,7 @@
 /* Begin PBXFileReference section */
 		5AF0D663F18268B456B5F3BC /* NeighborsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighborsViewController.swift; sourceTree = "<group>"; };
 		5AF0D6FF4D2D75D62DBE3079 /* IncidentList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncidentList.swift; sourceTree = "<group>"; };
-		75064B7C1E3577720077207D /* NoisyNeighbor-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NoisyNeighbor-Bridging-Header.h"; sourceTree = "<group>"; };
+		75064B7C1E3577720077207D /* NoisyNeighbors-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NoisyNeighbors-Bridging-Header.h"; sourceTree = "<group>"; };
 		75299A691DB567F6007FE325 /* NoisyNeighbors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoisyNeighbors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75299A6C1DB567F6007FE325 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		75299A731DB567F6007FE325 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -132,6 +173,8 @@
 		755E6CF41DEB77FC00F601EC /* IncidentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = IncidentsViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		755E6CF61DEB9DC200F601EC /* NoisyNeighbors.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NoisyNeighbors.entitlements; sourceTree = "<group>"; };
 		7586C2EA1E2FDBBC00D1D38D /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchConnectivityManager.swift; sourceTree = "<group>"; };
+		75A832EC1E36982600989DFC /* MMWormhole.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MMWormhole.xcodeproj; path = MMWormhole/MMWormhole/MMWormhole.xcodeproj; sourceTree = "<group>"; };
+		75A833051E36A3A000989DFC /* NoisyNeighborsWatch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "NoisyNeighborsWatch Extension.entitlements"; sourceTree = "<group>"; };
 		75AE56A31DF3ADE4002CADAE /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		75AE56A71DF3B36E002CADAE /* NoisyNeighborsWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoisyNeighborsWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75AE56AA1DF3B36E002CADAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -153,6 +196,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75A832F81E36986E00989DFC /* MMWormhole.framework in Frameworks */,
 				75AE56A41DF3ADE4002CADAE /* AudioToolbox.framework in Frameworks */,
 				75CA595C1DEBA87F009271AC /* CloudKit.framework in Frameworks */,
 			);
@@ -176,6 +220,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75A832FB1E369AB000989DFC /* MMWormhole.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,7 +237,8 @@
 		75299A601DB567F5007FE325 = {
 			isa = PBXGroup;
 			children = (
-				75064B7C1E3577720077207D /* NoisyNeighbor-Bridging-Header.h */,
+				75A832EC1E36982600989DFC /* MMWormhole.xcodeproj */,
+				75064B7C1E3577720077207D /* NoisyNeighbors-Bridging-Header.h */,
 				7586C2E91E2FDBBC00D1D38D /* Shared */,
 				753C74571DC2AEF8007FE325 /* Resources */,
 				75299A6B1DB567F6007FE325 /* NoisyNeighbors */,
@@ -272,6 +318,16 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
+		75A832ED1E36982600989DFC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				75A832F31E36982600989DFC /* MMWormhole.framework */,
+				75A832F51E36982600989DFC /* MMWormhole.framework */,
+				75A832F71E36982600989DFC /* MMWormhole.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		75AE56A81DF3B36E002CADAE /* NoisyNeighborsWatch */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,6 +340,7 @@
 		75AE56B71DF3B36E002CADAE /* NoisyNeighborsWatch Extension */ = {
 			isa = PBXGroup;
 			children = (
+				75A833051E36A3A000989DFC /* NoisyNeighborsWatch Extension.entitlements */,
 				75AE56BC1DF3B36E002CADAE /* ExtensionDelegate.swift */,
 				75AE56BA1DF3B36E002CADAE /* InterfaceController.swift */,
 				75AE56BE1DF3B36E002CADAE /* NotificationController.swift */,
@@ -324,12 +381,12 @@
 				75299A661DB567F6007FE325 /* Frameworks */,
 				75299A671DB567F6007FE325 /* Resources */,
 				753C74471DC29D06007FE325 /* CopyFiles */,
-				753AA8291DC2C06A007FE325 /* ShellScript */,
 				75AE56C71DF3B36E002CADAE /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				75A833001E369AFD00989DFC /* PBXTargetDependency */,
 				75AE56C61DF3B36E002CADAE /* PBXTargetDependency */,
 			);
 			name = NoisyNeighbors;
@@ -395,6 +452,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 75AE56C91DF3B36F002CADAE /* Build configuration list for PBXNativeTarget "NoisyNeighborsWatch Extension" */;
 			buildPhases = (
+				75A832FA1E369A9A00989DFC /* ShellScript */,
 				75AE56AF1DF3B36E002CADAE /* Sources */,
 				75AE56B01DF3B36E002CADAE /* Frameworks */,
 				75AE56B11DF3B36E002CADAE /* Resources */,
@@ -403,6 +461,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				75A832FE1E369AF200989DFC /* PBXTargetDependency */,
 			);
 			name = "NoisyNeighborsWatch Extension";
 			productName = "NoisyNeighborsWatch Extension";
@@ -419,7 +478,7 @@
 					New,
 				);
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Dave Carlton";
 				TargetAttributes = {
 					75299A681DB567F6007FE325 = {
@@ -427,6 +486,9 @@
 						DevelopmentTeam = NL3267E99V;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -456,6 +518,11 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = NL3267E99V;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -470,6 +537,12 @@
 			mainGroup = 75299A601DB567F5007FE325;
 			productRefGroup = 75299A6A1DB567F6007FE325 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 75A832ED1E36982600989DFC /* Products */;
+					ProjectRef = 75A832EC1E36982600989DFC /* MMWormhole.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				75299A681DB567F6007FE325 /* NoisyNeighbors */,
@@ -480,6 +553,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		75A832F31E36982600989DFC /* MMWormhole.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MMWormhole.framework;
+			remoteRef = 75A832F21E36982600989DFC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		75A832F51E36982600989DFC /* MMWormhole.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MMWormhole.framework;
+			remoteRef = 75A832F41E36982600989DFC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		75A832F71E36982600989DFC /* MMWormhole.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MMWormhole.framework;
+			remoteRef = 75A832F61E36982600989DFC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		75299A671DB567F6007FE325 /* Resources */ = {
@@ -525,19 +622,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		753AA8291DC2C06A007FE325 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "set -x\n#bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"\n";
-		};
 		753C744C1DC29E5B007FE325 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -550,6 +634,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = "/bin/bash -x";
 			shellScript = "if [[ -d ${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME} ]] ; then\n    rm -fr ${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}\nfi";
+		};
+		75A832FA1E369A9A00989DFC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -612,6 +709,16 @@
 			target = 75299A681DB567F6007FE325 /* NoisyNeighbors */;
 			targetProxy = 75299A8B1DB567F6007FE325 /* PBXContainerItemProxy */;
 		};
+		75A832FE1E369AF200989DFC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "MMWormhole-Watch";
+			targetProxy = 75A832FD1E369AF200989DFC /* PBXContainerItemProxy */;
+		};
+		75A833001E369AFD00989DFC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "MMWormhole-iOS";
+			targetProxy = 75A832FF1E369AFD00989DFC /* PBXContainerItemProxy */;
+		};
 		75AE56B61DF3B36E002CADAE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 75AE56B21DF3B36E002CADAE /* NoisyNeighborsWatch Extension */;
@@ -670,6 +777,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -696,6 +804,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/NoisyNeighbors-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -719,6 +828,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -737,6 +847,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/NoisyNeighbors-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -749,15 +860,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = NoisyNeighbors/NoisyNeighbors.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				DEVELOPMENT_TEAM = NL3267E99V;
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/DerivedData/Build/Products/Debug-iphonesimulator\"";
 				INFOPLIST_FILE = NoisyNeighbors/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.ios.noisyneighors;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/NoisyNeighbor-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
-				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
 			};
 			name = Debug;
 		};
@@ -767,15 +878,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = NoisyNeighbors/NoisyNeighbors.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				DEVELOPMENT_TEAM = NL3267E99V;
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/DerivedData/Build/Products/Debug-iphonesimulator\"";
 				INFOPLIST_FILE = NoisyNeighbors/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.ios.noisyneighors;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/NoisyNeighbor-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
-				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
 			};
 			name = Release;
 		};
@@ -841,7 +952,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_ENTITLEMENTS = "NoisyNeighborsWatch Extension/NoisyNeighborsWatch Extension.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				DEVELOPMENT_TEAM = NL3267E99V;
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/DerivedData/Build/Products/Debug-watchsimulator\"";
 				INFOPLIST_FILE = "NoisyNeighborsWatch Extension/Info.plist";
@@ -850,7 +962,6 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/NoisyNeighbor-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 3.1;
@@ -861,7 +972,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_ENTITLEMENTS = "NoisyNeighborsWatch Extension/NoisyNeighborsWatch Extension.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				DEVELOPMENT_TEAM = NL3267E99V;
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/DerivedData/Build/Products/Debug-watchsimulator\"";
 				INFOPLIST_FILE = "NoisyNeighborsWatch Extension/Info.plist";
@@ -870,7 +982,6 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/NoisyNeighbor-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 3.1;
