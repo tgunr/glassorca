@@ -175,6 +175,7 @@
 		7586C2EA1E2FDBBC00D1D38D /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchConnectivityManager.swift; sourceTree = "<group>"; };
 		75A832EC1E36982600989DFC /* MMWormhole.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MMWormhole.xcodeproj; path = MMWormhole/MMWormhole/MMWormhole.xcodeproj; sourceTree = "<group>"; };
 		75A833051E36A3A000989DFC /* NoisyNeighborsWatch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "NoisyNeighborsWatch Extension.entitlements"; sourceTree = "<group>"; };
+		75A833091E36C26D00989DFC /* NoisyNeighborsWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NoisyNeighborsWatch.entitlements; sourceTree = "<group>"; };
 		75AE56A31DF3ADE4002CADAE /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		75AE56A71DF3B36E002CADAE /* NoisyNeighborsWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoisyNeighborsWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75AE56AA1DF3B36E002CADAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -331,6 +332,7 @@
 		75AE56A81DF3B36E002CADAE /* NoisyNeighborsWatch */ = {
 			isa = PBXGroup;
 			children = (
+				75A833091E36C26D00989DFC /* NoisyNeighborsWatch.entitlements */,
 				75AE56A91DF3B36E002CADAE /* Interface.storyboard */,
 				75AE56AE1DF3B36E002CADAE /* Info.plist */,
 			);
@@ -513,6 +515,14 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = NL3267E99V;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.BackgroundModes.watchos.app = {
+								enabled = 1;
+							};
+						};
 					};
 					75AE56B21DF3B36E002CADAE = {
 						CreatedOnToolsVersion = 8.1;
@@ -781,8 +791,10 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = NL3267E99V;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -832,8 +844,10 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = NL3267E99V;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -860,8 +874,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = NoisyNeighbors/NoisyNeighbors.entitlements;
-				CODE_SIGN_IDENTITY = "-";
-				DEVELOPMENT_TEAM = NL3267E99V;
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/DerivedData/Build/Products/Debug-iphonesimulator\"";
 				INFOPLIST_FILE = NoisyNeighbors/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -878,8 +890,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = NoisyNeighbors/NoisyNeighbors.entitlements;
-				CODE_SIGN_IDENTITY = "-";
-				DEVELOPMENT_TEAM = NL3267E99V;
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/DerivedData/Build/Products/Debug-iphonesimulator\"";
 				INFOPLIST_FILE = NoisyNeighbors/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -993,8 +1003,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
-				DEVELOPMENT_TEAM = NL3267E99V;
+				CODE_SIGN_ENTITLEMENTS = NoisyNeighborsWatch/NoisyNeighborsWatch.entitlements;
 				IBSC_MODULE = NoisyNeighborsWatch_Extension;
 				INFOPLIST_FILE = NoisyNeighborsWatch/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.ios.noisyneighors.watchkitapp;
@@ -1012,8 +1021,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
-				DEVELOPMENT_TEAM = NL3267E99V;
+				CODE_SIGN_ENTITLEMENTS = NoisyNeighborsWatch/NoisyNeighborsWatch.entitlements;
 				IBSC_MODULE = NoisyNeighborsWatch_Extension;
 				INFOPLIST_FILE = NoisyNeighborsWatch/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.ios.noisyneighors.watchkitapp;
