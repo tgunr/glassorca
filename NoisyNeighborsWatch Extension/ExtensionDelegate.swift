@@ -11,26 +11,50 @@ import WatchConnectivity
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
     var wcBackgroundTasks: [WKWatchConnectivityRefreshBackgroundTask]
+    var defaultSession: WCSession?
+    var wormhole: MMWormhole?
+    var ic: InterfaceController?
+    
+    func initSession () {
+        defaultSession = WCSession.default()
+        defaultSession?.delegate = WatchConnectivityManager.sharedConnectivityManager
 
-    override init() {
-        wcBackgroundTasks = []
-        super.init()
-        
-        let defaultSession = WCSession.default()
-        defaultSession.delegate = WatchConnectivityManager.sharedConnectivityManager
-        
         /*
          Here we add KVO on the session properties that this class is interested in before activating
          the session to ensure that we do not miss any value change events
          */
-        defaultSession.addObserver(self, forKeyPath: "activationState", options: [], context: nil)
-        defaultSession.addObserver(self, forKeyPath: "hasContentPending", options: [], context: nil)
-        let wormhole = MMWormhole(applicationGroupIdentifier: "group.net.polymicro.ithappened", optionalDirectory: "wormhole")
-        wormhole.listenForMessage(withIdentifier: "updateNeighbors", listener: { (message) -> Void in
-        })
-        
-        defaultSession.activate()
+        defaultSession?.addObserver(self, forKeyPath: "activationState", options: [], context: nil)
+        defaultSession?.addObserver(self, forKeyPath: "hasContentPending", options: [], context: nil)
 
+        wormhole?.passMessageObject(nil, identifier: "sendNeighborList")
+
+        defaultSession?.activate()
+    }
+
+//    func updateNeighbors(_: message) -> Void {
+//
+//    }
+
+    func initWormhole() {
+        let fm = FileManager()
+        if fm.containerURL(forSecurityApplicationGroupIdentifier: APPGROUP) != nil {
+            wormhole = MMWormhole(applicationGroupIdentifier: APPGROUP, optionalDirectory: "wormhole")
+            wormhole?.listenForMessage(withIdentifier: "updateNeighbors", listener: { (messageObject) -> Void in
+                if let message: AnyObject = messageObject as AnyObject? {
+                    // Do something
+                    self.ic?.updatePickerItems()
+                }
+            })
+        } else {
+            NSLog("ERROR: Setting AppGroup %s failed", APPGROUP)
+        }
+    }
+    
+    override init() {
+        wcBackgroundTasks = []
+        super.init()
+        initSession()
+        initWormhole()
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -41,6 +65,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
 
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
+        wormhole?.passMessageObject(nil, identifier: "sendNeighborList")
     }
 
     func applicationDidBecomeActive() {

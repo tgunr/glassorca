@@ -9,8 +9,10 @@
 import WatchKit
 import Foundation
 
-
 class InterfaceController: WKInterfaceController {
+    static let sharedInstance = InterfaceController()
+
+    let delegate = WKExtension.shared().delegate as! ExtensionDelegate
     
     let neighborItems: [ (String, String) ] = [
     ("1", "Loud Dog"),
@@ -28,9 +30,12 @@ class InterfaceController: WKInterfaceController {
     
     }
 
-    override func awake(withContext context: Any?) {
-        super.awake(withContext: context)
-
+    override init() {
+        super.init()
+        delegate.ic = self
+    }
+    
+    func updatePickerItems() {
         let pickerItems: [WKPickerItem] = neighborItems.map {
             let pickerItem = WKPickerItem()
             pickerItem.caption = $0.0
@@ -40,14 +45,26 @@ class InterfaceController: WKInterfaceController {
         
         // Configure interface objects here.
         picker.setItems(pickerItems)
-        picker.focus()    }
+        picker.focus()
+    }
+    
+    override func awake(withContext context: Any?) {
+        super.awake(withContext: context)
+        updatePickerItems()
+    }
     
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
 //        let n = defaults?.array(forKey: "Neighbors") as? [String]
+        delegate.wormhole?.listenForMessage(withIdentifier: "updateNeighbors", listener: { (messageObject) -> Void in
+        if let message: AnyObject = messageObject as AnyObject? {
+            // Do something
+        }
+    })
+
     }
-    
+
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()

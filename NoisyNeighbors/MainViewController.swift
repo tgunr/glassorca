@@ -37,6 +37,7 @@ class MainViewController: UIViewController {
     static let sharedInstance = MainViewController()
 
     private var appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private var wormhole: MMWormhole?
     private var pv: NeighborPickerController!
 
     @IBOutlet weak var neighborPickerView: UIPickerView!
@@ -172,6 +173,7 @@ class MainViewController: UIViewController {
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress))
         self.view.addGestureRecognizer(longPressRecognizer)
 
+        
         addNotifier(selector: #selector(applicationDidEnterForeground))
     }
 

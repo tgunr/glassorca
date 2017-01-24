@@ -8,6 +8,8 @@
 
 import WatchConnectivity
 
+let APPGROUP = "group.net.polymicro.ithappened"
+
 /**
  The `WatchConnectivityManagerDelegate` protocol enables a `WatchConnectivityManager` object to notify another
  object of changes to the activation state of the default `WCSession`. On iOS the receiver is provided with the

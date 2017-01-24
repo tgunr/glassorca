@@ -61,6 +61,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    func initWormhole() {
+        let fm = FileManager()
+        if fm.containerURL(forSecurityApplicationGroupIdentifier: APPGROUP) != nil {
+            wormhole = MMWormhole(applicationGroupIdentifier: APPGROUP, optionalDirectory: "wormhole")
+            wormhole?.listenForMessage(withIdentifier: "sendNeighborList", listener: { (messageObject) -> Void in
+                if let message: AnyObject = messageObject as AnyObject? {
+                    // Do something
+                }
+            })
+        } else {
+            NSLog("ERROR: Setting AppGroup %s failed", APPGROUP)
+        }
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
@@ -107,9 +120,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             defaultSession.delegate = WatchConnectivityManager.sharedConnectivityManager
             defaultSession.activate()
         }
-
-        wormhole = MMWormhole(applicationGroupIdentifier: "group.net.polymicro.ithappened", optionalDirectory: "wormhole")
-
+        
+        initWormhole()
         return shouldPerformAdditionalDelegateHandling
     }
 
