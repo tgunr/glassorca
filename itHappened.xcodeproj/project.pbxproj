@@ -10,15 +10,17 @@
 		5AF0D49EA7BCE7C82E886748 /* IncidentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF0D6FF4D2D75D62DBE3079 /* IncidentList.swift */; };
 		5AF0DCCD88D444B958B5D8D9 /* NeighborsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF0D663F18268B456B5F3BC /* NeighborsViewController.swift */; };
 		75299A6D1DB567F6007FE325 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75299A6C1DB567F6007FE325 /* AppDelegate.swift */; };
-		75299A741DB567F6007FE325 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75299A721DB567F6007FE325 /* Main.storyboard */; };
 		75299A761DB567F6007FE325 /* IOS Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75299A751DB567F6007FE325 /* IOS Assets.xcassets */; };
 		75299A791DB567F6007FE325 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75299A771DB567F6007FE325 /* LaunchScreen.storyboard */; };
-		75299A841DB567F6007FE325 /* NoisyNeighborsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75299A831DB567F6007FE325 /* NoisyNeighborsTests.swift */; };
-		75299A8F1DB567F6007FE325 /* NoisyNeighborsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75299A8E1DB567F6007FE325 /* NoisyNeighborsUITests.swift */; };
+		75299A841DB567F6007FE325 /* itHappenedWatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75299A831DB567F6007FE325 /* itHappenedWatchTests.swift */; };
+		75299A8F1DB567F6007FE325 /* itHappenedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75299A8E1DB567F6007FE325 /* itHappenedUITests.swift */; };
 		753C74521DC2AECC007FE325 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753C744D1DC2AECC007FE325 /* Extensions.swift */; };
 		753C74531DC2AECC007FE325 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753C744E1DC2AECC007FE325 /* MainViewController.swift */; };
 		753C74541DC2AECC007FE325 /* Neighbor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753C744F1DC2AECC007FE325 /* Neighbor.swift */; };
 		753C74551DC2AECC007FE325 /* NeighborsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753C74501DC2AECC007FE325 /* NeighborsTableViewController.swift */; };
+		7545EDE21E6509D70092F750 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7545EDE01E6509D70092F750 /* Main.storyboard */; };
+		7545EDE41E6509E10092F750 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7545EDE31E6509E10092F750 /* Info.plist */; };
+		7545EDE61E65DE650092F750 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7545EDE51E65DE650092F750 /* CloudKit.framework */; };
 		755E6CF51DEB77FC00F601EC /* IncidentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755E6CF41DEB77FC00F601EC /* IncidentsViewController.swift */; };
 		7586C2EB1E2FDBBC00D1D38D /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7586C2EA1E2FDBBC00D1D38D /* WatchConnectivityManager.swift */; };
 		7586C2EC1E2FDBBC00D1D38D /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7586C2EA1E2FDBBC00D1D38D /* WatchConnectivityManager.swift */; };
@@ -45,14 +47,14 @@
 			containerPortal = 75299A611DB567F5007FE325 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 75299A681DB567F6007FE325;
-			remoteInfo = NoisyNeighbors;
+			remoteInfo = itHappened;
 		};
 		75299A8B1DB567F6007FE325 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 75299A611DB567F5007FE325 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 75299A681DB567F6007FE325;
-			remoteInfo = NoisyNeighbors;
+			remoteInfo = itHappened;
 		};
 		75A832F21E36982600989DFC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -94,14 +96,14 @@
 			containerPortal = 75299A611DB567F5007FE325 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 75AE56B21DF3B36E002CADAE;
-			remoteInfo = "NoisyNeighborsWatch Extension";
+			remoteInfo = "itHappenedWatch Extension";
 		};
 		75AE56C51DF3B36E002CADAE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 75299A611DB567F5007FE325 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 75AE56A61DF3B36E002CADAE;
-			remoteInfo = NoisyNeighborsWatch;
+			remoteInfo = itHappenedWatch;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -151,41 +153,42 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5AF0D663F18268B456B5F3BC /* NeighborsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighborsViewController.swift; sourceTree = "<group>"; };
+		5AF0D663F18268B456B5F3BC /* NeighborsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = NeighborsViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5AF0D6FF4D2D75D62DBE3079 /* IncidentList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncidentList.swift; sourceTree = "<group>"; };
-		75064B7C1E3577720077207D /* NoisyNeighbors-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NoisyNeighbors-Bridging-Header.h"; sourceTree = "<group>"; };
+		75064B7C1E3577720077207D /* itHappened-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "itHappened-Bridging-Header.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		75299A691DB567F6007FE325 /* itHappened.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = itHappened.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75299A6C1DB567F6007FE325 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		75299A731DB567F6007FE325 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		75299A751DB567F6007FE325 /* IOS Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "IOS Assets.xcassets"; sourceTree = "<group>"; };
+		75299A751DB567F6007FE325 /* IOS Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "IOS Assets.xcassets"; path = "../itHappened/IOS Assets.xcassets"; sourceTree = "<group>"; };
 		75299A781DB567F6007FE325 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		75299A7A1DB567F6007FE325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75299A7F1DB567F6007FE325 /* itHappenedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = itHappenedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		75299A831DB567F6007FE325 /* NoisyNeighborsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoisyNeighborsTests.swift; sourceTree = "<group>"; };
+		75299A831DB567F6007FE325 /* itHappenedWatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = itHappenedWatchTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		75299A851DB567F6007FE325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75299A8A1DB567F6007FE325 /* itHappenedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = itHappenedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		75299A8E1DB567F6007FE325 /* NoisyNeighborsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoisyNeighborsUITests.swift; sourceTree = "<group>"; };
+		75299A8E1DB567F6007FE325 /* itHappenedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = itHappenedUITests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		75299A901DB567F6007FE325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		753C744D1DC2AECC007FE325 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		753C744D1DC2AECC007FE325 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Extensions.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		753C744E1DC2AECC007FE325 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MainViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		753C744F1DC2AECC007FE325 /* Neighbor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Neighbor.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		753C74501DC2AECC007FE325 /* NeighborsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = NeighborsTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		7545EDE11E6509D70092F750 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = itHappened/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
+		7545EDE31E6509E10092F750 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = itHappened/Info.plist; sourceTree = SOURCE_ROOT; };
+		7545EDE51E65DE650092F750 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS3.1.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		755E6CF41DEB77FC00F601EC /* IncidentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = IncidentsViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		755E6CF61DEB9DC200F601EC /* NoisyNeighbors.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NoisyNeighbors.entitlements; sourceTree = "<group>"; };
+		755E6CF61DEB9DC200F601EC /* itHappened.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = itHappened.entitlements; sourceTree = "<group>"; };
 		7586C2EA1E2FDBBC00D1D38D /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchConnectivityManager.swift; sourceTree = "<group>"; };
 		75A832EC1E36982600989DFC /* MMWormhole.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MMWormhole.xcodeproj; path = MMWormhole/MMWormhole/MMWormhole.xcodeproj; sourceTree = "<group>"; };
-		75A833051E36A3A000989DFC /* NoisyNeighborsWatch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "NoisyNeighborsWatch Extension.entitlements"; sourceTree = "<group>"; };
-		75A833091E36C26D00989DFC /* NoisyNeighborsWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NoisyNeighborsWatch.entitlements; sourceTree = "<group>"; };
+		75A833051E36A3A000989DFC /* itHappenedWatch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "itHappenedWatch Extension.entitlements"; sourceTree = "<group>"; };
+		75A833091E36C26D00989DFC /* itHappenedWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = itHappenedWatch.entitlements; sourceTree = "<group>"; };
 		75AE56A31DF3ADE4002CADAE /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		75AE56A71DF3B36E002CADAE /* itHappenedWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = itHappenedWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75AE56AA1DF3B36E002CADAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		75AE56AE1DF3B36E002CADAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75AE56B31DF3B36E002CADAE /* itHappenedWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "itHappenedWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		75AE56B91DF3B36E002CADAE /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		75AE56BA1DF3B36E002CADAE /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
-		75AE56BC1DF3B36E002CADAE /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
-		75AE56BE1DF3B36E002CADAE /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
-		75AE56C01DF3B36E002CADAE /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		75AE56BA1DF3B36E002CADAE /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = InterfaceController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		75AE56BC1DF3B36E002CADAE /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ExtensionDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		75AE56BE1DF3B36E002CADAE /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = NotificationController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		75AE56C01DF3B36E002CADAE /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ComplicationController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		75AE56C21DF3B36E002CADAE /* Watch Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Watch Assets.xcassets"; sourceTree = "<group>"; };
 		75AE56C41DF3B36E002CADAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75C1AA661DEB6412002CED1F /* Incident.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Incident.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -222,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75A832FB1E369AB000989DFC /* MMWormhole.framework in Frameworks */,
+				7545EDE61E65DE650092F750 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,14 +243,14 @@
 			isa = PBXGroup;
 			children = (
 				75A832EC1E36982600989DFC /* MMWormhole.xcodeproj */,
-				75064B7C1E3577720077207D /* NoisyNeighbors-Bridging-Header.h */,
+				75064B7C1E3577720077207D /* itHappened-Bridging-Header.h */,
 				7586C2E91E2FDBBC00D1D38D /* Shared */,
 				753C74571DC2AEF8007FE325 /* Resources */,
-				75299A6B1DB567F6007FE325 /* NoisyNeighbors */,
-				75299A821DB567F6007FE325 /* NoisyNeighborsTests */,
-				75299A8D1DB567F6007FE325 /* NoisyNeighborsUITests */,
-				75AE56A81DF3B36E002CADAE /* NoisyNeighborsWatch */,
-				75AE56B71DF3B36E002CADAE /* NoisyNeighborsWatch Extension */,
+				75299A6B1DB567F6007FE325 /* itHappened */,
+				75299A821DB567F6007FE325 /* itHappenedTests */,
+				75299A8D1DB567F6007FE325 /* itHappenedUITests */,
+				75AE56A81DF3B36E002CADAE /* itHappenedWatch */,
+				75AE56B71DF3B36E002CADAE /* itHappenedWatch Extension */,
 				75299A6A1DB567F6007FE325 /* Products */,
 				8799F7D39AC5740BE4FCF15A /* Frameworks */,
 			);
@@ -264,10 +268,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		75299A6B1DB567F6007FE325 /* NoisyNeighbors */ = {
+		75299A6B1DB567F6007FE325 /* itHappened */ = {
 			isa = PBXGroup;
 			children = (
-				755E6CF61DEB9DC200F601EC /* NoisyNeighbors.entitlements */,
+				755E6CF61DEB9DC200F601EC /* itHappened.entitlements */,
 				75299A6C1DB567F6007FE325 /* AppDelegate.swift */,
 				753C744D1DC2AECC007FE325 /* Extensions.swift */,
 				753C744E1DC2AECC007FE325 /* MainViewController.swift */,
@@ -278,37 +282,37 @@
 				5AF0D663F18268B456B5F3BC /* NeighborsViewController.swift */,
 				753C74501DC2AECC007FE325 /* NeighborsTableViewController.swift */,
 			);
-			path = NoisyNeighbors;
+			path = itHappened;
 			sourceTree = "<group>";
 		};
-		75299A821DB567F6007FE325 /* NoisyNeighborsTests */ = {
+		75299A821DB567F6007FE325 /* itHappenedTests */ = {
 			isa = PBXGroup;
 			children = (
-				75299A831DB567F6007FE325 /* NoisyNeighborsTests.swift */,
+				75299A831DB567F6007FE325 /* itHappenedWatchTests.swift */,
 				75299A851DB567F6007FE325 /* Info.plist */,
 			);
-			path = NoisyNeighborsTests;
+			name = itHappenedTests;
+			path = itHappenedWatchTests;
 			sourceTree = "<group>";
 		};
-		75299A8D1DB567F6007FE325 /* NoisyNeighborsUITests */ = {
+		75299A8D1DB567F6007FE325 /* itHappenedUITests */ = {
 			isa = PBXGroup;
 			children = (
-				75299A8E1DB567F6007FE325 /* NoisyNeighborsUITests.swift */,
+				75299A8E1DB567F6007FE325 /* itHappenedUITests.swift */,
 				75299A901DB567F6007FE325 /* Info.plist */,
 			);
-			path = NoisyNeighborsUITests;
+			path = itHappenedUITests;
 			sourceTree = "<group>";
 		};
 		753C74571DC2AEF8007FE325 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				75299A721DB567F6007FE325 /* Main.storyboard */,
+				7545EDE31E6509E10092F750 /* Info.plist */,
 				75299A751DB567F6007FE325 /* IOS Assets.xcassets */,
+				7545EDE01E6509D70092F750 /* Main.storyboard */,
 				75299A771DB567F6007FE325 /* LaunchScreen.storyboard */,
-				75299A7A1DB567F6007FE325 /* Info.plist */,
 			);
-			name = Resources;
-			path = NoisyNeighbors;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		7586C2E91E2FDBBC00D1D38D /* Shared */ = {
@@ -329,20 +333,20 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		75AE56A81DF3B36E002CADAE /* NoisyNeighborsWatch */ = {
+		75AE56A81DF3B36E002CADAE /* itHappenedWatch */ = {
 			isa = PBXGroup;
 			children = (
-				75A833091E36C26D00989DFC /* NoisyNeighborsWatch.entitlements */,
+				75A833091E36C26D00989DFC /* itHappenedWatch.entitlements */,
 				75AE56A91DF3B36E002CADAE /* Interface.storyboard */,
 				75AE56AE1DF3B36E002CADAE /* Info.plist */,
 			);
-			path = NoisyNeighborsWatch;
+			path = itHappenedWatch;
 			sourceTree = "<group>";
 		};
-		75AE56B71DF3B36E002CADAE /* NoisyNeighborsWatch Extension */ = {
+		75AE56B71DF3B36E002CADAE /* itHappenedWatch Extension */ = {
 			isa = PBXGroup;
 			children = (
-				75A833051E36A3A000989DFC /* NoisyNeighborsWatch Extension.entitlements */,
+				75A833051E36A3A000989DFC /* itHappenedWatch Extension.entitlements */,
 				75AE56BC1DF3B36E002CADAE /* ExtensionDelegate.swift */,
 				75AE56BA1DF3B36E002CADAE /* InterfaceController.swift */,
 				75AE56BE1DF3B36E002CADAE /* NotificationController.swift */,
@@ -351,7 +355,7 @@
 				75AE56C41DF3B36E002CADAE /* Info.plist */,
 				75AE56B81DF3B36E002CADAE /* Supporting Files */,
 			);
-			path = "NoisyNeighborsWatch Extension";
+			path = "itHappenedWatch Extension";
 			sourceTree = "<group>";
 		};
 		75AE56B81DF3B36E002CADAE /* Supporting Files */ = {
@@ -365,6 +369,7 @@
 		8799F7D39AC5740BE4FCF15A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7545EDE51E65DE650092F750 /* CloudKit.framework */,
 				75AE56A31DF3ADE4002CADAE /* AudioToolbox.framework */,
 				75CA595B1DEBA87F009271AC /* CloudKit.framework */,
 			);
@@ -392,7 +397,7 @@
 				75AE56C61DF3B36E002CADAE /* PBXTargetDependency */,
 			);
 			name = itHappened;
-			productName = NoisyNeighbors;
+			productName = itHappened;
 			productReference = 75299A691DB567F6007FE325 /* itHappened.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -410,7 +415,7 @@
 				75299A811DB567F6007FE325 /* PBXTargetDependency */,
 			);
 			name = itHappenedTests;
-			productName = NoisyNeighborsTests;
+			productName = itHappenedTests;
 			productReference = 75299A7F1DB567F6007FE325 /* itHappenedTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -428,7 +433,7 @@
 				75299A8C1DB567F6007FE325 /* PBXTargetDependency */,
 			);
 			name = itHappenedUITests;
-			productName = NoisyNeighborsUITests;
+			productName = itHappenedUITests;
 			productReference = 75299A8A1DB567F6007FE325 /* itHappenedUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
@@ -446,7 +451,7 @@
 				75AE56B61DF3B36E002CADAE /* PBXTargetDependency */,
 			);
 			name = itHappenedWatch;
-			productName = NoisyNeighborsWatch;
+			productName = itHappenedWatch;
 			productReference = 75AE56A71DF3B36E002CADAE /* itHappenedWatch.app */;
 			productType = "com.apple.product-type.application.watchapp2";
 		};
@@ -466,7 +471,7 @@
 				75A832FE1E369AF200989DFC /* PBXTargetDependency */,
 			);
 			name = "itHappenedWatch Extension";
-			productName = "NoisyNeighborsWatch Extension";
+			productName = "itHappenedWatch Extension";
 			productReference = 75AE56B31DF3B36E002CADAE /* itHappenedWatch Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
@@ -489,7 +494,7 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.Push = {
 								enabled = 1;
@@ -530,6 +535,12 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
 								enabled = 1;
 							};
 						};
@@ -593,9 +604,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7545EDE41E6509E10092F750 /* Info.plist in Resources */,
+				7545EDE21E6509D70092F750 /* Main.storyboard in Resources */,
 				75299A791DB567F6007FE325 /* LaunchScreen.storyboard in Resources */,
 				75299A761DB567F6007FE325 /* IOS Assets.xcassets in Resources */,
-				75299A741DB567F6007FE325 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -682,7 +694,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75299A841DB567F6007FE325 /* NoisyNeighborsTests.swift in Sources */,
+				75299A841DB567F6007FE325 /* itHappenedWatchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -690,7 +702,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75299A8F1DB567F6007FE325 /* NoisyNeighborsUITests.swift in Sources */,
+				75299A8F1DB567F6007FE325 /* itHappenedUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -742,20 +754,21 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		75299A721DB567F6007FE325 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				75299A731DB567F6007FE325 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		75299A771DB567F6007FE325 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				75299A781DB567F6007FE325 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = ../itHappened;
+			sourceTree = "<group>";
+		};
+		7545EDE01E6509D70092F750 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7545EDE11E6509D70092F750 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		75AE56A91DF3B36E002CADAE /* Interface.storyboard */ = {
@@ -816,7 +829,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/NoisyNeighbors-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/itHappened-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -861,7 +874,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/NoisyNeighbors-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/itHappened-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -873,11 +886,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_ENTITLEMENTS = NoisyNeighbors/NoisyNeighbors.entitlements;
+				CODE_SIGN_ENTITLEMENTS = itHappened/itHappened.entitlements;
+				DEVELOPMENT_TEAM = NL3267E99V;
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/DerivedData/Build/Products/Debug-iphonesimulator\"";
-				INFOPLIST_FILE = NoisyNeighbors/Info.plist;
+				INFOPLIST_FILE = itHappened/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.ios.noisyneighors;
+				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.ios.itHappened;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
@@ -889,11 +903,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_ENTITLEMENTS = NoisyNeighbors/NoisyNeighbors.entitlements;
+				CODE_SIGN_ENTITLEMENTS = itHappened/itHappened.entitlements;
+				DEVELOPMENT_TEAM = NL3267E99V;
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/DerivedData/Build/Products/Debug-iphonesimulator\"";
-				INFOPLIST_FILE = NoisyNeighbors/Info.plist;
+				INFOPLIST_FILE = itHappened/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.ios.noisyneighors;
+				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.ios.itHappened;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
@@ -906,9 +921,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = NL3267E99V;
-				INFOPLIST_FILE = NoisyNeighborsTests/Info.plist;
+				INFOPLIST_FILE = itHappened/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.NoisyNeighborsTests;
+				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.itHappened;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/itHappened.app/itHappened";
@@ -921,9 +936,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = NL3267E99V;
-				INFOPLIST_FILE = NoisyNeighborsTests/Info.plist;
+				INFOPLIST_FILE = itHappened/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.NoisyNeighborsTests;
+				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.itHappened;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/itHappened.app/itHappened";
@@ -935,12 +950,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = NL3267E99V;
-				INFOPLIST_FILE = NoisyNeighborsUITests/Info.plist;
+				INFOPLIST_FILE = itHappenedUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.NoisyNeighborsUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.itHappenedUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = NoisyNeighbors;
+				TEST_TARGET_NAME = itHappened;
 			};
 			name = Debug;
 		};
@@ -949,12 +964,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = NL3267E99V;
-				INFOPLIST_FILE = NoisyNeighborsUITests/Info.plist;
+				INFOPLIST_FILE = itHappenedUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.NoisyNeighborsUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.itHappenedUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = NoisyNeighbors;
+				TEST_TARGET_NAME = itHappened;
 			};
 			name = Release;
 		};
@@ -962,13 +977,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CODE_SIGN_ENTITLEMENTS = "NoisyNeighborsWatch Extension/NoisyNeighborsWatch Extension.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "/Sources/Projects/itHappened/itHappenedWatch Extension/itHappenedWatch Extension.entitlements";
 				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = NL3267E99V;
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/DerivedData/Build/Products/Debug-watchsimulator\"";
-				INFOPLIST_FILE = "NoisyNeighborsWatch Extension/Info.plist";
+				INFOPLIST_FILE = "itHappenedWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.ios.noisyneighors.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.ios.itHappened.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -982,13 +998,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CODE_SIGN_ENTITLEMENTS = "NoisyNeighborsWatch Extension/NoisyNeighborsWatch Extension.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "/Sources/Projects/itHappened/itHappenedWatch Extension/itHappenedWatch Extension.entitlements";
 				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = NL3267E99V;
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/DerivedData/Build/Products/Debug-watchsimulator\"";
-				INFOPLIST_FILE = "NoisyNeighborsWatch Extension/Info.plist";
+				INFOPLIST_FILE = "itHappenedWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.ios.noisyneighors.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.ios.itHappened.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1003,10 +1020,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = NoisyNeighborsWatch/NoisyNeighborsWatch.entitlements;
-				IBSC_MODULE = NoisyNeighborsWatch_Extension;
-				INFOPLIST_FILE = NoisyNeighborsWatch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.ios.noisyneighors.watchkitapp;
+				CODE_SIGN_ENTITLEMENTS = itHappenedWatch/itHappenedWatch.entitlements;
+				IBSC_MODULE = itHappenedWatch_Extension;
+				INFOPLIST_FILE = itHappenedWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.ios.itHappened.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1021,10 +1038,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = NoisyNeighborsWatch/NoisyNeighborsWatch.entitlements;
-				IBSC_MODULE = NoisyNeighborsWatch_Extension;
-				INFOPLIST_FILE = NoisyNeighborsWatch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.ios.noisyneighors.watchkitapp;
+				CODE_SIGN_ENTITLEMENTS = itHappenedWatch/itHappenedWatch.entitlements;
+				IBSC_MODULE = itHappenedWatch_Extension;
+				INFOPLIST_FILE = itHappenedWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.ios.itHappened.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;

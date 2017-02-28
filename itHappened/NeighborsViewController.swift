@@ -1,6 +1,6 @@
 //
 //  NeighborsViewController.swift
-//  NoisyNeighbors
+//  itHappened
 //
 //  Created by Dave Carlton on 10/17/16.
 //  Copyright © 2016 Dave Carlton. All rights reserved.

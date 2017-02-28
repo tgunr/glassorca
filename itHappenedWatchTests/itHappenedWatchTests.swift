@@ -1,15 +1,15 @@
 //
-//  NoisyNeighborsTests.swift
-//  NoisyNeighborsTests
+//  itHappenedTests.swift
+//  itHappenedTests
 //
 //  Created by Dave Carlton on 10/17/16.
 //  Copyright © 2016 Dave Carlton. All rights reserved.
 //
 
 import XCTest
-@testable import NoisyNeighbors
+@testable import itHappened
 
-class NoisyNeighborsTests: XCTestCase {
+class itHappenedTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

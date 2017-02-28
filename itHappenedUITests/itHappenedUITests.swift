@@ -1,6 +1,6 @@
 //
-//  NoisyNeighborsUITests.swift
-//  NoisyNeighborsUITests
+//  itHappenedUITests.swift
+//  itHappenedUITests
 //
 //  Created by Dave Carlton on 10/17/16.
 //  Copyright © 2016 Dave Carlton. All rights reserved.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class NoisyNeighborsUITests: XCTestCase {
+class itHappenedUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()

@@ -1,6 +1,6 @@
 //
 //  InterfaceController.swift
-//  NoisyNeighborsWatch Extension
+//  itHappenedWatch Extension
 //
 //  Created by Dave Carlton on 12/3/16.
 //  Copyright © 2016 Dave Carlton. All rights reserved.
@@ -22,7 +22,7 @@ class InterfaceController: WKInterfaceController {
     ]
     
     let neighbors: [WKPickerItem] = []
-    let defaults = UserDefaults.init(suiteName: "NoisyNeighbors")
+    let defaults = UserDefaults.init(suiteName: "itHappened")
     
     @IBOutlet var picker: WKInterfacePicker!
 

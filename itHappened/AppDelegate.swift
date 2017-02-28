@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  NoisyNeighbors
+//  itHappened
 //
 //  Created by Dave Carlton on 10/17/16.
 //  Copyright © 2016 Dave Carlton. All rights reserved.
@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var version = "0.2"
     var firstLaunch = false
     var apiKey = "keyx0gx0iobbmtuZl"
-    var defaults = UserDefaults.init(suiteName: "NoisyNeighbors")
+    var defaults = UserDefaults.init(suiteName: "itHappened")
     var wormhole: MMWormhole!
 
     static let applicationShortcutUserInfoIconKey = "applicationShortcutUserInfoIconKey"
@@ -106,7 +106,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     AppDelegate.applicationShortcutUserInfoIconKey: UIApplicationShortcutIconType.taskCompleted.rawValue
             ]
             )
-            let shortcut3 = UIMutableApplicationShortcutItem(type: ShortcutIdentifier.Share.type, localizedTitle: "Share", localizedSubtitle: "Share NoisyNeighbors", icon: UIApplicationShortcutIcon(type: .share), userInfo: [
+            let shortcut3 = UIMutableApplicationShortcutItem(type: ShortcutIdentifier.Share.type, localizedTitle: "Share", localizedSubtitle: "Share itHappened", icon: UIApplicationShortcutIcon(type: .share), userInfo: [
                     AppDelegate.applicationShortcutUserInfoIconKey: UIApplicationShortcutIconType.share.rawValue
             ]
             )

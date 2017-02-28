@@ -1,6 +1,6 @@
 //
 //  MainViewController.swift
-//  NoisyNeighbors
+//  itHappened
 //
 //  Created by Dave Carlton on 10/17/16.
 //  Copyright © 2016 Dave Carlton. All rights reserved.
@@ -208,8 +208,8 @@ class MainViewController: UIViewController {
             stopNoise()
             break
         case ShortcutIdentifier.Share.type:
-            let text = "Share NoisyNeighbors"
-            let url: URL = URL(string: "http://polymicro.net/noisyneighbors")!
+            let text = "Share itHappened"
+            let url: URL = URL(string: "http://polymicro.net/itHappened")!
             let objectsToShare = [text, url] as [Any]
             let activityViewController = UIActivityViewController(activityItems: objectsToShare,
                     applicationActivities: nil)

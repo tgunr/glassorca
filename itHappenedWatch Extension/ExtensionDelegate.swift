@@ -1,6 +1,6 @@
 //
 //  ExtensionDelegate.swift
-//  NoisyNeighborsWatch Extension
+//  itHappenedWatch Extension
 //
 //  Created by Dave Carlton on 12/3/16.
 //  Copyright © 2016 Dave Carlton. All rights reserved.

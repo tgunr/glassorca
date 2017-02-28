@@ -1,6 +1,6 @@
 //
 //  Incident.swift
-//  NoisyNeighbors
+//  itHappened
 //
 //  Created by Dave Carlton on 11/27/16.
 //  Copyright © 2016 Dave Carlton. All rights reserved.
