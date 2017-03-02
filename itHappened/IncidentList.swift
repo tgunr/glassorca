@@ -53,7 +53,7 @@ class IncidentList: NSObject, NSCoding {
 
     class func incidents(filter: String) -> [Incident] {
         return IncidentList.sharedInstance.incidents.filter {
-            $0.neighbor?.label == filter
+            $0.occurance?.label == filter
         }
     }
 

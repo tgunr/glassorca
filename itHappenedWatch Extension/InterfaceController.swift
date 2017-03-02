@@ -14,14 +14,14 @@ class InterfaceController: WKInterfaceController {
 
     let delegate = WKExtension.shared().delegate as! ExtensionDelegate
     
-    let neighborItems: [ (String, String) ] = [
+    let occuranceItems: [ (String, String) ] = [
     ("1", "Loud Dog"),
     ("2", "5 Dog Lady"),
     ("3", "Dragon Lady"),
     ("4", "Stupid Guy")
     ]
     
-    let neighbors: [WKPickerItem] = []
+    let occurances: [WKPickerItem] = []
     let defaults = UserDefaults.init(suiteName: "itHappened")
     
     @IBOutlet var picker: WKInterfacePicker!
@@ -36,7 +36,7 @@ class InterfaceController: WKInterfaceController {
     }
     
     func updatePickerItems() {
-        let pickerItems: [WKPickerItem] = neighborItems.map {
+        let pickerItems: [WKPickerItem] = occuranceItems.map {
             let pickerItem = WKPickerItem()
             pickerItem.caption = $0.0
             pickerItem.title = $0.1

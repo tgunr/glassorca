@@ -17,7 +17,7 @@ enum IncidentType: String {
 }
 
 class Incident: NSObject, NSCoding {
-    var neighbor : Neighbor?
+    var occurance : Occurance?
     var occured : Date = Date.init()
     var stopped : Date = Date.init()
     var type: IncidentType = .None
@@ -26,8 +26,8 @@ class Incident: NSObject, NSCoding {
         super.init()
     }
     
-    func initWith(neighbor: Neighbor, type: Int) {
-        self.neighbor = neighbor
+    func initWith(occurance: Occurance, type: Int) {
+        self.occurance = occurance
         switch type {
         case 0:
             self.type = .Dog
@@ -43,14 +43,14 @@ class Incident: NSObject, NSCoding {
     }
     
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(neighbor, forKey: PropertyKey.neighborKey)
+        aCoder.encode(occurance, forKey: PropertyKey.occuranceKey)
         aCoder.encode(occured, forKey: PropertyKey.occuredKey)
         aCoder.encode(stopped, forKey: PropertyKey.stoppedKey)
         aCoder.encode(type.rawValue, forKey: PropertyKey.typeKey)
     }
     
     required init?(coder aDecoder: NSCoder) {
-        neighbor = (aDecoder.decodeObject(forKey: PropertyKey.neighborKey) as! Neighbor)
+        occurance = (aDecoder.decodeObject(forKey: PropertyKey.occuranceKey) as! Occurance)
         occured = (aDecoder.decodeObject(forKey: PropertyKey.occuredKey) as! Date)
         type = IncidentType(rawValue: (aDecoder.decodeObject(forKey: PropertyKey.typeKey) as! String)) ?? .None
     }

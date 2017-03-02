@@ -1,52 +1,52 @@
 //
-//  NeighborsTableViewController.swift
-//  itHappened
-//
-//  Created by Dave Carlton on 10/26/16.
-//  Copyright © 2016 Dave Carlton. All rights reserved.
+// Created by Dave Carlton on 3/1/17.
+// Copyright (c) 2017 Dave Carlton. All rights reserved.
 //
 
 import UIKit
 
-class NeighborTableViewCell: UITableViewCell {
-    @IBOutlet weak var neighborLabel: UILabel!
+class ConfigureTableViewCell: UITableViewCell {
+    @IBOutlet weak var configureLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var infoButton: UIButton!
 }
 
-class NeighborsTableViewController: UITableViewController {
+class ConfigureTableViewController: UITableViewController {
     private var appDelegate = UIApplication.shared.delegate as! AppDelegate
     var selectedIndexPath: IndexPath?
 
     @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet weak var neigborsTableView: UITableView!
+    
     @IBAction func add(_ sender: Any) {
         selectedIndexPath = nil
-        _ = NeighborsDetailViewController()
-        performSegue(withIdentifier: "neighborDetail", sender: sender)
+        _ = ConfigureDetailViewController()
+        performSegue(withIdentifier: "configureDetail", sender: sender)
     }
-   
+
     @IBAction func info(_ sender: UIButton, forEvent: UIEvent) {
         let view = sender.superview!
-        let cell = view.superview as! NeighborTableViewCell
+        let cell = view.superview as! ConfigureTableViewCell
         selectedIndexPath = neigborsTableView.indexPath(for: cell)
-        _ = NeighborsDetailViewController()
-        performSegue(withIdentifier: "neighborDetail", sender: sender)
+        _ = ConfigureDetailViewController()
+        performSegue(withIdentifier: "configureDetail", sender: sender)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "configureCell")
+
         // Uncomment the following line to preserve selection between presentations
-         self.clearsSelectionOnViewWillAppear = false
+        self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-//         self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
+        //         self.navigationItem.rightBarButtonItem = self.editButtonItem()
+
         self.navigationItem.rightBarButtonItem=addButton
-//        if gNeighbors.count == 0 {
-//            loadNeighbors()
-//        }
+        //        if gOccurances.count == 0 {
+        //            loadNeighbors()
+        //        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,38 +61,38 @@ class NeighborsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return (gNeighbors.count)
+        return (gOccurances.count)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "neighborCell", for: indexPath) as! NeighborTableViewCell
-//        let thisNeighbor = gNeighbors.subscript(indexPath as Index)
-        let neighbor = gNeighbors[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ConfigureTableViewCell
+        //        let thisNeighbor = gOccurances.subscript(indexPath as Index)
+        let occurance = gOccurances[indexPath.row]
         // Configure the cell...
-        cell.neighborLabel.text = neighbor.label
-        cell.addressLabel.text = neighbor.address
+        cell.configureLabel.text = occurance.label
+        cell.addressLabel.text = occurance.address
         return cell
     }
 
     override func viewDidAppear(_ animated: Bool) {
-//        let count = self.neigborsTableView.numberOfRows(inSection: 0)
+        //        let count = self.neigborsTableView.numberOfRows(inSection: 0)
         self.neigborsTableView.reloadData()
     }
-    
+
     /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
+     // Override to support conditional editing of the table view.
+     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the specified item to be editable.
+     return true
+     }
+     */
 
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            let thatNeighbor = gNeighbors[indexPath.row]
-            appDelegate.removeNeighbor(thatNeighbor)
+            let thatNeighbor = gOccurances[indexPath.row]
+            appDelegate.removeOccurance(thatNeighbor)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -100,22 +100,22 @@ class NeighborsTableViewController: UITableViewController {
     }
 
     /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+     // Override to support rearranging the table view.
+     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
 
-    }
-    */
+     }
+     */
 
     /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
+     // Override to support conditional rearranging of the table view.
+     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the item to be re-orderable.
+     return true
+     }
+     */
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndexPath = indexPath
-//        neigborsTableView.deselectRow(at: indexPath as IndexPath, animated: true)
+        //        neigborsTableView.deselectRow(at: indexPath as IndexPath, animated: true)
     }
 
     // MARK: - Navigation
@@ -124,32 +124,32 @@ class NeighborsTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        let dest = segue.destination as! NeighborsDetailViewController
+        let dest = segue.destination as! ConfigureDetailViewController
         if selectedIndexPath != nil {
-            let neighbor = gNeighbors[(selectedIndexPath?.row)!]
-            dest.selectedNeighborObject = neighbor
+            let occurance = gOccurances[(selectedIndexPath?.row)!]
+            dest.selectedOccuranceObject = occurance
         } else {
-            dest.selectedNeighborObject = nil
+            dest.selectedOccuranceObject = nil
         }
     }
 
     func loadNeighbors () {
         let n1 = "N1"
         let a1 = "Address 1"
-        
+
         let n2 = "N2"
         let a2 = "Address 2"
-        
-        let N1 = Neighbor()
+
+        let N1 = Occurance()
         N1.initWith(label: n1, name: n1, address: a1)
-        let N2 = Neighbor()
+        let N2 = Occurance()
         N2.initWith(label: n2, name: n2, address: a2)
-        
-        gNeighbors = [N1, N2]
-        //        self.gNeighbors = gNeighbors
-        appDelegate.saveNeighbor(N1)
-        appDelegate.saveNeighbor(N2)
-        
+
+        gOccurances = [N1, N2]
+        //        self.gOccurances = gOccurances
+        appDelegate.saveOccurance(N1)
+        appDelegate.saveOccurance(N2)
+
     }
 
 }

@@ -28,7 +28,7 @@ enum ShortcutIdentifier: String {
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    let ArchiveURL: String = DocumentsDirectory.appendingPathComponent("neighbors").standardizedFileURL.path
+    let ArchiveURL: String = DocumentsDirectory.appendingPathComponent("configure").standardizedFileURL.path
     var window: UIWindow?
     var version = "0.2"
     var firstLaunch = false
@@ -41,11 +41,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var shortCutType: String?
 
     func saveUserDefaults() {
-        let result = NSKeyedArchiver.archiveRootObject(gNeighbors, toFile: ArchiveURL)
+        let result = NSKeyedArchiver.archiveRootObject(gOccurances, toFile: ArchiveURL)
         if !result {
-            print("Failed to save gNeighbors...")
+            print("Failed to save gOccurances...")
         }
-        let strings = gNeighbors.map({
+        let strings = gOccurances.map({
             $0.label
         })
         defaults?.set(strings, forKey: "Neighbors")
@@ -53,11 +53,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func restoreUserDefaults() {
         NSLog("Restoring")
-        let result =  NSKeyedUnarchiver.unarchiveObject(withFile: ArchiveURL) as? [Neighbor]
+        let result =  NSKeyedUnarchiver.unarchiveObject(withFile: ArchiveURL) as? [Occurance]
         if result != nil {
-            gNeighbors = result!
+            gOccurances = result!
         } else {
-            print("Failed to restore gNeighbors...")
+            print("Failed to restore gOccurances...")
         }
     }
     
@@ -66,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if fm.containerURL(forSecurityApplicationGroupIdentifier: APPGROUP) != nil {
             wormhole = MMWormhole(applicationGroupIdentifier: APPGROUP, optionalDirectory: "wormhole")
             wormhole?.listenForMessage(withIdentifier: "sendNeighborList", listener: { (messageObject) -> Void in
-                if let message: AnyObject = messageObject as AnyObject? {
+                if let _: AnyObject = messageObject as AnyObject? {
                     // Do something
                 }
             })
@@ -170,27 +170,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-    func addNeighbor(_ theNeighbor: Neighbor) {
-        gNeighbors.append(theNeighbor)
+    func addOccurance(_ theOccurance: Occurance) {
+        gOccurances.append(theOccurance)
         self.saveUserDefaults()
     }
 
-    func saveNeighbor(_ theNeighbor: Neighbor) {
-        let found = gNeighbors.index(of: theNeighbor)
+    func saveOccurance(_ theOccurance: Occurance) {
+        let found = gOccurances.index(of: theOccurance)
         if found != nil {
-            gNeighbors[found!] = theNeighbor
+            gOccurances[found!] = theOccurance
             self.saveUserDefaults()
         }
     }
     
-    func removeNeighbor(_ theNeighbor: Neighbor) {
-        let found = gNeighbors.index(of: theNeighbor)
+    func removeOccurance(_ theOccurance: Occurance) {
+        let found = gOccurances.index(of: theOccurance)
         if found != nil {
-            gNeighbors.remove(at: found!)
+            gOccurances.remove(at: found!)
             self.saveUserDefaults()
         }
     }
 
+    func addType(_ theType: OccuranceType) {
+        gOccuranceTypes.append(theType)
+        self.saveUserDefaults()
+    }
+    
+    func saveType(_ theType: OccuranceType) {
+        let found = gOccuranceTypes.index(of: theType)
+        if found != nil {
+            gOccuranceTypes[found!] = theType
+            self.saveUserDefaults()
+        }
+    }
+    
+    func removeType(_ theType: OccuranceType) {
+        let found = gOccuranceTypes.index(of: theType)
+        if found != nil {
+            gOccuranceTypes.remove(at: found!)
+            self.saveUserDefaults()
+        }
+    }
+    
     func longPress(_ sender: Any) {
         if (sender as AnyObject).state == UIGestureRecognizerState.began
         {

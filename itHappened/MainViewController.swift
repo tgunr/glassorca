@@ -9,7 +9,7 @@
 import UIKit
 import AudioToolbox
 
-class NeighborPickerController: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
+class OccurancePickerController: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
     private var appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -17,12 +17,12 @@ class NeighborPickerController: NSObject, UIPickerViewDelegate, UIPickerViewData
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        let n = gNeighbors.count
+        let n = gOccurances.count
         return n
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let n = gNeighbors[row].label
+        let n = gOccurances[row].label
         return n
     }
     
@@ -38,9 +38,9 @@ class MainViewController: UIViewController {
 
     private var appDelegate = UIApplication.shared.delegate as! AppDelegate
     private var wormhole: MMWormhole?
-    private var pv: NeighborPickerController!
+    private var pv: OccurancePickerController!
 
-    @IBOutlet weak var neighborPickerView: UIPickerView!
+    @IBOutlet weak var occurancePickerView: UIPickerView!
     @IBOutlet weak var typeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var noiseButton: UIButton!
     @IBOutlet weak var incidentsButton: UIButton!
@@ -59,7 +59,7 @@ class MainViewController: UIViewController {
         let newIncident = Incident()
         let incidentNeighbor = pickerNeighbor()
         let typeIndex = typeSegmentedControl.selectedSegmentIndex
-        newIncident.initWith(neighbor: incidentNeighbor, type: typeIndex)
+        newIncident.initWith(occurance: incidentNeighbor, type: typeIndex)
         IncidentList.stageIncident(newIncident)
         activityIndicator.startAnimating()
         startTimer()
@@ -74,7 +74,7 @@ class MainViewController: UIViewController {
 
     func timedReminder(timer: Timer) {
             alertController = UIAlertController(title: "Title", message:
-            "Still Making Noise?", preferredStyle: UIAlertControllerStyle.alert)
+            "Still Happening?", preferredStyle: UIAlertControllerStyle.alert)
             alertController?.addAction(UIAlertAction(title: "YES", style: UIAlertActionStyle.default, handler: { action in
             switch action.style{
             case .default:
@@ -139,10 +139,10 @@ class MainViewController: UIViewController {
     }
 
     func checkIfConfigured() {
-        let n = gNeighbors.count
+        let n = gOccurances.count
         if n == 0 {
             func configHandler() {
-                self.performSegue(withIdentifier: "neighbors", sender:self)
+                self.performSegue(withIdentifier: "configure", sender:self)
             }
             let alertController = UIAlertController(title: nil, message:
                 "Not Configured", preferredStyle: UIAlertControllerStyle.alert)
@@ -159,9 +159,9 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        pv = NeighborPickerController()
-        neighborPickerView.dataSource = pv as UIPickerViewDataSource?
-        neighborPickerView.delegate = pv as UIPickerViewDelegate?
+        pv = OccurancePickerController()
+        occurancePickerView.dataSource = pv as UIPickerViewDataSource?
+        occurancePickerView.delegate = pv as UIPickerViewDelegate?
         if IncidentList.staged() {
             activityIndicator.startAnimating()
         } else {
@@ -169,7 +169,7 @@ class MainViewController: UIViewController {
         }
 //        self.navigationItem.rightBarButtonItem = configureButton
  
-        self.neighborPickerView.reloadAllComponents()
+        self.occurancePickerView.reloadAllComponents()
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress))
         self.view.addGestureRecognizer(longPressRecognizer)
 
@@ -234,13 +234,13 @@ class MainViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.neighborPickerView.reloadAllComponents()
+        self.occurancePickerView.reloadAllComponents()
         checkIfConfigured()
     }
 
-    private func pickerNeighbor() -> Neighbor {
-        let pickerRow = neighborPickerView.selectedRow(inComponent: 0)
-        let incidentNeighbor = gNeighbors[pickerRow]
+    private func pickerNeighbor() -> Occurance {
+        let pickerRow = occurancePickerView.selectedRow(inComponent: 0)
+        let incidentNeighbor = gOccurances[pickerRow]
         return incidentNeighbor
     }
     

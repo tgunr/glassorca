@@ -40,9 +40,9 @@ class IncidentsTableViewController: UITableViewController {
 
                 body = "\(body)\(incident.type) noise occurred at: \(dateFormat)! for \(duration) minutes\n"
         }
-        let neighbor = localIncidents[i].neighbor
-        let name:String = neighbor!.name 
-        let address:String = neighbor!.address 
+        let occurance = localIncidents[i].occurance
+        let name:String = occurance!.name 
+        let address:String = occurance!.address 
         let text = "\(name)\n\(address)\n\(body)"
         let objectsToShare = [text] as [Any]
         let activityViewController = UIActivityViewController(activityItems: objectsToShare,
@@ -71,7 +71,7 @@ class IncidentsTableViewController: UITableViewController {
             if thatIncident.stopped > latest {
                 latest = thatIncident.stopped
             }
-            newIncident.neighbor = thatIncident.neighbor
+            newIncident.occurance = thatIncident.occurance
             newIncident.type = thatIncident.type
             localsToRemove.append(thatIncident)
         }

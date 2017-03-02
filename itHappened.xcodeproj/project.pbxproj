@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5AF0D49EA7BCE7C82E886748 /* IncidentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF0D6FF4D2D75D62DBE3079 /* IncidentList.swift */; };
-		5AF0DCCD88D444B958B5D8D9 /* NeighborsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF0D663F18268B456B5F3BC /* NeighborsViewController.swift */; };
+		5AF0D5CC8E077D88DD1C51EF /* ConfigureTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF0DA60F1C6AD86848C6AA2 /* ConfigureTableViewController.swift */; };
+		5AF0DCCD88D444B958B5D8D9 /* ConfigureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF0D663F18268B456B5F3BC /* ConfigureViewController.swift */; };
 		75299A6D1DB567F6007FE325 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75299A6C1DB567F6007FE325 /* AppDelegate.swift */; };
 		75299A761DB567F6007FE325 /* IOS Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75299A751DB567F6007FE325 /* IOS Assets.xcassets */; };
 		75299A791DB567F6007FE325 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75299A771DB567F6007FE325 /* LaunchScreen.storyboard */; };
@@ -16,14 +17,17 @@
 		75299A8F1DB567F6007FE325 /* itHappenedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75299A8E1DB567F6007FE325 /* itHappenedUITests.swift */; };
 		753C74521DC2AECC007FE325 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753C744D1DC2AECC007FE325 /* Extensions.swift */; };
 		753C74531DC2AECC007FE325 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753C744E1DC2AECC007FE325 /* MainViewController.swift */; };
-		753C74541DC2AECC007FE325 /* Neighbor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753C744F1DC2AECC007FE325 /* Neighbor.swift */; };
-		753C74551DC2AECC007FE325 /* NeighborsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753C74501DC2AECC007FE325 /* NeighborsTableViewController.swift */; };
+		753C74541DC2AECC007FE325 /* Occurance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753C744F1DC2AECC007FE325 /* Occurance.swift */; };
 		7545EDE21E6509D70092F750 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7545EDE01E6509D70092F750 /* Main.storyboard */; };
 		7545EDE41E6509E10092F750 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7545EDE31E6509E10092F750 /* Info.plist */; };
 		7545EDE61E65DE650092F750 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7545EDE51E65DE650092F750 /* CloudKit.framework */; };
 		755E6CF51DEB77FC00F601EC /* IncidentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755E6CF41DEB77FC00F601EC /* IncidentsViewController.swift */; };
 		7586C2EB1E2FDBBC00D1D38D /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7586C2EA1E2FDBBC00D1D38D /* WatchConnectivityManager.swift */; };
 		7586C2EC1E2FDBBC00D1D38D /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7586C2EA1E2FDBBC00D1D38D /* WatchConnectivityManager.swift */; };
+		758ADCC91E674B5700FDFFC4 /* TypesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758ADCC81E674B5700FDFFC4 /* TypesTableViewController.swift */; };
+		759EE28B1E67BECE004666E3 /* ConfigureDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759EE28A1E67BECE004666E3 /* ConfigureDetailViewController.swift */; };
+		759EE28E1E67C01C004666E3 /* TypesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759EE28D1E67C01C004666E3 /* TypesDetailViewController.swift */; };
+		759EE2901E67C057004666E3 /* TypesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759EE28F1E67C057004666E3 /* TypesViewController.swift */; };
 		75A832F81E36986E00989DFC /* MMWormhole.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75A832F31E36982600989DFC /* MMWormhole.framework */; };
 		75A832F91E36987E00989DFC /* MMWormhole.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 75A832F31E36982600989DFC /* MMWormhole.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		75A832FB1E369AB000989DFC /* MMWormhole.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75A832F71E36982600989DFC /* MMWormhole.framework */; };
@@ -153,8 +157,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5AF0D663F18268B456B5F3BC /* NeighborsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = NeighborsViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		5AF0D663F18268B456B5F3BC /* ConfigureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ConfigureViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5AF0D6FF4D2D75D62DBE3079 /* IncidentList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncidentList.swift; sourceTree = "<group>"; };
+		5AF0DA60F1C6AD86848C6AA2 /* ConfigureTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ConfigureTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		75064B7C1E3577720077207D /* itHappened-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "itHappened-Bridging-Header.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		75299A691DB567F6007FE325 /* itHappened.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = itHappened.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75299A6C1DB567F6007FE325 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -168,14 +173,17 @@
 		75299A901DB567F6007FE325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		753C744D1DC2AECC007FE325 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Extensions.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		753C744E1DC2AECC007FE325 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MainViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		753C744F1DC2AECC007FE325 /* Neighbor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Neighbor.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		753C74501DC2AECC007FE325 /* NeighborsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = NeighborsTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		753C744F1DC2AECC007FE325 /* Occurance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Occurance.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		7545EDE11E6509D70092F750 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = itHappened/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		7545EDE31E6509E10092F750 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = itHappened/Info.plist; sourceTree = SOURCE_ROOT; };
 		7545EDE51E65DE650092F750 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS3.1.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		755E6CF41DEB77FC00F601EC /* IncidentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = IncidentsViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		755E6CF61DEB9DC200F601EC /* itHappened.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = itHappened.entitlements; sourceTree = "<group>"; };
 		7586C2EA1E2FDBBC00D1D38D /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchConnectivityManager.swift; sourceTree = "<group>"; };
+		758ADCC81E674B5700FDFFC4 /* TypesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypesTableViewController.swift; sourceTree = "<group>"; };
+		759EE28A1E67BECE004666E3 /* ConfigureDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ConfigureDetailViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		759EE28D1E67C01C004666E3 /* TypesDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypesDetailViewController.swift; sourceTree = "<group>"; };
+		759EE28F1E67C057004666E3 /* TypesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypesViewController.swift; sourceTree = "<group>"; };
 		75A832EC1E36982600989DFC /* MMWormhole.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MMWormhole.xcodeproj; path = MMWormhole/MMWormhole/MMWormhole.xcodeproj; sourceTree = "<group>"; };
 		75A833051E36A3A000989DFC /* itHappenedWatch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "itHappenedWatch Extension.entitlements"; sourceTree = "<group>"; };
 		75A833091E36C26D00989DFC /* itHappenedWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = itHappenedWatch.entitlements; sourceTree = "<group>"; };
@@ -278,9 +286,13 @@
 				755E6CF41DEB77FC00F601EC /* IncidentsViewController.swift */,
 				75C1AA661DEB6412002CED1F /* Incident.swift */,
 				5AF0D6FF4D2D75D62DBE3079 /* IncidentList.swift */,
-				753C744F1DC2AECC007FE325 /* Neighbor.swift */,
-				5AF0D663F18268B456B5F3BC /* NeighborsViewController.swift */,
-				753C74501DC2AECC007FE325 /* NeighborsTableViewController.swift */,
+				753C744F1DC2AECC007FE325 /* Occurance.swift */,
+				759EE28F1E67C057004666E3 /* TypesViewController.swift */,
+				758ADCC81E674B5700FDFFC4 /* TypesTableViewController.swift */,
+				759EE28D1E67C01C004666E3 /* TypesDetailViewController.swift */,
+				5AF0D663F18268B456B5F3BC /* ConfigureViewController.swift */,
+				5AF0DA60F1C6AD86848C6AA2 /* ConfigureTableViewController.swift */,
+				759EE28A1E67BECE004666E3 /* ConfigureDetailViewController.swift */,
 			);
 			path = itHappened;
 			sourceTree = "<group>";
@@ -677,16 +689,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				759EE2901E67C057004666E3 /* TypesViewController.swift in Sources */,
 				755E6CF51DEB77FC00F601EC /* IncidentsViewController.swift in Sources */,
-				753C74551DC2AECC007FE325 /* NeighborsTableViewController.swift in Sources */,
-				753C74541DC2AECC007FE325 /* Neighbor.swift in Sources */,
+				753C74541DC2AECC007FE325 /* Occurance.swift in Sources */,
+				759EE28E1E67C01C004666E3 /* TypesDetailViewController.swift in Sources */,
+				758ADCC91E674B5700FDFFC4 /* TypesTableViewController.swift in Sources */,
 				75299A6D1DB567F6007FE325 /* AppDelegate.swift in Sources */,
 				7586C2EB1E2FDBBC00D1D38D /* WatchConnectivityManager.swift in Sources */,
 				753C74521DC2AECC007FE325 /* Extensions.swift in Sources */,
 				753C74531DC2AECC007FE325 /* MainViewController.swift in Sources */,
 				75C1AA671DEB6412002CED1F /* Incident.swift in Sources */,
-				5AF0DCCD88D444B958B5D8D9 /* NeighborsViewController.swift in Sources */,
+				5AF0DCCD88D444B958B5D8D9 /* ConfigureViewController.swift in Sources */,
 				5AF0D49EA7BCE7C82E886748 /* IncidentList.swift in Sources */,
+				759EE28B1E67BECE004666E3 /* ConfigureDetailViewController.swift in Sources */,
+				5AF0D5CC8E077D88DD1C51EF /* ConfigureTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -788,7 +804,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -810,7 +826,7 @@
 				DEVELOPMENT_TEAM = NL3267E99V;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -841,7 +857,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -863,7 +879,7 @@
 				DEVELOPMENT_TEAM = NL3267E99V;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -893,7 +909,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.ios.itHappened;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -910,7 +925,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.ios.itHappened;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
